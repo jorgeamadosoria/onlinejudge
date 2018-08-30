@@ -1,6 +1,6 @@
-This is a Java based online judge, intended as an offshot of the COJ(http://coj.uci.cu/) - Caribbean Online Judge
+Online Judge
 ==================================================
-
+This is a Java based online judge, intended as an offshot of the COJ(http://coj.uci.cu/) - Caribbean Online Judge
 This repository contains only the web part of the online judge.
 A second core element of this system is its engine, which is installed separately and only tested in Linux (Ubuntu).
 
