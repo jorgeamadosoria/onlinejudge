@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:util="http://www.springframework.org/schema/util"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:task="http://www.springframework.org/schema/task"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:security="http://www.springframework.org/schema/security"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xmlns="http://www.springframework.org/schema/beans"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+		http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd
+                http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+
+	<!-- configuracion para el soporte de las anotaciones -->
+	<context:annotation-config />
+	<context:component-scan base-package="cu.uci.coj">
+	</context:component-scan>
+
+	<tx:annotation-driven />
+
+	<task:annotation-driven />
+
+
+	<mvc:interceptors>
+		<bean id="handlerInterceptor" class="cu.uci.coj.utils.HandlerInterceptorImpl" />
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="lang"></property>
+		</bean>
+	</mvc:interceptors>
+
+	<mvc:annotation-driven>
+		<mvc:argument-resolvers>
+			<bean class="cu.uci.coj.utils.paging.PaginatedArgumentResolver" />
+		</mvc:argument-resolvers>
+	</mvc:annotation-driven>
+
+	<!--<mvc:resources mapping="/resources/**" location="/resources/" /> -->
+
+	<!--mvc:resources mapping="/css/**" location="/css/" /> <mvc:resources mapping="/images/**" 
+		location="/images/" /> <mvc:resources mapping="/js/**" location="/js/" / -->
+
+
+	<!-- ======================== AUTHENTICATION ======================= -->
+
+	<security:filter-security-metadata-source
+		id="securityMetadataSource" use-expressions="true">
+		<security:intercept-url pattern="/practice/virtualstatistics.xhtml"
+			access="permitAll" />
+		<security:intercept-url pattern="/contest/csubmission.xhtml"
+			access="isAuthenticated()" />
+		<security:intercept-url pattern="/practice/globallist.xhtml"
+			access="permitAll" />
+		<security:intercept-url pattern="/contest/csubmit.xhtml"
+			access="hasAnyRole('ROLE_USER','ROLE_TEAM')" />
+		<security:intercept-url pattern="/user/updateaccount.xhtml"
+			access="hasAnyRole('ROLE_USER','ROLE_TEAM')" />
+		<security:intercept-url pattern="/user/forgottenpassword.xhtml"
+			access="permitAll" />
+		<security:intercept-url pattern="/24h/submission.xhtml"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/24h/submit.xhtml"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/admin/index.xhtml"
+			access="hasAnyRole('ROLE_ADMIN','ROLE_ENTRIES_MANAGER','ROLE_PSETTER','ROLE_SUPER_PSETTER','ROLE_FILE_MANAGER')" />
+		<security:intercept-url pattern="/admin/files/**"
+			access="hasAnyRole('ROLE_ADMIN','ROLE_FILE_MANAGER')" />
+		<security:intercept-url pattern="/admin/manageuser.xhtml"
+			access="hasRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/admin/addproblem.xhtml"
+			access="hasAnyRole('ROLE_SUPER_PSETTER','ROLE_PSETTER','ROLE_ADMIN')" />
+		<security:intercept-url pattern="/admin/adminproblems.xhtml"
+			access="hasAnyRole('ROLE_SUPER_PSETTER','ROLE_PSETTER','ROLE_ADMIN')" />
+		<security:intercept-url pattern="/admin/manageproblem.xhtml"
+			access="hasAnyRole('ROLE_PSETTER','ROLE_ADMIN')" />
+		<security:intercept-url pattern="/admin/manageclassifications.xhtml"
+			access="hasAnyRole('ROLE_SUPER_PSETTER','ROLE_PSETTER','ROLE_ADMIN')" />
+		<security:intercept-url pattern="/admin/addclassifications.xhtml"
+			access="hasAnyRole('ROLE_SUPER_PSETTER','ROLE_PSETTER','ROLE_ADMIN')" />
+		<security:intercept-url pattern="/admin/deleteclassifications.xhtml"
+			access="hasAnyRole('ROLE_SUPER_PSETTER','ROLE_PSETTER','ROLE_ADMIN')" />
+		<security:intercept-url pattern="/admin/updateclassifications.xhtml"
+			access="hasAnyRole('ROLE_SUPER_PSETTER','ROLE_PSETTER','ROLE_ADMIN')" />
+		<security:intercept-url pattern="/admin/manageproblemclassification.xhtml"
+			access="hasAnyRole('ROLE_SUPER_PSETTER','ROLE_PSETTER','ROLE_ADMIN')" />
+		<security:intercept-url pattern="/admin/uploadfile.xhtml"
+			access="hasAnyRole('ROLE_SUPER_PSETTER','ROLE_EDITOR','ROLE_PSETTER','ROLE_ADMIN')" />
+		<security:intercept-url pattern="/admin/**"
+			access="hasAnyRole('ROLE_SUPER_PSETTER','ROLE_ADMIN','ROLE_PSETTER')" />
+		<security:intercept-url pattern="/24h/translation.xhtml"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/24h/**"
+			access="permitAll" />
+		<security:intercept-url pattern="/mail/**"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/plagicoj/**"
+			access="hasAnyRole('ROLE_ADMIN')" />
+		<security:intercept-url pattern="/practice/**"
+			access="hasAnyRole('ROLE_USER','ROLE_TEAM')" />
+		<security:intercept-url pattern="/teamanalyzer/**"
+								access="hasAnyRole('ROLE_ADMIN','ROLE_COACH')"/>
+		<security:intercept-url pattern="/datagen/**"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/contest/sendclarification.xhtml"
+			access="hasAnyRole('ROLE_USER','ROLE_TEAM')" />
+		<security:intercept-url pattern="/contest/clarification.xhtml"
+			access="hasAnyRole('ROLE_USER','ROLE_TEAM')" />
+		<security:intercept-url pattern="/schoolar/coursesboard.xhtml"
+			access="permitAll" />
+		<security:intercept-url pattern="/schoolar/**"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/datasets/**"
+			access="hasRole('ROLE_USER')" />
+		<security:intercept-url pattern="/**" access="permitAll" />
+	</security:filter-security-metadata-source>
+	<!-- <context:property-placeholder properties-ref="prop" /> <util:properties 
+		id="prop" location="file:/home/coj/config.properties" /> -->
+
+
+	<bean id="mailMessage" class="org.springframework.mail.SimpleMailMessage">
+		<property name="from" value="coj@uci.cu" />
+	</bean>
+
+	<!-- DAO Initialization -->
+
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="104857600" />
+		<property name="maxInMemorySize" value="524288000" />
+	</bean>
+
+	<!-- Jackson converter -->
+	<bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper" />
+
+	<bean id="marshallingHttpMessageConverter"
+		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
+		<property name="objectMapper" ref="objectMapper" />
+	</bean>
+
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+		<property name="messageConverters">
+			<util:list id="beanList">
+				<ref bean="marshallingHttpMessageConverter" />
+			</util:list>
+		</property>
+	</bean>
+
+	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+		<property name="messageConverters" ref="marshallingHttpMessageConverter" />
+	</bean>
+
+</beans>
