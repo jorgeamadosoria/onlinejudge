@@ -1,13 +1,11 @@
-[COJ](http://coj.uci.cu/) - Caribbean Online Judge
+Online Judge
 ==================================================
+This is a Java based online judge, intended as an offshot of the COJ(http://coj.uci.cu/) - Caribbean Online Judge
+This repository contains only the web part of the online judge.
+A second core element of this system is its engine, which is installed separately and only tested in Linux (Ubuntu).
 
-El Juez en Línea Caribeño...
 
 ## Manual de Instalación
-
-The COJ is configured as a multimodule git/maven project, each maven module is in a different respository. Use --recursive parameter to download the entire COJ project.
-
-git clone --recursive https://github.com/vallejolan/COJ.git
 
 This is going to download main project and all submodules like:
 https://github.com/dovier/coj-web.git
