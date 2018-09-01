@@ -133,25 +133,5 @@
 		<property name="maxInMemorySize" value="524288000" />
 	</bean>
 
-	<!-- Jackson converter -->
-	<bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper" />
-
-	<bean id="marshallingHttpMessageConverter"
-		class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
-		<property name="objectMapper" ref="objectMapper" />
-	</bean>
-
-	<bean
-		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
-		<property name="messageConverters">
-			<util:list id="beanList">
-				<ref bean="marshallingHttpMessageConverter" />
-			</util:list>
-		</property>
-	</bean>
-
-	<bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
-		<property name="messageConverters" ref="marshallingHttpMessageConverter" />
-	</bean>
-
+	
 </beans>
