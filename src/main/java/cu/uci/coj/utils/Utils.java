@@ -31,6 +31,7 @@ import org.springframework.amqp.core.MessagePostProcessor;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
@@ -178,6 +179,11 @@ public class Utils {
         }
         password = password.toLowerCase();
         return password;
+    }
+    
+    public static String encodePassword(String password) {
+    	MessageDigestPasswordEncoder encoder = new MessageDigestPasswordEncoder("MD5");
+		return encoder.encode(password);
     }
 
     public static double formulaFreeContest(double ac, double points) {

@@ -5,12 +5,35 @@
  */
 package cu.uci.coj.restapi.controller;
 
+import java.io.IOException;
+import java.util.Locale;
+import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.annotation.Resource;
+
+import org.apache.commons.validator.EmailValidator;
+import org.springframework.context.MessageSource;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiParam;
 import com.wordnik.swagger.annotations.ApiResponse;
 import com.wordnik.swagger.annotations.ApiResponses;
+
 import cu.uci.coj.dao.UserDAO;
 import cu.uci.coj.mail.MailNotificationService;
 import cu.uci.coj.model.User;
@@ -21,26 +44,6 @@ import cu.uci.coj.restapi.templates.InputUserRest;
 import cu.uci.coj.restapi.templates.TokenRest;
 import cu.uci.coj.restapi.utils.ErrorUtils;
 import cu.uci.coj.restapi.utils.TokenUtils;
-import java.io.IOException;
-import java.util.Locale;
-import java.util.Random;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.annotation.Resource;
-import org.hibernate.validator.constraints.impl.EmailValidator;
-import org.springframework.context.MessageSource;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
-import org.springframework.security.authentication.encoding.PasswordEncoder;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
@@ -83,8 +86,8 @@ public class RestPrivateController {
             
             try{
                 User user =  (User) jdbcTemplate.queryForObject(sql,new Object[]{username},new BeanPropertyRowMapper(User.class));
-                PasswordEncoder encoder = new Md5PasswordEncoder();
-                password = encoder.encodePassword(password,"ABC123XYZ789");
+                MessageDigestPasswordEncoder encoder = new MessageDigestPasswordEncoder("MD5");
+                password = encoder.encode(password);
 
                 if(user.getPassword().equals(password)){
                     TokenRest token = new TokenRest(TokenUtils.CreateTokenUser(username), TokenUtils.expirityToken);
@@ -168,8 +171,8 @@ public class RestPrivateController {
           
            
             User user =  (User) jdbcTemplate.queryForObject(sql,new Object[]{bodyjson.getUsername()},new BeanPropertyRowMapper(User.class));
-            PasswordEncoder encoder = new Md5PasswordEncoder();
-            String password = encoder.encodePassword(bodyjson.getPassword(),"ABC123XYZ789");
+            MessageDigestPasswordEncoder encoder = new MessageDigestPasswordEncoder("MD5");
+            String password = encoder.encode(bodyjson.getPassword());
 
             if(!user.getPassword().equals(password))
                 return  new ResponseEntity<>(ErrorUtils.BAD_USERNAME_PASSWORD, HttpStatus.UNAUTHORIZED);               
@@ -184,8 +187,8 @@ public class RestPrivateController {
     
     
     private boolean ValidateEmail(String email){
-        EmailValidator a = new EmailValidator();
-        if (!a.isValid(email, null))
+        EmailValidator a = EmailValidator.getInstance();
+        if (!a.isValid(email))
             return false; 
         
         try {

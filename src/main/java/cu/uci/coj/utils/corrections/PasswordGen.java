@@ -1,12 +1,12 @@
 package cu.uci.coj.utils.corrections;
 
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
+import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
 
 public class PasswordGen {
 
 	public static void main(String[] args) {
-		Md5PasswordEncoder md5 = new Md5PasswordEncoder();
-		System.out.println(md5.encodePassword("password","ABC123XYZ789"));
+		MessageDigestPasswordEncoder md5 = new MessageDigestPasswordEncoder("MD5");
+		System.out.println(md5.encode("password"));
 
 	}
 

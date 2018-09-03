@@ -13,7 +13,7 @@ import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
 import org.springframework.amqp.support.converter.DefaultClassMapper;
-import org.springframework.amqp.support.converter.JsonMessageConverter;
+import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -74,8 +74,8 @@ public class AMQPConfiguration {
     }
 
     @Bean
-    public JsonMessageConverter jsonMessageConverter() {
-        JsonMessageConverter bean = new JsonMessageConverter();
+    public Jackson2JsonMessageConverter jsonMessageConverter() {
+    	Jackson2JsonMessageConverter bean = new Jackson2JsonMessageConverter();
         bean.setClassMapper(typeMapper());
         return bean;
     }

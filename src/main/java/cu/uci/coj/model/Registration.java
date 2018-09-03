@@ -6,44 +6,24 @@ package cu.uci.coj.model;
 
 import java.util.Date;
 import java.util.LinkedList;
-import javax.validation.constraints.Size;
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotEmpty;
 
 public class Registration {
 
-    @NotEmpty
     private String name;
-    @NotEmpty
     private String lastname;
-    @NotEmpty
     private String username;
-    @NotEmpty
-    @Size(min = 4, max = 20)
     private String password;
-    @NotEmpty
     private String confirmPassword;
-    @NotEmpty
-    @Email
     private String email;
-    @NotEmpty
-    @Size(min = 4, max = 25)
     private String nick;
-    @NotEmpty
     private String country;
     private int countryid;
-    @NotEmpty
     private String institution;
     private int institutionid;
-    @NotEmpty
     private boolean enabled;
-    @NotEmpty
     private boolean contestNotifications;
-    @NotEmpty
     private boolean submissionNotifications;
-    @NotEmpty
     private boolean entriesNotifications;
-    @NotEmpty
     private int planguage;
     private int locale;
     private boolean validateuser;

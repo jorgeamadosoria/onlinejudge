@@ -1,28 +1,16 @@
 package cu.uci.coj.model;
 
-import javax.validation.constraints.Size;
-
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Team {
 
     private int uid;
-    @NotEmpty
     private String username;
-    @NotEmpty
-    @Size(min = 4, max = 20)
     private String password;
-    @NotEmpty
     private String confirmPassword;
-    @NotEmpty
-    @Size(min = 4, max = 25)
     private String nick;
-    @NotEmpty
     private int country;
-    @NotEmpty
     private int institution;
-    @NotEmpty
     private boolean enabled;
     private int locale;
     private int total;

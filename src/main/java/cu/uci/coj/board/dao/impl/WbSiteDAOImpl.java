@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.CollectionUtils;
 
 import cu.uci.coj.board.dao.WbContestDAO;
 import cu.uci.coj.board.dao.WbSiteDAO;
@@ -141,7 +140,7 @@ public class WbSiteDAOImpl extends BaseDAOImpl implements WbSiteDAO {
 
 	@Override
 	public int insertSite(WbSite site) {
-		return jdbcTemplate.queryForInt(getSql("wbsite.insert"), site.getSite(), site.getUrl(), site.getCode(), site.isCompleted(), site.isEnabled(), site.getTimeanddateid(), site.getTimezone());
+		return jdbcTemplate.queryForObject(getSql("wbsite.insert"), Integer.class,site.getSite(), site.getUrl(), site.getCode(), site.isCompleted(), site.isEnabled(), site.getTimeanddateid(), site.getTimezone());
 	}
 
 	@Override

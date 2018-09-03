@@ -4,10 +4,8 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import javax.validation.constraints.Size;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
-import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Problem {
@@ -18,30 +16,21 @@ public class Problem {
 	private String even;
 	private String balloonColor;
 	private Integer pid = 0;
-	@NotEmpty
-	@Size(min = 4, max = 40)
 	private String title;
 	private String slvimg;
 	private String description;
 	private String input;
-	@NotEmpty
 	private String output;
 	private String inputex;
-	@NotEmpty
 	private String outputex;
-	@NotEmpty
 	private String author;
 	private int id_source;
 	private String comments;
-	@NotEmpty
 	private long time;
 	private long casetimelimit;
-	@NotEmpty
 	private long memory;
-	@NotEmpty
 	private int fontsize;
 	private String date;
-	@NotEmpty
 	private String username;
 	private int uid;
 	private int submitions;

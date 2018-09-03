@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import cu.uci.coj.dao.ContestDAO;
@@ -19,7 +18,6 @@ public class ContestServiceImpl implements ContestService {
 	private ContestDAO contestDAO;
 
 	public List<String> importICPCUsers(String prefix, String[] person, String[] school, String[] site, String[] team, String[] teamPerson, Integer cid, Integer warmupCid) {
-		Md5PasswordEncoder md5 = new Md5PasswordEncoder();
 		String groupd = "";
 		String[][] persons = new String[person.length - 1][2];
 		String[][] schools = new String[school.length - 1][2];
@@ -80,7 +78,7 @@ public class ContestServiceImpl implements ContestService {
 			String[] user = new String[6];
 			user[0] = prefix + String.format("%0" + digs + "d", i+1);
 			String basePass = Utils.generateRandomPassword(8);
-			user[1] = md5.encodePassword(basePass, "ABC123XYZ789");
+			user[1] = Utils.encodePassword(basePass);
 			for (int m = 0; m < schools.length; m++){
 				if (schools[m][0].equals(teams[i][1])) {
 					user[2] = schools[m][1];

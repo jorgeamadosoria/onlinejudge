@@ -2,21 +2,25 @@ package cu.uci.coj.controller.admin;
 
 import java.io.IOException;
 import java.security.Principal;
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 
 import org.springframework.beans.TypeMismatchException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.ClassUtils;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import org.springframework.web.servlet.view.RedirectView;
 
 import cu.uci.coj.config.Config;
 import cu.uci.coj.controller.BaseController;
@@ -24,18 +28,15 @@ import cu.uci.coj.dao.AchievementDAO;
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.dao.ProblemDAO;
 import cu.uci.coj.dao.SubmissionDAO;
-import cu.uci.coj.model.Contest;
 import cu.uci.coj.model.Filter;
 import cu.uci.coj.model.Language;
-import cu.uci.coj.model.Rejudge;
 import cu.uci.coj.model.Status;
 import cu.uci.coj.model.SubmissionJudge;
+import cu.uci.coj.utils.Notification;
 import cu.uci.coj.utils.Utils;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;
 import cu.uci.coj.validator.submissionValidator;
-import cu.uci.coj.utils.Notification;
-import org.springframework.web.servlet.view.RedirectView;
 
 @Controller("ContestSubmissionController")
 @RequestMapping(value = "/admin")
@@ -102,7 +103,7 @@ public class SubmissionController extends BaseController {
    * RF19 Rejuzgar concurso
    * */
     @RequestMapping(value = "/rejudgesubmissions.xhtml", method = RequestMethod.POST)
-    public String rejudgeSubmissions(Model model, @Valid @ModelAttribute("filter") Filter filter, /**//*@RequestParam(required=false, defaultValue = "", value="username") String username,
+    public String rejudgeSubmissions(Model model, @ModelAttribute("filter") Filter filter, /**//*@RequestParam(required=false, defaultValue = "", value="username") String username,
                                      @RequestParam(required=false, value="startDate", defaultValue = "0") Date startDate, @RequestParam(required=false, value="endDate", defaultValue = "0") Date endDate,
                                      @RequestParam(required=false, value="cid") Integer cid, @RequestParam(required=false, value="startSid") Integer startSid,
                                      @RequestParam(required=false, value="endSid") Integer endSid, @RequestParam(required=false, value="pid") Integer pid,

@@ -1,27 +1,24 @@
 package cu.uci.coj.controller.user;
 
-import atg.taglib.json.util.JSONArray;
-import atg.taglib.json.util.JSONObject;
-import cu.uci.coj.board.dao.WbSiteDAO;
-import cu.uci.coj.board.service.WbContestService;
-import cu.uci.coj.config.Config;
-import cu.uci.coj.controller.BaseController;
-import cu.uci.coj.dao.*;
-import cu.uci.coj.mail.MailNotificationService;
-import cu.uci.coj.model.*;
-import cu.uci.coj.model.Locale;
-import cu.uci.coj.utils.FileUtils;
-import cu.uci.coj.utils.Notification;
-import cu.uci.coj.utils.Utils;
-import cu.uci.coj.utils.paging.IPaginatedList;
-import cu.uci.coj.utils.paging.PagingOptions;
-import cu.uci.coj.validator.forgottenValidator;
-import cu.uci.coj.validator.registrationValidator;
-import cu.uci.coj.validator.userValidator;
+import java.security.Principal;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.Set;
+import java.util.TreeSet;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
 import org.apache.commons.lang.StringUtils;
 import org.springframework.context.annotation.Scope;
 import org.springframework.dao.EmptyResultDataAccessException;
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
+import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
 import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestWrapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -33,10 +30,40 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import java.security.Principal;
-import java.util.*;
+import atg.taglib.json.util.JSONArray;
+import atg.taglib.json.util.JSONObject;
+import cu.uci.coj.board.dao.WbSiteDAO;
+import cu.uci.coj.board.service.WbContestService;
+import cu.uci.coj.config.Config;
+import cu.uci.coj.controller.BaseController;
+import cu.uci.coj.dao.CountryDAO;
+import cu.uci.coj.dao.InstitutionDAO;
+import cu.uci.coj.dao.ProblemDAO;
+import cu.uci.coj.dao.UserDAO;
+import cu.uci.coj.dao.UtilDAO;
+import cu.uci.coj.mail.MailNotificationService;
+import cu.uci.coj.model.Achievement;
+import cu.uci.coj.model.CompareUsers;
+import cu.uci.coj.model.Country;
+import cu.uci.coj.model.Entry;
+import cu.uci.coj.model.Institution;
+import cu.uci.coj.model.Locale;
+import cu.uci.coj.model.Problem;
+import cu.uci.coj.model.ProblemClassification;
+import cu.uci.coj.model.ProblemComplexity;
+import cu.uci.coj.model.ProblemRichTitle;
+import cu.uci.coj.model.Roles;
+import cu.uci.coj.model.User;
+import cu.uci.coj.model.WbContest;
+import cu.uci.coj.model.WbSite;
+import cu.uci.coj.utils.FileUtils;
+import cu.uci.coj.utils.Notification;
+import cu.uci.coj.utils.Utils;
+import cu.uci.coj.utils.paging.IPaginatedList;
+import cu.uci.coj.utils.paging.PagingOptions;
+import cu.uci.coj.validator.forgottenValidator;
+import cu.uci.coj.validator.registrationValidator;
+import cu.uci.coj.validator.userValidator;
 
 @Controller
 @RequestMapping(value = "/user")
@@ -506,8 +533,8 @@ public class UserController extends BaseController {
         }
 
         if (!StringUtils.isEmpty(user.getPassword())) {
-            Md5PasswordEncoder md5 = new Md5PasswordEncoder();
-            user.setPassword(md5.encodePassword(user.getPassword(), "ABC123XYZ789"));
+            MessageDigestPasswordEncoder md5 = new MessageDigestPasswordEncoder("MD5");
+            user.setPassword(md5.encode(user.getPassword()));
         }
 
         userDAO.updateUser(user);
@@ -553,10 +580,9 @@ public class UserController extends BaseController {
             }
             return "/user/createnewaccount";
         }
-        Md5PasswordEncoder md5 = new Md5PasswordEncoder();
-        user.setPassword(md5.encodePassword(user.getPassword(), "ABC123XYZ789"));
+        user.setPassword(Utils.encodePassword(user.getPassword()));
         userDAO.InsertUser(user);
-        String token = md5.encodePassword(user.getUsername(), "ABC123XYZ789");
+        String token = Utils.encodePassword(user.getUsername());
         userDAO.dml("insert.account.activation", user.getUsername(), token, true);
 
         try {
@@ -616,8 +642,7 @@ public class UserController extends BaseController {
                 return "/user/forgottenpassword";
             }
             try {
-                Md5PasswordEncoder md5 = new Md5PasswordEncoder();
-                String password = md5.encodePassword(user.getPassword(), "ABC123XYZ789");
+                String password = Utils.encodePassword(user.getPassword());
 
                 userDAO.dml("update.password.bypasscode", password, this.passcode);
                 userDAO.dml("update.passcode", null, user.getEmail());

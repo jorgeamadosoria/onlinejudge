@@ -6,18 +6,14 @@ import java.util.List;
 import javax.annotation.Resource;
 
 import org.springframework.http.HttpStatus;
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import cu.uci.coj.utils.Notification;
 
 import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.ContestDAO;
@@ -32,15 +28,20 @@ import cu.uci.coj.model.Locale;
 import cu.uci.coj.model.Roles;
 import cu.uci.coj.model.Team;
 import cu.uci.coj.model.User;
+import cu.uci.coj.utils.Notification;
+import cu.uci.coj.utils.Utils;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;
 import cu.uci.coj.validator.userValidator;
-import cu.uci.coj.utils.Notification;
 
 @Controller("userAdminController")
 @RequestMapping(value = "/admin")
 public class UserController extends BaseController {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8824049721131403985L;
 	@Resource
 	private UserDAO userDAO;
 	@Resource
@@ -146,9 +147,7 @@ public class UserController extends BaseController {
 			return "/admin/manageuser";
 		}
 		if (user.getPassword() != null && user.getPassword().length() > 0) {
-			Md5PasswordEncoder md5 = new Md5PasswordEncoder();
-			user.setPassword(md5.encodePassword(user.getPassword(),
-					"ABC123XYZ789"));
+			user.setPassword(Utils.encodePassword(user.getPassword()));
 		}
 		userDAO.updateUserByAdmin(user);
                 redirectAttributes.addFlashAttribute("message", Notification.getSuccesfullUpdate());

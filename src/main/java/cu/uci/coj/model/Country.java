@@ -5,8 +5,6 @@
 package cu.uci.coj.model;
 
 import cu.uci.coj.controller.interfaces.CommonScoreboardInterface;
-import org.hibernate.validator.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 
 /**
  * @version Caribbean Online Judge(COJ) v2.0
@@ -18,10 +16,7 @@ import javax.validation.constraints.Size;
 public class Country implements CommonScoreboardInterface{
 
     private int id;
-    @NotEmpty
     private String name;
-    @NotEmpty
-    @Size(min = 2, max = 10)
     private String zip;
     private boolean enabled;
     private String even;

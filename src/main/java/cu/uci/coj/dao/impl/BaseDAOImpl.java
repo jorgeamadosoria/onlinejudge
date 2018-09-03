@@ -9,7 +9,6 @@ import javax.annotation.Resource;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.displaytag.properties.SortOrderEnum;
-import org.springframework.context.annotation.DependsOn;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -106,7 +105,7 @@ public class BaseDAOImpl implements BaseDAO {
 	@Transactional(readOnly = true)
 	public Integer integer(String sqlKey, Object... args) {
 		try {
-			return jdbcTemplate.queryForInt(getSql(sqlKey), args);
+			return jdbcTemplate.queryForObject(getSql(sqlKey), Integer.class,args);
 		} catch (Exception e) {
 			return null;
 		}
@@ -115,7 +114,7 @@ public class BaseDAOImpl implements BaseDAO {
 	@Transactional(readOnly = true)
 	public Integer integer(Integer defaultValue, String sqlKey, Object... args) {
 		try {
-			Integer res = jdbcTemplate.queryForInt(getSql(sqlKey), args);
+			Integer res = jdbcTemplate.queryForObject(getSql(sqlKey), Integer.class,args);
 
 			return res == null ? defaultValue : res;
 		} catch (Exception e) {

@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.Resource;
-import org.springframework.security.web.authentication.session.ConcurrentSessionControlStrategy;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -18,11 +18,10 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.RememberMeAuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.authentication.dao.SystemWideSaltSource;
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
+import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
 import org.springframework.security.web.DefaultSecurityFilterChain;
 import org.springframework.security.web.FilterChainProxy;
 import org.springframework.security.web.SecurityFilterChain;
@@ -38,18 +37,17 @@ import org.springframework.security.web.authentication.logout.LogoutFilter;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.security.web.authentication.rememberme.RememberMeAuthenticationFilter;
 import org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices;
-import org.springframework.security.web.authentication.session.ConcurrentSessionControlStrategy;
+import org.springframework.security.web.authentication.session.ConcurrentSessionControlAuthenticationStrategy;
 import org.springframework.security.web.context.SecurityContextPersistenceFilter;
 import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter;
-
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.RequestMatcher;
 
 import cu.uci.coj.dao.UserDAO;
 import cu.uci.coj.security.COJAuthenticationFailureHandler;
 import cu.uci.coj.security.COJAuthenticationProcessingFilter;
 import cu.uci.coj.security.COJAuthenticationSuccessHandler;
 import cu.uci.coj.security.COJSessionRegistryImpl;
-import org.springframework.security.web.util.AntPathRequestMatcher;
-import org.springframework.security.web.util.RequestMatcher;
 
 @Configuration
 public class SecurityConfiguration {
@@ -127,10 +125,7 @@ public class SecurityConfiguration {
     private DaoAuthenticationProvider daoAuthenticationProvider(){
        DaoAuthenticationProvider bean = new DaoAuthenticationProvider();
        bean.setUserDetailsService(jdbcDaoImpl());
-       bean.setPasswordEncoder(new Md5PasswordEncoder());
-       SystemWideSaltSource saltSource = new SystemWideSaltSource();
-       saltSource.setSystemWideSalt("ABC123XYZ789");
-       bean.setSaltSource(saltSource);
+       bean.setPasswordEncoder(new MessageDigestPasswordEncoder("MD5"));
        return bean;
     }
 
@@ -150,7 +145,7 @@ public class SecurityConfiguration {
         bean.setAuthenticationSuccessHandler(cojAuthenticationSuccessHandler);
         bean.setAuthenticationFailureHandler(cojAuthenticationFailureHandler);
         bean.setRememberMeServices(rememberMeServices());
-        bean.setSessionAuthenticationStrategy(concurrentSessionControlStrategy());
+        bean.setSessionAuthenticationStrategy(concurrentSessionControlAuthenticationStrategy());
         bean.setUserDAO(userDAO);
         return bean;
     }
@@ -183,7 +178,7 @@ public class SecurityConfiguration {
     
     @Bean
     public FilterSecurityInterceptor filterInvocationInterceptor(){
-        List<AccessDecisionVoter> vote = new ArrayList<AccessDecisionVoter>(Arrays.asList(new WebExpressionVoter()));
+        List<AccessDecisionVoter<?>> vote = new ArrayList<>(Arrays.asList(new WebExpressionVoter()));
         AffirmativeBased voters = new AffirmativeBased(vote);
         voters.setAllowIfAllAbstainDecisions(false);
         FilterSecurityInterceptor bean = new FilterSecurityInterceptor();
@@ -196,8 +191,8 @@ public class SecurityConfiguration {
 
     
     @Bean
-    public ConcurrentSessionControlStrategy concurrentSessionControlStrategy(){
-    	ConcurrentSessionControlStrategy bean = new ConcurrentSessionControlStrategy(cojSessionRegistryImpl);
+    public ConcurrentSessionControlAuthenticationStrategy concurrentSessionControlAuthenticationStrategy(){
+    	ConcurrentSessionControlAuthenticationStrategy bean = new ConcurrentSessionControlAuthenticationStrategy(cojSessionRegistryImpl);
         bean.setMaximumSessions(3);
         bean.setExceptionIfMaximumExceeded(true);
         return bean;

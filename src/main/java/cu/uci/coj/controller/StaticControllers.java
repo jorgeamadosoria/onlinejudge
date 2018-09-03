@@ -4,29 +4,18 @@ import java.io.FileNotFoundException;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import cu.uci.coj.model.SharedFile;
-import cu.uci.coj.model.User;
 import cu.uci.coj.utils.HandlerInterceptorImpl;
 import cu.uci.coj.utils.SessionsRecord;
-import cu.uci.coj.utils.paging.IPaginatedList;
-import cu.uci.coj.utils.paging.PagingOptions;
 
 @Controller
 @RequestMapping(value = "/")
 public class StaticControllers extends BaseController {
-
-	@RequestMapping(value = "/index.xhtml", method = RequestMethod.GET)
-	public String processIndex() {
-		return "index";
-	}
 
 	@RequestMapping(value = "/general/tos.xhtml", method = RequestMethod.GET)
 	public String processTOS() {

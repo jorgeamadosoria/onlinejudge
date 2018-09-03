@@ -7,8 +7,7 @@ package cu.uci.coj.validator;
 import cu.uci.coj.dao.UserDAO;
 import cu.uci.coj.model.User;
 import javax.annotation.Resource;
-import org.apache.commons.lang.StringUtils;
-import org.hibernate.validator.constraints.impl.EmailValidator;
+import org.apache.commons.validator.EmailValidator;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
@@ -48,8 +47,8 @@ public class forgottenValidator implements Validator {
             
             ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "judge.register.error.email");
             String email = user.getEmail();
-            EmailValidator a = new EmailValidator();
-            if (!a.isValid(email, null)) {
+            EmailValidator a = EmailValidator.getInstance();
+            if (!a.isValid(email)) {
                 errors.rejectValue("email", "judge.register.error.bademail");
             }
             if (!errors.hasErrors()) {

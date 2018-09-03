@@ -61,7 +61,7 @@ public class MailDAOImpl extends BaseDAOImpl implements MailDAO {
     
     @Transactional
     public int insertInternalEmail(Mail mail, String to, int size) {
-    	int idmail = jdbcTemplate.queryForInt(getSql("insert.mail") , mail.getId_from(), to, mail.getTitle(), mail.getContent(), size, mail.getUsernameTo());
+    	int idmail = jdbcTemplate.queryForObject(getSql("insert.mail") , Integer.class,mail.getId_from(), to, mail.getTitle(), mail.getContent(), size, mail.getUsernameTo());
 		dml("insert.mail.2", size, to);
 		dml("register.send.mail", mail.getId_from(), to, mail.getTitle(), mail.getContent(), size);
 		dml("update.quote", mail.getId_from(),mail.getTo(),mail.getId_from(),mail.getId_from(),idByUsername(mail.getId_from()));

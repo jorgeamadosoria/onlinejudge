@@ -1,6 +1,5 @@
 package cu.uci.coj.dao.impl;
 
-import java.util.Comparator;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,7 +8,6 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.apache.commons.lang.StringUtils;
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,7 +26,6 @@ import cu.uci.coj.model.Team;
 import cu.uci.coj.model.User;
 import cu.uci.coj.model.UserClassificationStats;
 import cu.uci.coj.model.UserProfile;
-import cu.uci.coj.model.*;
 import cu.uci.coj.query.DmlPart;
 import cu.uci.coj.query.Order;
 import cu.uci.coj.query.Query;
@@ -36,16 +33,6 @@ import cu.uci.coj.query.Where;
 import cu.uci.coj.utils.Utils;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;
-import org.apache.commons.lang.StringUtils;
-import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
-import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-
-import javax.annotation.Resource;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
 
 @Repository("userDAO")
 @Transactional
@@ -425,8 +412,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 		} else {
 			if (bool("email.changed", user.getEmail(), user.getUid())) {
 				dml("enable.user", false, user.getUsername());
-				Md5PasswordEncoder md5 = new Md5PasswordEncoder();
-				String token = md5.encodePassword(user.getUsername(),
+				String token = Utils.encodePassword(user.getUsername() +
 						new Date().toString());
 				dml("insert.account.activation", user.getUsername(), token,
 						false);
@@ -642,9 +628,8 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 					team.getTotal(), i + 1);
 			String nick = buildteamUsername(team.getNick(), team.getTotal(),
 					i + 1);
-			Md5PasswordEncoder md5 = new Md5PasswordEncoder();
-			Team add = new Team(username, md5.encodePassword(
-					team.getPassword(), "ABC123XYZ789"), nick,
+			Team add = new Team(username, Utils.encodePassword(
+					team.getPassword()), nick,
 					team.getCountry(), team.getInstitution(), team.getLocale());
 			add.setUpdate_nick(team.isUpdate_nick());
 			insertTeam(add);
