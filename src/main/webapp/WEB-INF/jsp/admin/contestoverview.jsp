@@ -56,7 +56,7 @@
         </div>
     </c:if>
 
-    <form:form method="post" commandName="contest">
+    <form:form method="post" modelAttribute="contest">
         <div style="height: 100%">
             <form:textarea path="overview" id="code" cssClass="des" rows="15"
                            cssStyle="width: 99%;"></form:textarea>

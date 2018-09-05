@@ -10,7 +10,7 @@
 	<h3>
 		<spring:message code="fieldhdr.statsjudgments" />
 	</h3>
-		<authz:authorize ifAllGranted="ROLE_USER">
+		<authz:authorize access="hasRole('ROLE_USER')">
 			<c:if test="${problem.solved == true}">
 				<div style="clear: both; float: right">
 					<c:choose>

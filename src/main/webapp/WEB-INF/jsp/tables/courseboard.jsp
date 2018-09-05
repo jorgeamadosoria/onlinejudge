@@ -44,7 +44,7 @@
 	</display:column>
 	<display:column titleKey="tablehdr.users">
             ${course.total_users}
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
 			<c:if test="${course.ispublic == true || isadmin == true}">
 				<c:choose>
 					<c:when

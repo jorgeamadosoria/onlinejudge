@@ -6,7 +6,7 @@
 <h2 class="postheader">                    
     Courses Board
 </h2>
-<authz:authorize ifAnyGranted="ROLE_ADMIN,ROLE_PROFESOR">
+<authz:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_PROFESOR')">
     <table class="navigating" width="100%">
         <tr>            
             <td width="10%"><a href="createcourse.xhtml>">Create Course</a></td>

@@ -203,10 +203,16 @@ public class SecurityConfiguration {
         RequestMatcher req = new AntPathRequestMatcher("/**");
         
         filters.add(new DefaultSecurityFilterChain(req, new SecurityContextPersistenceFilter(), 
-                logoutFilter(),cojAuthenticationProcessingFilter(),new SecurityContextHolderAwareRequestFilter(),
+                logoutFilter(),cojAuthenticationProcessingFilter(),securityContextHolderAwareRequestFilter(),
                 rememberMeAuthenticationFilter(),anonymousAuthenticationFilter(),exceptionTranslationFilter(),filterInvocationInterceptor()
                 ));
 	return filters;
+    }
+    
+    @Bean
+    public SecurityContextHolderAwareRequestFilter securityContextHolderAwareRequestFilter() {
+    	
+    	return new SecurityContextHolderAwareRequestFilter();
     }
     
     @Bean

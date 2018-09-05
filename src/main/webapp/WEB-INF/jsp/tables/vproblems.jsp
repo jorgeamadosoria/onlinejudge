@@ -6,7 +6,7 @@
 	decorator="cu.uci.coj.utils.tabledecorator.problemsTableDecorator">
 	<display:column property="letter" titleKey="tablehdr.id"
 		headerClass="headid" />
-	<authz:authorize ifNotGranted="ROLE_ANONYMOUS">
+	<authz:authorize access="!isAnonymous()">
 		<display:column titleKey="tablehdr.solved">
 			<c:choose>
 				<c:when test="${problem.solved == true}">

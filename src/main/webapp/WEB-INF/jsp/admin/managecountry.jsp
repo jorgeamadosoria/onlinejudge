@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-xs-10">
         <form:form method="post" enctype="multipart/form-data"
-                   commandName="country" cssClass="form-horizontal">
+                   modelAttribute="country" cssClass="form-horizontal">
 
             <!-- NAME OF VIEW -->
             <legend>
@@ -29,7 +29,7 @@
             </div>
 
             <!-- NAME OF COUNTRY -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="page.addcountry.name"/>
@@ -51,7 +51,7 @@
             </authz:authorize>
 
             <!-- ACRONYM OF COUNTRY -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="page.addcountry.zip"/>
@@ -74,7 +74,7 @@
 
 
             <!-- TWO LETTER OF COUNTRY -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="page.addcountry.twozip"/>
@@ -96,7 +96,7 @@
             </authz:authorize>
 
             <!-- WEB OF COUNTRY -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="page.addcountry.website"/>

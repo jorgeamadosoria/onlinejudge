@@ -45,7 +45,7 @@
         </div>
     </c:if>
 
-    <form:form method="post" commandName="contestawardsflags">
+    <form:form method="post" modelAttribute="contestawardsflags">
         <table class="contestsetting">
             <tr>
                 <td><fmt:message key="page.contestawards.accurateteam"/>:</td>

@@ -11,7 +11,7 @@
     <table>
         <tr>
             <td class="schoolarleft">
-                <form:form method="post" enctype="multipart/form-data" commandName="submit">
+                <form:form method="post" enctype="multipart/form-data" modelAttribute="submit">
                     <table class="createnewuser">
                         <tr>
                             <td style="align:right"><label><spring:message code="fieldhdr.problemid"/>:</label>

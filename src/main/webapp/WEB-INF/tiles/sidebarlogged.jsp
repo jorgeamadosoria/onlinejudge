@@ -10,11 +10,11 @@
 			<div>
 				<ul class="list-unstyled">
 					<authz:authorize
-						ifAnyGranted="ROLE_ADMIN,ROLE_SUPER_PSETTER,ROLE_FILE_MANAGER,ROLE_PSETTER">
+						access="hasAnyRole('ROLE_ADMIN','ROLE_SUPER_PSETTER','ROLE_FILE_MANAGER','ROLE_PSETTER')">
 						<li <c:if test="${idpage == 'linkadmin'}"> class="item-sidebar-selected" </c:if>><a href="<c:url value="/admin/index.xhtml"/>"><i
 								class="fa fa-wrench"></i>&nbsp;<spring:message code="link.admin" /></a></li>
 					</authz:authorize>
-					<authz:authorize ifAllGranted="ROLE_USER">
+					<authz:authorize access="hasRole('ROLE_USER')">
 						<li <c:if test="${idpage == 'useraccount'}"> class="item-sidebar-selected" </c:if>><a
 							href="<c:url value="/user/useraccount.xhtml?username=" /><authz:authentication property="principal.username" />"><i
 								class="fa fa-user"></i>&nbsp;<spring:message
@@ -22,7 +22,7 @@
 					</authz:authorize>
 					<li <c:if test="${idpage == 'updateaccount'}"> class="item-sidebar-selected" </c:if>><a href="<c:url value="/user/updateaccount.xhtml" />"><i
 							class="fa fa-edit"></i>&nbsp;<spring:message code="link.eaccount" /></a></li>
-					<authz:authorize ifAnyGranted="ROLE_USER">
+					<authz:authorize access="hasAnyRole('ROLE_USER')">
 						<li><a href="<c:url value="/mail/inbox.xhtml?start=1"/>"><i
 								class="fa fa-envelope"></i>&nbsp;<spring:message
 									code="link.mail" /></a>

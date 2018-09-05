@@ -2,10 +2,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <div class="layout-cell sidebar1">
-	<authz:authorize ifAnyGranted="ROLE_ANONYMOUS">
+	<authz:authorize access="isAnonymous()">
 		<%@include file="/WEB-INF/tiles/sidebarpublic.jsp"%>
 	</authz:authorize>
-	<authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+	<authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
 		<%@include file="/WEB-INF/tiles/sidebarlogged.jsp"%>
 	</authz:authorize>
 	<div class="block">
@@ -18,7 +18,7 @@
 				<!-- block-content -->
 				<div>
 					<ul class="list-unstyled">
-						<authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+						<authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
 							<c:choose>
 								<c:when
 									test="${contest.running == true || contest.past == true}">
@@ -31,7 +31,7 @@
 								</c:when>
 							</c:choose>
 						</authz:authorize>
-						<authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+						<authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
 							<c:choose>
 								<c:when test="${contest.running == true}">
 									<li><a
@@ -40,7 +40,7 @@
 								</c:when>
 							</c:choose>
 						</authz:authorize>
-						<authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+						<authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
 							<c:choose>
 								<c:when
 									test="${contest.running == true || contest.past == true}">

@@ -58,7 +58,7 @@
             <i class="fa fa-check"></i><spring:message code="${message}"/>
         </div>
     </c:if>
-    <form:form method="post" commandName="contest">
+    <form:form method="post" modelAttribute="contest">
         <button class="btn btn-info"><fmt:message key="page.contestproblemcolors.randomize"/></button>
         <table>
             <c:forEach items="${contest.problems}" var="problem">

@@ -11,7 +11,7 @@
 
 <div class="row postcontent">
     <div class="panel panel-primary text-center">
-        <authz:authorize ifNotGranted="ROLE_ANONYMOUS">
+        <authz:authorize access="!isAnonymous()">
             <c:if test="${contest.running == true}">
                 &nbsp;&nbsp;<a
                     href="<c:url value="csubmit.xhtml?pid=${problem.pid}&cid=${contest.cid}"/>"><spring:message

@@ -13,10 +13,10 @@ src="<c:url value="/js/WYSIWYG/source.js" />"></script>
 <div class="row">
     <div class="col-xs-10">
         <form:form method="post" enctype="multipart/form-data"
-                   commandName="announcement" cssClass="form-horizontal">
+                   modelAttribute="announcement" cssClass="form-horizontal">
 
             <!-- TEXT OF ANNOUNCEMENT -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.content" />

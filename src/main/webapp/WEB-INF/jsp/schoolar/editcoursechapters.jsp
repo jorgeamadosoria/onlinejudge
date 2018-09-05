@@ -20,7 +20,7 @@
         </tr>
     </table>
 
-    <form:form method="post" onsubmit="return SeleccionarRangosCourses();" enctype="multipart/form-data" commandName="course">
+    <form:form method="post" onsubmit="return SeleccionarRangosCourses();" enctype="multipart/form-data" modelAttribute="course">
         <table class="contestsetting">   
 
 

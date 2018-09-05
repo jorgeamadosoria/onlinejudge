@@ -18,7 +18,7 @@
 				class="shadow fa fa-circle"></i></span>
 		</display:column>
 	</c:if>
-	<authz:authorize ifNotGranted="ROLE_ANONYMOUS">
+	<authz:authorize access="!isAnonymous()">
 		<display:column titleKey="tablehdr.solved" headerClass="headsolved">
 			<c:choose>
 				<c:when test="${problem.solved == true}">

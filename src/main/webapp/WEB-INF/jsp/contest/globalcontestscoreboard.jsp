@@ -101,7 +101,7 @@
             </a>
 
         </td>
-        <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+        <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
             <c:choose>
                 <c:when test="${contest.running == true}">
                     <td>

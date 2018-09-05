@@ -5,7 +5,7 @@
     Create Course
 </h2>
 <div class="postcontent">
-    <form:form method="post" commandName="course">
+    <form:form method="post" modelAttribute="course">
         <table class="login">            
             
             <tr>

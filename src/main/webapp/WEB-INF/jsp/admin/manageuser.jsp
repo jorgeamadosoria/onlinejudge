@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-xs-10">
         <form:form method="post" enctype="multipart/form-data"
-                   commandName="user" cssClass="form-horizontal">
+                   modelAttribute="user" cssClass="form-horizontal">
 
             <!-- NAME OF VIEW -->
             <c:if test="${user.team == true}">
@@ -28,7 +28,7 @@
             </c:if>
 
             <!-- NICKNAME OF USER-->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.nname"/>
@@ -50,7 +50,7 @@
             </authz:authorize>
 
             <!-- MODIFY NICKNAME OF USER-->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.modnickname"/>
@@ -66,7 +66,7 @@
             </authz:authorize>
 
             <!-- COUNTRY OF USER-->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.country"/>
@@ -92,7 +92,7 @@
             </authz:authorize>
 
             <!-- INSTITUTION OF USER-->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.institution"/>
@@ -129,7 +129,7 @@
             <input type="hidden" name="noneInstitution" value='<spring:message code="user.none.institution" />'/>
 
             <!-- LANGUAGE OF USER-->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.defaultguilang"/>
@@ -152,7 +152,7 @@
             </authz:authorize>
 
             <!-- PROGRAMMING LANGUAGE OF USER-->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.defaultproglang"/>
@@ -175,7 +175,7 @@
             </authz:authorize>
 
             <!-- PASSWORD OF USER-->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.npassword"/>
@@ -196,7 +196,7 @@
             </authz:authorize>
 
             <!-- CONFIRM PASSWORD OF USER-->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.cpassword"/>
@@ -216,7 +216,7 @@
             </authz:authorize>
 
             <!-- ACCESS OF USER-->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.accessrule"/>
@@ -238,7 +238,7 @@
             </authz:authorize>
 
             <!-- ENABLE OF USER-->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.enabled"/>
@@ -254,7 +254,7 @@
             </authz:authorize>
 
             <!-- BANNER OF USER-->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.banreason"/>
@@ -276,7 +276,7 @@
             <c:if test="${user.team == true}">
 
                 <!-- COUCH OF TEAM-->
-                <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.tcoach"/>
@@ -293,7 +293,7 @@
                 </authz:authorize>
 
                 <!-- 1 MEMBER OF TEAM-->
-                <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.tmember"/>
@@ -310,7 +310,7 @@
                 </authz:authorize>
 
                 <!-- 2 MEMBER OF TEAM-->
-                <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.tmember"/>
@@ -327,7 +327,7 @@
                 </authz:authorize>
 
                 <!-- 3 MEMBER OF TEAM-->
-                <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.tmember"/>
@@ -348,7 +348,7 @@
             <c:if test="${user.team == false}">
 
                 <!-- NAME OF USER-->
-                <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.fname"/>
@@ -372,7 +372,7 @@
                 </authz:authorize>
 
                 <!-- LAST NAME OF USER-->
-                <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.lname"/>
@@ -396,7 +396,7 @@
                 </authz:authorize>
 
                 <!-- GENDER OF USER-->
-                <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.gender"/>
@@ -424,7 +424,7 @@
                 </authz:authorize>
 
                 <!-- BIRTH DATE OF USER-->
-                <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.dob"/>
@@ -458,7 +458,7 @@
                 </authz:authorize>
 
                 <!-- ENABLE BIRTH DATE OF USER-->
-                <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.sdob"/>
@@ -474,7 +474,7 @@
                 </authz:authorize>
 
                 <!-- EMAIL OF USER-->
-                <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.email"/>
@@ -498,7 +498,7 @@
                 </authz:authorize>
 
                 <!-- NOTIFY CONTESTS OF USER-->
-                <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.notifcontest"/>
@@ -514,7 +514,7 @@
                 </authz:authorize>
 
                 <!-- NOTIFY PROBLEMS OF USER-->
-                <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.notifproblem"/>
@@ -530,7 +530,7 @@
                 </authz:authorize>
 
                 <!-- NOTIFY SUBMITS OF USER-->
-                <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.notifsubmit"/>
@@ -546,7 +546,7 @@
                 </authz:authorize>
 
                 <!-- EMAIL COUTA OF USER-->
-                <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.mailquota"/> (<spring:message code="fieldval.bytes"/>)
@@ -568,7 +568,7 @@
                 </authz:authorize>
 
                 <!-- ROLES OF USER-->
-                <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.roles"/>

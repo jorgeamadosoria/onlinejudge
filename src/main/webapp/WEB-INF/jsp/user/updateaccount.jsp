@@ -13,8 +13,8 @@
 <div class="row">
 	<div class="col-xs-10">
 		<form:form method="post" enctype="multipart/form-data"
-			commandName="user" cssClass="form-horizontal">
-			<authz:authorize ifAnyGranted="ROLE_USER">
+			modelAttribute="user" cssClass="form-horizontal">
+			<authz:authorize access="hasAnyRole('ROLE_USER')">
 				<div class="form-group">
 					<label class="control-label col-xs-3" for="imagefile">Avatar
 						(120x120, &lt;35KB)</label>
@@ -25,7 +25,7 @@
 					</div>
 				</div>
 			</authz:authorize>
-			<authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+			<authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
 				<div class="form-group">
 					<label class="control-label col-xs-3"><spring:message
 							code="fieldhdr.username" /></label>
@@ -66,7 +66,7 @@
 
 
 
-			<authz:authorize ifAllGranted="ROLE_USER">
+			<authz:authorize access="hasRole('ROLE_USER')">
 				<div class="form-group">
 					<label class="control-label col-xs-3"><spring:message
 							code="fieldhdr.fname" />: </label>
@@ -235,7 +235,7 @@
 			</c:choose>
 
 			
-			<authz:authorize ifAllGranted="ROLE_USER">
+			<authz:authorize access="hasRole('ROLE_USER')">
 				<div class="form-group">
 					<label class="control-label col-xs-3"><spring:message
 							code="fieldhdr.email" />: </label>
@@ -296,7 +296,7 @@
 				</div>
 			</authz:authorize>
 			
-			<authz:authorize ifAllGranted="ROLE_USER">
+			<authz:authorize access="hasRole('ROLE_USER')">
 				<div id="sitesFollowed" class="form-group">
 					<label class="control-label col-xs-3"><spring:message
 							code="fieldhdr.sites.followed" />: </label>
@@ -345,7 +345,7 @@
 					<form:checkbox cssClass="checkbox" path="enableadveditor" />
 				</div>
 			</div>
-			<authz:authorize ifAllGranted="ROLE_TEAM">
+			<authz:authorize access="hasAnyRole('ROLE_TEAM')">
 				<c:choose>
 					<c:when test="${user.update_nick == true}">
 						<div class="form-group">

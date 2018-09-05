@@ -37,7 +37,7 @@
 
 <div class="postcontent">
 
-	<authz:authorize ifAllGranted="ROLE_USER">
+	<authz:authorize access="hasRole('ROLE_USER')">
 		<c:choose>
 			<c:when test="${voted == false}">
 				<form method="post" action="voting.xhtml">

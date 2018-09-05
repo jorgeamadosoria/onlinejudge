@@ -15,7 +15,7 @@
         </div>                 
     </c:if> 
     <div id="hidden-form">
-        <form:form method="post" id="entryForm" commandName="entry">
+        <form:form method="post" id="entryForm" modelAttribute="entry">
             <form:hidden id="id" path="id" />
             <div class="form-group">
                 <label class="control-label"><fmt:message key="entry.text" /></label>

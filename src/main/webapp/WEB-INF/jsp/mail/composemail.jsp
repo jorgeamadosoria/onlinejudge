@@ -38,7 +38,7 @@
     </div>
 </c:if>
 
-<form:form method="POST" class="form-horizontal" commandName="mail" id="composeform" acceptCharset="UTF-8">
+<form:form method="POST" class="form-horizontal" modelAttribute="mail" id="composeform" acceptCharset="UTF-8">
 
     <div class="form-group">
         <label class="col-md-1 control-label"><spring:message code="fieldhdr.to"/>:</label>

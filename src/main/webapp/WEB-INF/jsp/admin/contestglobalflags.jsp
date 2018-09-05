@@ -57,7 +57,7 @@
         </div>
     </c:if>
 
-    <form:form method="post" commandName="globalFlags">
+    <form:form method="post" modelAttribute="globalFlags">
         <input type="hidden" name="cid" value="${cid}"/>
         <table class="createnewuser">
             <tbody>

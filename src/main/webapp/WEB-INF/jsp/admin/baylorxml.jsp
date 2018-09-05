@@ -55,7 +55,7 @@
     </c:if>
 
     <form:form method="post" enctype="multipart/form-data"
-               commandName="contest" cssClass="form-horizontal">
+               modelAttribute="contest" cssClass="form-horizontal">
         <input type='hidden' name='cid' value="${cid}"/>
 
         <div class="form-group">

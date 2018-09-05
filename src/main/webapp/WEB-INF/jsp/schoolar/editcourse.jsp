@@ -16,7 +16,7 @@
         </tr>
     </table>
 
-    <form:form method="post" commandName="course">
+    <form:form method="post" modelAttribute="course">
         <table class="contestsetting">            
             <tr>
                 <td>Course Name:</td>

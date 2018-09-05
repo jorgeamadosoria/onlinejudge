@@ -133,12 +133,12 @@
             <td align="left"><font color="#FFFFFF"><br></font></td>
             <td style="border-right: 1px solid #000000" align="right"><font color="#FFFFFF"><br></font></td>
             <td style="border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" align="right"><font color="#FFFFFF"><br></font></td>
-            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="center" valign=middle><b><font color="#000000"><authz:authorize ifAnyGranted="ROLE_USER">
+            <td style="border-top: 1px solid #000000; border-bottom: 1px solid #000000; border-left: 1px solid #000000; border-right: 1px solid #000000" colspan=2 rowspan=2 align="center" valign=middle><b><font color="#000000"><authz:authorize access="hasAnyRole('ROLE_USER')">
                 <a href="<c:url value="/24h/submit.xhtml" />"><i
                         class="fa fa-file-code-o"></i>&nbsp;<spring:message
                         code="link.submit"/></a>
             </authz:authorize>
-                <authz:authorize ifAnyGranted="ROLE_ANONYMOUS">
+                <authz:authorize access="isAnonymous()">
                     <i class="fa fa-file-code-o"></i>&nbsp;<spring:message
                             code="link.submit"/>
                 </authz:authorize>

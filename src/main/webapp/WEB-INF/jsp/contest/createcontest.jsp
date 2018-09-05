@@ -5,7 +5,7 @@
     <fmt:message key="page.menu.admin.createcontest" />
 </h2>
 <div class="postcontent">
-    <form:form method="post" commandName="contest">
+    <form:form method="post" modelAttribute="contest">
         <table class="login">            
             <tr>
                 <td style="align:right">ID:</td>

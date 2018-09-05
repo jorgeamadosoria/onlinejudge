@@ -10,14 +10,14 @@
                                   title="<spring:message code="titval.unmarkfavorite"/>"><i class="gold fa fa-star"></i></a>
             </c:when>
             <c:otherwise>
-                ${problem.pid} <authz:authorize ifAllGranted="ROLE_USER">
+                ${problem.pid} <authz:authorize access="hasRole('ROLE_USER')">
                 <a href="markasfavorite.xhtml?pid=${problem.pid}" data-toggle="tooltip"
                    title="<spring:message code="titval.markasfavorite"/>"><i class="gold fa fa-star-o"></i></a>
             </authz:authorize>
             </c:otherwise>
         </c:choose>
     </display:column>
-    <authz:authorize ifNotGranted="ROLE_ANONYMOUS">
+    <authz:authorize access="!isAnonymous()">
         <display:column titleKey="tablehdr.status">
             <c:choose>
                 <c:when test="${problem.solved == true}">

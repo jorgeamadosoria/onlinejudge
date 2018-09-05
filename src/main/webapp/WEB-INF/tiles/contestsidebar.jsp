@@ -2,10 +2,10 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 
 <div class="layout-cell sidebar1">
-    <authz:authorize ifAnyGranted="ROLE_ANONYMOUS">
+    <authz:authorize access="isAnonymous()">
         <%@include file="/WEB-INF/tiles/sidebarpublic.jsp" %>
     </authz:authorize>
-    <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+    <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
         <%@include file="/WEB-INF/tiles/sidebarlogged.jsp" %>
     </authz:authorize>
     <div class="block">
@@ -45,7 +45,7 @@
                                         code="link.problems"/></a></li>
                             </c:when>
                         </c:choose>
-                        <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+                        <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                             <c:choose>
                                 <c:when test="${contest.running == true}">
                                     <li <c:if test="${idpage == 'csubmit_contest'}"> class="item-sidebar-selected" </c:if>><a
@@ -68,7 +68,7 @@
                                         class="fa fa-sort-numeric-asc"></i>&nbsp;<spring:message
                                         code="link.standings"/></a></li>
                                 <c:if test="${contest.balloon and showBalloons}">
-                                    <authz:authorize ifAnyGranted="ROLE_USER">
+                                    <authz:authorize access="hasAnyRole('ROLE_USER')">
                                     <li <c:if test="${idpage == 'cballontracker_contest'}"> class="item-sidebar-selected" </c:if>>
                                         <a target="_blank"
                                            href="<c:url value="/contest/cballoontracker.xhtml?cid=${contest.cid}" />">
@@ -78,7 +78,7 @@
                                     </authz:authorize>
                                 </c:if>
                                 <c:if test="${contest.saris and showSaris}">
-                                    <authz:authorize ifAnyGranted="ROLE_USER">
+                                    <authz:authorize access="hasAnyRole('ROLE_USER')">
                                     <li <c:if test="${idpage == 'saris_contest'}"> class="item-sidebar-selected" </c:if>>
                                         <a target="_blank"
                                            href="<c:url value="/contest/saris.xhtml?cid=${contest.cid}" />">

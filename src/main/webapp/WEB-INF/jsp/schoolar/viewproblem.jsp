@@ -9,7 +9,7 @@
     <!-- article-content -->
     <table class="navigating" width="100%">
         <tr>
-            <authz:authorize ifNotGranted="ROLE_ANONYMOUS">
+            <authz:authorize access="!isAnonymous()">
                 <td width="10%"><a href="coursesubmit.xhtml?pid=${problem.pid}&course_id=${course.course_id}"><spring:message code="link.submit"/></a></td>
                 <td width="10%"><a href="<c:url value="coursestatus.xhtml?pid=${problem.pid}&username="/><authz:authentication property="principal.username" />"><spring:message code="link.mysubmissions"/></a></td>                
             </authz:authorize>           
@@ -54,7 +54,7 @@
                 </td>
             </tr> 
             <c:if test="${view_pinfo}">
-                <authz:authorize ifAllGranted="ROLE_USER">
+                <authz:authorize access="hasRole('ROLE_USER')">
 
                     <tr>
                         <td><spring:message code="fieldhdr.classif"/></td>

@@ -10,7 +10,7 @@
 </h2>
 <div class="row">
 <form:form method="post" enctype="multipart/form-data"
-           commandName="problem">
+           modelAttribute="problem">
     <div class="form-group col-xs-12">
         <label class="control-label col-xs-3">PID</label>
 

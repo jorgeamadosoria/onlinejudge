@@ -16,7 +16,7 @@
         </c:if>
 
         <authz:authorize access="isAuthenticated()">
-            <form:form method="post" commandName="entry">
+            <form:form method="post" modelAttribute="entry">
                 <div class="form-group">
                     <label class="control-label"><fmt:message key="entry.text"/></label>
                     <form:textarea id="text" maxlength="255" cssClass="form-control"

@@ -4,12 +4,12 @@
 
 <div class="row">
     <div class="col-xs-10">
-        <form:form method="post" commandName="poll" cssClass="form-horizontal">
+        <form:form method="post" modelAttribute="poll" cssClass="form-horizontal">
             <legend>
                 <spring:message code="page.general.admin.header" />: <spring:message code="pagetit.manage.poll" />
             </legend>
 
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3"><spring:message
                             code="tablehdr.question" /></label>
@@ -28,7 +28,7 @@
                 </div>
             </authz:authorize>   
 
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3"><spring:message
                             code="addfaq.answer" /> 1</label>

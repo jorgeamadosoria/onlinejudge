@@ -17,7 +17,7 @@
             <td width="10%">General Information</td>
         </tr>
     </table>
-    <form:form method="post"  commandName="course" enctype="multipart/form-data">
+    <form:form method="post"  modelAttribute="course" enctype="multipart/form-data">
         <div style="height: 100%">
             <form:textarea path="overview" id="code" cssClass="des" rows="15" cssStyle="width: 99%;"></form:textarea>
                 <br/>

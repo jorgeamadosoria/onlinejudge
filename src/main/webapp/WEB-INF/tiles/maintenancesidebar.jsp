@@ -3,7 +3,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <div class="layout-cell sidebar1">
-	<authz:authorize ifAnyGranted="ROLE_ANONYMOUS">
+	<authz:authorize access="isAnonymous()">
 		<div class="block">
 			<div class="panel panel-primary block-body">
 				<div class="panel-heading blockheader">
@@ -62,7 +62,7 @@
 			</div>
 		</div>
 	</authz:authorize>
-	<authz:authorize ifAnyGranted="ROLE_ADMIN,ROLE_USER,ROLE_TEAM">
+	<authz:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TEAM')">
 		<div class="block">
 			<div class="panel panel-primary block-body">
 				<div class="panel-heading blockheader">
@@ -74,7 +74,7 @@
 					<!-- block-content -->
 					<div>
 						<ul class="list-unstyled">
-							<authz:authorize ifAnyGranted="ROLE_ADMIN">
+							<authz:authorize access="hasAnyRole('ROLE_ADMIN')">
 								<li><i class="fa fa-wrench"></i><a
 										href="<c:url value="/admin/index.xhtml"/>"><spring:message
 												code="link.admin" /></a></li>

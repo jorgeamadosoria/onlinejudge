@@ -523,7 +523,7 @@
                                                     value="${user.total}"/></a></td>
                                         </tr>
                                     </table>
-                                    <authz:authorize ifNotGranted="ROLE_ANONYMOUS">
+                                    <authz:authorize access="!isAnonymous()">
                                     <c:if test="${currentUsername}">
                                     <div class="col-xs-12">
                                         <a href="/24h/downloadsourcezip.xhtml?status=1">
