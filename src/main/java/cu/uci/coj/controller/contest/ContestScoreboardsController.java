@@ -1,8 +1,5 @@
 package cu.uci.coj.controller.contest;
 
-import atg.taglib.json.util.JSONArray;
-import atg.taglib.json.util.JSONException;
-import atg.taglib.json.util.JSONObject;
 import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.controller.interfaces.IACMScoreboard;
 import cu.uci.coj.dao.ContestAwardDAO;
@@ -12,6 +9,10 @@ import cu.uci.coj.dao.UserDAO;
 import cu.uci.coj.model.*;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestWrapper;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -325,7 +326,7 @@ break;
 		JSONArray users = new JSONArray();
 		for (Iterator<?> it = contest.getUsers().iterator(); it.hasNext();) {
 			User contestant = (User) it.next();
-			users.add(contestant.getNick());
+			users.put(contestant.getNick());
 		}
 		json.accumulate("contestants", users);
 		JSONArray runs = new JSONArray();
@@ -336,7 +337,7 @@ break;
 			run.accumulate("problemLetter", contest.getProblemLetter(new Integer(submission.getPid())));
 			run.accumulate("timeMinutesFromStart", Integer.parseInt(submission.getFrom_start()));
 			run.accumulate("success", submission.isSuccess());
-			runs.add(run);
+			runs.put(run);
 		}
 		json.accumulate("runs", runs);
 		String contestLog = json.toString(5);

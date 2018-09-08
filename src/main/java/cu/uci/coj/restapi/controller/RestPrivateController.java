@@ -44,6 +44,7 @@ import cu.uci.coj.restapi.templates.InputUserRest;
 import cu.uci.coj.restapi.templates.TokenRest;
 import cu.uci.coj.restapi.utils.ErrorUtils;
 import cu.uci.coj.restapi.utils.TokenUtils;
+import cu.uci.coj.utils.Utils;
 
 /**
  *
@@ -86,8 +87,7 @@ public class RestPrivateController {
             
             try{
                 User user =  (User) jdbcTemplate.queryForObject(sql,new Object[]{username},new BeanPropertyRowMapper(User.class));
-                MessageDigestPasswordEncoder encoder = new MessageDigestPasswordEncoder("MD5");
-                password = encoder.encode(password);
+                password = Utils.encodePassword(password);
 
                 if(user.getPassword().equals(password)){
                     TokenRest token = new TokenRest(TokenUtils.CreateTokenUser(username), TokenUtils.expirityToken);
@@ -171,8 +171,7 @@ public class RestPrivateController {
           
            
             User user =  (User) jdbcTemplate.queryForObject(sql,new Object[]{bodyjson.getUsername()},new BeanPropertyRowMapper(User.class));
-            MessageDigestPasswordEncoder encoder = new MessageDigestPasswordEncoder("MD5");
-            String password = encoder.encode(bodyjson.getPassword());
+            String password = Utils.encodePassword(bodyjson.getPassword());
 
             if(!user.getPassword().equals(password))
                 return  new ResponseEntity<>(ErrorUtils.BAD_USERNAME_PASSWORD, HttpStatus.UNAUTHORIZED);               

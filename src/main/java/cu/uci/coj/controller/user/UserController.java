@@ -16,6 +16,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.StringUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.context.annotation.Scope;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestWrapper;
@@ -29,8 +31,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import atg.taglib.json.util.JSONArray;
-import atg.taglib.json.util.JSONObject;
 import cu.uci.coj.board.dao.WbSiteDAO;
 import cu.uci.coj.board.service.WbContestService;
 import cu.uci.coj.config.Config;
@@ -722,7 +722,7 @@ public class UserController extends BaseController {
 			JSONObject obj = new JSONObject();
 			obj.accumulate("id", object.getId());
 			obj.accumulate("institution", object.getName());
-			result.add(obj);
+			result.put(obj);
 		}
 		model.addAttribute("institutions", result.toString());
 		return "/user/getInstitution";

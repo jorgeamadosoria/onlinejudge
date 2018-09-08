@@ -13,9 +13,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.sf.json.JSONArray;
-
 import org.apache.commons.lang.math.NumberUtils;
+import org.json.JSONArray;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -25,6 +24,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import com.google.common.collect.Lists;
 
 import cu.uci.coj.dao.EntryDAO;
 import cu.uci.coj.dao.UserDAO;
@@ -267,7 +268,7 @@ public class EntryController extends BaseController {
 			entryDAO.dml("insert.user.entries.rate", userId, id);
 			entryDAO.dml("rate.up.entries", id);
 		}
-		return JSONArray.fromObject(entryDAO.integer(0, "rate.by.id", id)).toString();
+		return new JSONArray(Lists.newArrayList(entryDAO.integer(0, "rate.by.id", id))).toString();
 	}
 
 	@RequestMapping(produces = "application/json", value = "/user/dislike.json", method = RequestMethod.POST, headers = {
@@ -282,7 +283,7 @@ public class EntryController extends BaseController {
 			entryDAO.dml("insert.user.entries.rate", userId, id);
 			entryDAO.dml("rate.down.entries", id);
 		}
-		return JSONArray.fromObject(entryDAO.integer(0, "rate.by.id", id)).toString();
+		return new JSONArray(Lists.newArrayList(entryDAO.integer(0, "rate.by.id", id))).toString();
 	}
 
 	@RequestMapping(value = "/admin/deleteentry.xhtml", method = RequestMethod.GET)

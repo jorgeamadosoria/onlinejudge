@@ -94,8 +94,8 @@ public class TokenUtils {
             return 6;
         
         String secretDesencriptado = Desencriptar(parts[3]);
-        if(!true)  //Metodo que se puede agregar para validar el secret
-            return 7;
+//        if(!true)  //Metodo que se puede agregar para validar el secret
+//            return 7;
      
         return 0;
     }

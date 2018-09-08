@@ -8,7 +8,6 @@ package cu.uci.coj.model;
 
 import cu.uci.coj.model.BaseBean;
 import java.util.Date;
-import net.sf.json.JSONObject;
 
 /**
  *
