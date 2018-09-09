@@ -24,6 +24,7 @@ import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
 import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
 import org.springframework.security.web.DefaultSecurityFilterChain;
 import org.springframework.security.web.FilterChainProxy;
+import org.springframework.security.web.FilterInvocation;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandlerImpl;
 import org.springframework.security.web.access.ExceptionTranslationFilter;
@@ -178,7 +179,7 @@ public class SecurityConfiguration {
     
     @Bean
     public FilterSecurityInterceptor filterInvocationInterceptor(){
-        List<AccessDecisionVoter<?>> vote = new ArrayList<>(Arrays.asList(new WebExpressionVoter()));
+        List<AccessDecisionVoter<?>> vote = new ArrayList<>();
         AffirmativeBased voters = new AffirmativeBased(vote);
         voters.setAllowIfAllAbstainDecisions(false);
         FilterSecurityInterceptor bean = new FilterSecurityInterceptor();
