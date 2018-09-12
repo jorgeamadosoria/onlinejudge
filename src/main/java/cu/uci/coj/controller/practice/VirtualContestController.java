@@ -13,6 +13,8 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.lang.ArrayUtils;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,8 +22,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import atg.taglib.json.util.JSONArray;
-import atg.taglib.json.util.JSONObject;
 import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.dao.ProblemDAO;
@@ -238,7 +238,7 @@ public class VirtualContestController extends BaseController {
 			JSONObject obj = new JSONObject();
 			obj.accumulate("cid", object.getCid());
 			obj.accumulate("name", object.getName());
-			result.add(obj);
+			result.put(obj);
 		}
 		model.addAttribute("contests", result.toString());
 		return "/practice/getvirtualtemplates";

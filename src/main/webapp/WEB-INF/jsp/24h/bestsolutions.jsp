@@ -10,7 +10,7 @@
 	<h3>
 		<spring:message code="fieldhdr.statsjudgments" />
 	</h3>
-		<authz:authorize access="hasRole('ROLE_USER')">
+		<div sec:authorize="hasRole('ROLE_USER')">
 			<c:if test="${problem.solved == true}">
 				<div style="clear: both; float: right">
 					<c:choose>
@@ -29,7 +29,7 @@
 					</c:choose>
 				</div>
 			</c:if>
-		</authz:authorize>
+		</div>
 
 	<div class="row">
 		<div class="col-xs-12">

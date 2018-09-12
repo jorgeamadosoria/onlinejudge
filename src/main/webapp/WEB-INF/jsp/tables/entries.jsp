@@ -45,19 +45,19 @@
                             value="${entry.date}" pattern="yyyy-MM-dd HH:mm:ss"/>
                     </small>
                 </div>
-                <authz:authorize access="${!entry.adminEnabled}">
+                <div sec:authorize="${!entry.adminEnabled}">
                     <div id="entry${entry.id}" class="text-left">
                         <i><fmt:message key="entry.pending.approval"/></i>
                     </div>
-                </authz:authorize>
-                <authz:authorize access="${entry.adminEnabled}">
+                </div>
+                <div sec:authorize="${entry.adminEnabled}">
                     <div id="entry${entry.id}" class="text-left text-overflow">${entry.text}</div>
                     <div id="actions${entry.id}" class="pull-right">
-                        <authz:authorize access="hasRole('ROLE_ADMIN')">
+                        <div sec:authorize="hasRole('ROLE_ADMIN')">
                             <a href="javascript:disableEntry(${entry.id});"
                                data-toggle="tooltip" title="<spring:message code="messages.general.hideentry"/>"><i class="fa fa-eye-slash"></i></a>
-                        </authz:authorize>
-                        <authz:authorize access="isAuthenticated()">
+                        </div>
+                        <div sec:authorize="isAuthenticated()">
                             <a data-toggle="tooltip" title="<spring:message code="messages.general.replytouser"/>"
                                href="javascript:reply('@${entry.username} ');"><i
                                     class="fa fa-reply"></i></a>
@@ -67,15 +67,15 @@
                             <a data-toggle="tooltip" title="<spring:message code="messages.general.forwardentry"/>"
                                href="<c:url value="/forwardentry.xhtml?id=${entry.id}"/>"><i
                                     class="fa fa-mail-forward"></i></a>
-                        </authz:authorize>
-                        <authz:authorize access="isAuthenticated()">
+                        </div>
+                        <div sec:authorize="isAuthenticated()">
                             <c:if test="${not entry.voted and entry.username != principal.username}">
                                 <a id="thumbs-up${entry.id}" data-toggle="tooltip"
                                    title="<spring:message code="messages.general.upvoteentry"/>"
                                    href="javascript:like(${entry.id});"><i
                                         class="fa fa-thumbs-o-up"></i></a>
                             </c:if>
-                        </authz:authorize>
+                        </div>
                         <c:if test="${entry.rate gt 0}">
                             <b class="text-success" id="rating${entry.id}">${entry.rate}</b>
                         </c:if>
@@ -85,7 +85,7 @@
                         <c:if test="${entry.rate eq 0}">
                             <b id="rating${entry.id}">${entry.rate}</b>
                         </c:if>
-                        <authz:authorize access="isAuthenticated()">
+                        <div sec:authorize="isAuthenticated()">
                             <c:if
                                     test="${not entry.voted and entry.username != principal.username}">
                                 <a id="thumbs-down${entry.id}" data-toggle="tooltip"
@@ -93,9 +93,9 @@
                                    href="javascript:dislike(${entry.id});"><i
                                         class="fa fa-thumbs-o-down"></i></a>
                             </c:if>
-                        </authz:authorize>
+                        </div>
                     </div>
-                </authz:authorize>
+                </div>
             </div>
         </div>
     </display:column>

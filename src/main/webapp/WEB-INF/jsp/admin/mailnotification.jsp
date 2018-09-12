@@ -12,7 +12,7 @@
                    modelAttribute="notification" cssClass="form-horizontal">
 
             <!-- SUBJECT OF MAIL -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="mail.subject"/>
@@ -31,10 +31,10 @@
                         </i>
                     </a>
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- BODY OF MAIL -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="mail.body"/>
@@ -52,7 +52,7 @@
                         </i>
                     </a>
                 </div>
-            </authz:authorize>
+            </div>
 
             <div class="form-actions pull-right">
                 <input class="btn btn-primary" type="submit" name="submit"

@@ -15,7 +15,7 @@ src="<c:url value="/js/WYSIWYG/source.js" />"></script>
                    modelAttribute="announcement" cssClass="form-horizontal">
             
             <!-- ID OF ANNOUNCEMENT -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.id" />
@@ -28,10 +28,10 @@ src="<c:url value="/js/WYSIWYG/source.js" />"></script>
                     </div>  
                    
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- TEXT OF ANNOUNCEMENT -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.content" />
@@ -44,7 +44,7 @@ src="<c:url value="/js/WYSIWYG/source.js" />"></script>
                     </div>  
                     
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- ENABLED OF ANNOUNCEMENT -->
             <div class="form-group">

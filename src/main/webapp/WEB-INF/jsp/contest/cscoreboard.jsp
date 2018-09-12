@@ -73,7 +73,7 @@
 					href="<c:url value="/contest/cproblems.xhtml?cid=${contest.cid}" />" data-toggle="tooltip"><i
 										class="fa fa-list"></i>&nbsp;<spring:message
 							code="link.problems" /> </a></td>
-				<authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+				<div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
 					<c:choose>
 						<c:when test="${contest.running == true}">
 							<td><a
@@ -82,7 +82,7 @@
 										code="link.submit" /></a></td>
 						</c:when>
 					</c:choose>
-				</authz:authorize>
+				</div>
 				<td><a
 					href="<c:url value="/contest/cstatus.xhtml?cid=${contest.cid}" />" data-toggle="tooltip"><i
 										class="fa fa-legal"></i>&nbsp;<spring:message

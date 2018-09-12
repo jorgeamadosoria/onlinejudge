@@ -14,7 +14,7 @@
             </legend>
 
             <!-- ID OF SUBMISSION -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         ID:
@@ -27,10 +27,10 @@
                         <span class="label label-danger"><form:errors path="sid" /></span>
                     </div>
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- USERNAME OF SUBMISSION -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="judge.register.username" />
@@ -43,10 +43,10 @@
                         <span class="label label-danger"><form:errors path="username" /></span>
                     </div>
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- STATUS OF SUBMISSION -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="tablehdr.status" />
@@ -59,10 +59,10 @@
                         <span class="label label-danger"><form:errors path="status" /></span>
                     </div>
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- TIME (MS)OF SUBMISSION -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group" style="display: none">
                     <label class="control-label col-xs-3">
                         <spring:message code="addproblem.time" /> (MS)
@@ -75,10 +75,10 @@
                         <span class="label label-danger"><form:errors path="timeUsed" /></span>
                     </div>
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- MEMORY OF SUBMISSION -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group" style="display: none">
                     <label class="control-label col-xs-3">
                         <spring:message code="addproblem.memory" /> (KB)
@@ -91,10 +91,10 @@
                         <span class="label label-danger"><form:errors path="memoryUsed" /></span>
                     </div>
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- LANGUAGUE OF SUBMISSION -->
-            <%--<authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">--%>
+            <%--<div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">--%>
                 <%--<div class="form-group" style="display: none">--%>
                     <%--<label class="control-label col-xs-3">--%>
                         <%--<spring:message code="judge.register.language" />--%>
@@ -107,10 +107,10 @@
                         <%--<span class="label label-danger"><form:errors path="lang" /></span>--%>
                     <%--</div>--%>
                 <%--</div>--%>
-            <%--</authz:authorize>--%>
+            <%--</div>--%>
 
             <%--<!-- LANGUAGUE OF SUBMISSION -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="judge.register.language" />
@@ -125,10 +125,10 @@
                         <span class="label label-danger"><form:errors path="lang" /></span>
                     </div>
                 </div>
-            </authz:authorize>--%>
+            </div>--%>
 
             <!-- ENABLE OF SUBMISSION-->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.enabled" />
@@ -140,10 +140,10 @@
                         <span class="label label-danger"><form:errors path="enabled" /></span>
                     </div>                    
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- SOURCE CODE OF SUBMISSION-->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group"  style="display: none">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.sourcecode" />
@@ -156,7 +156,7 @@
                         <span class="label label-danger"><form:errors path="code" /></span>
                     </div>                    
                 </div>
-            </authz:authorize>
+            </div>
 
 
             <div class="form-actions pull-right">

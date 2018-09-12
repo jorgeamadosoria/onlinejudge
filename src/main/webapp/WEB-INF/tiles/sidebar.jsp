@@ -3,13 +3,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <div class="layout-cell sidebar1">
-	<authz:authorize access="hasAnyRole('ROLE_ANONYMOUS')">
+	<div sec:authorize="hasAnyRole('ROLE_ANONYMOUS')">
 		<%@include file="/WEB-INF/tiles/sidebarpublic.jsp"%>
-	</authz:authorize>
-	<authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+	</div>
+	<div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
 	<%@include file="/WEB-INF/tiles/sidebarlogged.jsp"%>
 		
-	</authz:authorize>
+	</div>
 	<div class="block">
 		<div class="panel panel-primary block-body">
 			<div class="panel-heading">
@@ -26,7 +26,7 @@
 							<li <c:if test="${idpage == 'submit'}"> class="item-sidebar-selected" </c:if>><a href="<c:url value="/24h/submit.xhtml" />"><i
 									class="fa fa-file-code-o"></i>&nbsp;<spring:message
 										code="link.submit" /></a></li>
-						</authz:authorize>
+						</div>
 
 						<li <c:if test="${idpage == 'status'}"> class="item-sidebar-selected" </c:if>><a href="<c:url value="/24h/status.xhtml" />"><i
 								class="fa fa-legal"></i>&nbsp;<spring:message

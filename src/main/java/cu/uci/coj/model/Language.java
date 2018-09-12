@@ -127,7 +127,6 @@ public class Language {
     public Language(String language, boolean active_contest, String descripcion) {
         this.language = language;
         this.active_contest = active_contest;
-        this.installed = installed;
         this.descripcion = descripcion;
     }
 

@@ -13,7 +13,7 @@
             </legend>
 
             <!-- NAME OF COUNTRY -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-4">
                         <spring:message code="page.addcountry.name"/>
@@ -32,10 +32,10 @@
                         </i>
                     </a>
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- ACRONYM OF COUNTRY -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-4">
                         <spring:message code="page.addcountry.zip"/>
@@ -54,11 +54,11 @@
                         </i>
                     </a>
                 </div>
-            </authz:authorize>
+            </div>
 
 
             <!-- TWO LETTER OF COUNTRY -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-4">
                         <spring:message code="page.addcountry.twozip"/>
@@ -77,10 +77,10 @@
                         </i>
                     </a>
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- WEB OF COUNTRY -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-4">
                         <spring:message code="page.addcountry.website"/>
@@ -99,7 +99,7 @@
                         </i>
                     </a>
                 </div>
-            </authz:authorize>
+            </div>
 
             <div class="form-actions pull-right">
                 <input class="btn btn-primary" type="submit" name="submit"

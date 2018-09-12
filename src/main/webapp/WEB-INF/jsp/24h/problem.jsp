@@ -10,7 +10,7 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="panel panel-primary text-center">
-				<authz:authorize access="!isAuthenticated()">
+				<div sec:authorize="!isAuthenticated()">
     &nbsp;<a href="status.xhtml?pid=<c:url value="${problem.pid}"/>"><spring:message
 							code="link.submissions" /></a>
 							&nbsp;&nbsp;<a
@@ -22,8 +22,8 @@
 							&nbsp;&nbsp;<a href="${problem.forumLink}"><spring:message
 								code="link.discussion" /></a>
 					</c:if>
-				</authz:authorize>
-				<authz:authorize access="!isAnonymous()">
+				</div>
+				<div sec:authorize="!isAnonymous()">
 			&nbsp;<a href="submit.xhtml?pid=<c:url value="${problem.pid}"/>"><spring:message
 							code="link.submit" /></a>
 			&nbsp;<a
@@ -35,11 +35,11 @@
 						href="bestsolutions.xhtml?pid=<c:url value="${problem.pid}"/>"><spring:message
 							code="link.bestsolutions" /></a>
 					<!--
-			<authz:authorize access="hasRole('ROLE_USER')">
+			<div sec:authorize="hasRole('ROLE_USER')">
 				&nbsp;<a
 					href="<c:url value="/datagen/datasets.xhtml?problemId=${problem.pid}&mode=modelsol"/>"><spring:message
 							code="link.datagen" /></a>
-			</authz:authorize>
+			</div>
 			-->
 					<c:if test="${problem.solved == true}">
 				&nbsp;<a href="<c:url value="votes.xhtml?pid=${problem.pid}"/>"><spring:message
@@ -52,7 +52,7 @@
 					</c:if>
 			&nbsp;<a href="/24h/translation.xhtml?pid=${problem.pid}"><spring:message
 							code="link.translation" /></a>
-				</authz:authorize>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -137,7 +137,7 @@
                                                 </td>
 					</tr>
 					<c:if test="${view_pinfo}">
-						<authz:authorize access="hasRole('ROLE_USER')">
+						<div sec:authorize="hasRole('ROLE_USER')">
 
 							<tr>
 								<td><spring:message code="fieldhdr.classif" /></td>
@@ -154,7 +154,7 @@
 									</c:forEach></td>
 							</tr>
 
-						</authz:authorize>
+						</div>
 					</c:if>
 					<tr>
 						<td><spring:message code="fieldhdr.availablein" /></td>
@@ -276,12 +276,12 @@
 					<spring:message code="problemrec.recommend" />
 				</h4>
 				<div class="ex">
-					<authz:authorize access="hasRole('ROLE_USER')">
+					<div sec:authorize="hasRole('ROLE_USER')">
 						<spring:message code="problemrec.recommend.message" />
-					</authz:authorize>
-					<authz:authorize access="isAnonymous()">
+					</div>
+					<div sec:authorize="isAnonymous()">
 						<spring:message code="problemrec.recommend.message.notlogged" />
-					</authz:authorize>
+					</div>
 					<c:forEach items="${recommend}" var="recomm" varStatus="status">
 						<c:if test="${status.count ne 1}">
 							<c:out value="  |  " />

@@ -15,7 +15,7 @@
             </div>
         </c:if>
 
-        <authz:authorize access="isAuthenticated()">
+        <div sec:authorize="isAuthenticated()">
             <form:form method="post" modelAttribute="entry">
                 <div class="form-group">
                     <label class="control-label"><fmt:message key="entry.text"/></label>
@@ -36,7 +36,7 @@
                            value="<fmt:message key="judge.register.submit.value"/>"/>
                 </div>
             </form:form>
-        </authz:authorize>
+        </div>
     </div>
 </div>
 <div class="row">
@@ -44,10 +44,10 @@
         <ul class="list-inline pull-right">
             <li><a href="javascript:displayTableReload('');"><spring:message
                     code="link.entry.user"/></a></li>
-            <authz:authorize access="isAuthenticated()">
+            <div sec:authorize="isAuthenticated()">
                 <li><a href="javascript:displayTableReload('?entries=following');"><spring:message
                         code="link.entry.fallowing"/></a></li>
-            </authz:authorize>
+            </div>
             <li><a href="javascript:displayTableReload('?entries=cojboard');"><spring:message
                     code="link.entry.cojboard"/></a></li>
         </ul>

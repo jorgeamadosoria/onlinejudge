@@ -34,13 +34,13 @@
 
     <br/>
 
-    <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+    <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
         <c:if test="${contest.running eq true}">
             <a
                     href="<c:url value="/contest/clarification.xhtml?cid=${contest.cid}"/>"><i
                     class="fa fa-pencil"></i>&nbsp;<spring:message code="link.request"/></a>
         </c:if>
-    </authz:authorize>
+    </div>
     <authz:authorize
             access="hasAnyRole('ROLE_ADMIN','ROLE_SUPER_PSETTER','ROLE_PSETTER')">
 
@@ -48,7 +48,7 @@
             <a href="<c:url value="sendclarification.xhtml?cid=${contest.cid}"/>"><i
                     class="fa fa-send"></i>&nbsp;<spring:message code="link.send"/></a>
         </c:if>
-    </authz:authorize>
+    </div>
     <div>
         <c:choose>
             <c:when test="${clarifications[0]!=null}">
@@ -107,7 +107,7 @@
                                         <i class="fa fa-reply"></i>
                                     </a>
                                 </c:if>
-                            </authz:authorize> <c:if test="${clarification.isread == false}">
+                            </div> <c:if test="${clarification.isread == false}">
                                 <a
                                         href="<c:url value="markanswered.xhtml?cid=${contest.cid}&ccid=${clarification.id}"/>"
                                         data-toggle="tooltip"

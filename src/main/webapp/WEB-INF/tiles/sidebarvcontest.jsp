@@ -8,13 +8,13 @@
 				<!-- block-content -->
 				<div>
 					<ul class="list-unstyled">
-						<authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+						<div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
 							<li><a href="<c:out value="/practice/createvc.xhtml"/>"><i
 									class="fa fa-plus-circle"></i>&nbsp;<spring:message
 										code="link.create" /></a></li>
 							<li><a href="<c:out value="/practice/mylist.xhtml"/>"><i
 									class="fa fa-list"></i>&nbsp;<spring:message code="link.mylist" /></a></li>
-						</authz:authorize>
+						</div>
 						<li><a href="<c:out value="/practice/globallist.xhtml"/>"><i
 								class="fa fa-list-alt"></i>&nbsp;<spring:message
 									code="link.globallist" /></a></li>

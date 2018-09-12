@@ -44,7 +44,7 @@
 	</display:column>
 	<display:column titleKey="tablehdr.users">
             ${course.total_users}
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
 			<c:if test="${course.ispublic == true || isadmin == true}">
 				<c:choose>
 					<c:when
@@ -56,6 +56,6 @@
 					</c:when>
 				</c:choose>
 			</c:if>
-		</authz:authorize>
+		</div>
 	</display:column>
 </display:table>

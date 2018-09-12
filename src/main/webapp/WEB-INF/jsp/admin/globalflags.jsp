@@ -20,7 +20,7 @@
             </c:if> 
 
             <!-- EMAILS NOTIFICATIONS OF FLAGS -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-6">
                         <spring:message code="page.globalflags.disabledmailnotifications" />
@@ -32,10 +32,10 @@
                         <span class="label label-danger"><form:errors path="mailNotificationDisabled" /></span>
                     </div>                    
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- ABLE EMAIL OF FLAGS -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-6">
                         <spring:message code="page.globalflags.enabledinternalmail" />
@@ -47,10 +47,10 @@
                         <span class="label label-danger"><form:errors path="enabled_mail" /></span>
                     </div>                    
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- ABLE CODE OF FLAGS -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-6">
                         <spring:message code="page.globalflags.enabledsourcecodeview" />
@@ -62,10 +62,10 @@
                         <span class="label label-danger"><form:errors path="enabled_source_code_view" /></span>
                     </div>                    
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- ABLE SEND OF FLAGS -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-6">
                         <spring:message code="page.globalflags.enabledsubmissionjudge" />
@@ -77,10 +77,10 @@
                         <span class="label label-danger"><form:errors path="enabled_submission" /></span>
                     </div>                    
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- MAINTENANCE OF FLAGS -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-6">
                         <spring:message code="tableval.maintenancemode" />
@@ -92,7 +92,7 @@
                         <span class="label label-danger"><form:errors path="maintenanceMode" /></span>
                     </div>                    
                 </div>
-            </authz:authorize>
+            </div>
 
             <div class="form-actions pull-right">
                 <input class="btn btn-primary" type="submit" name="submit"

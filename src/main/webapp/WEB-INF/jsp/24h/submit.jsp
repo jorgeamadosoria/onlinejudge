@@ -130,7 +130,7 @@
 					<span class="label label-danger"><form:errors path="key" /></span>
 				</div>
 			</div>
-			<authz:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SUPER_PSETTER','ROLE_PSETTER')">
+			<div sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_SUPER_PSETTER','ROLE_PSETTER')">
 				<div class="form-group col-xs-12">
 					<label class="control-label col-xs-3"><spring:message
 							code="fieldhdr.test" /></label>
@@ -138,7 +138,7 @@
 						<form:checkbox cssClass="checkbox" path="test" />
 					</div>
 				</div>
-			</authz:authorize>
+			</div>
                                 <div class="clearfix" > </div>
 			<div class="form-group">
 				<label class="control-label col-xs-3"> <spring:message
