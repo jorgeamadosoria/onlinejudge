@@ -9,7 +9,7 @@
                 <spring:message code="page.general.admin.header" />: <spring:message code="pagetit.manage.poll" />
             </legend>
 
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3"><spring:message
                             code="tablehdr.question" /></label>
@@ -26,9 +26,9 @@
                         </i>
                     </a>
                 </div>
-            </authz:authorize>   
+            </div>   
 
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3"><spring:message
                             code="addfaq.answer" /> 1</label>
@@ -45,7 +45,7 @@
                         </i>
                     </a>
                 </div>
-            </authz:authorize>
+            </div>
 
             <div class="form-group">
                 <label class="control-label col-xs-3"><spring:message

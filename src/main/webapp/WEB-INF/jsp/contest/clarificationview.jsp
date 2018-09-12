@@ -11,10 +11,10 @@
     <c:choose>
         <c:when test="${available == true}">
             <c:if test="${contest.running == true}">
-                <authz:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SUPER_PSETTER','ROLE_PSETTER')">
+                <div sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_SUPER_PSETTER','ROLE_PSETTER')">
                     <a href="<c:url value="sendclarification.xhtml?cid=${contest.cid}&ccid=${clarification.id}&uid=${clarification.username}&pid=${clarification.pid}"/>"><i
 										class="fa fa-mail-reply"></i>&nbsp;<spring:message code="link.reply" /></a>
-                    </authz:authorize>
+                    </div>
                 </c:if>
             <a href="<c:url value="myclarifications.xhtml?cid=${contest.cid}"/>"><i
 										class="fa fa-close"></i>&nbsp;<spring:message code="link.close"/></a>

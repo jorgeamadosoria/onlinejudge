@@ -37,7 +37,7 @@
 
 <div class="postcontent">
 
-	<authz:authorize access="hasRole('ROLE_USER')">
+	<div sec:authorize="hasRole('ROLE_USER')">
 		<c:choose>
 			<c:when test="${voted == false}">
 				<form method="post" action="voting.xhtml">
@@ -143,6 +143,6 @@
 </c:otherwise>
 </c:choose>
 
-</authz:authorize>
+</div>
 
 </div>

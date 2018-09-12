@@ -3,7 +3,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <div class="layout-cell sidebar1">
-	<authz:authorize access="isAnonymous()">
+	<div sec:authorize="isAnonymous()">
 		<div class="block">
 			<div class="panel panel-primary block-body">
 				<div class="panel-heading blockheader">
@@ -61,8 +61,8 @@
 				<div class="cleared"></div>
 			</div>
 		</div>
-	</authz:authorize>
-	<authz:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TEAM')">
+	</div>
+	<div sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_USER','ROLE_TEAM')">
 		<div class="block">
 			<div class="panel panel-primary block-body">
 				<div class="panel-heading blockheader">
@@ -74,11 +74,11 @@
 					<!-- block-content -->
 					<div>
 						<ul class="list-unstyled">
-							<authz:authorize access="hasAnyRole('ROLE_ADMIN')">
+							<div sec:authorize="hasAnyRole('ROLE_ADMIN')">
 								<li><i class="fa fa-wrench"></i><a
 										href="<c:url value="/admin/index.xhtml"/>"><spring:message
 												code="link.admin" /></a></li>
-							</authz:authorize>
+							</div>
 							<li><i class="fa fa-sign-out"></i>&nbsp;<a
 									href="<c:url value="/j_spring_logout"/>"><spring:message
 											code="link.logout" /></a></li>
@@ -90,5 +90,5 @@
 				<div class="cleared"></div>
 			</div>
 		</div>
-	</authz:authorize>
+	</div>
 </div>

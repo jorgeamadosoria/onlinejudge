@@ -16,7 +16,7 @@
             </legend>
 
             <!-- NAME OF FAQ -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="addfaq.question" />
@@ -34,10 +34,10 @@
                         <span class="label label-danger"><form:errors path="question" /></span>
                     </div>                    
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- ANSWEAR OF FAQ -->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="addfaq.answer" />
@@ -57,7 +57,7 @@
                      
                     </div>                    
                 </div>
-            </authz:authorize>
+            </div>
 
             <div class="form-actions pull-right">
                 <input class="btn btn-primary" type="submit" name="submit"

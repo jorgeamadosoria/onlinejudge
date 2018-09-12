@@ -28,7 +28,7 @@
             </c:if>
 
             <!-- NICKNAME OF USER-->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.nname"/>
@@ -47,10 +47,10 @@
                     <a><i data-toggle="tooltip" class="fa fa-info-circle"
                           title="<spring:message code="infomsg.2"/>"></i></a>
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- MODIFY NICKNAME OF USER-->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.modnickname"/>
@@ -63,10 +63,10 @@
                         <span class="label label-danger"><form:errors path="update_nick"/></span>
                     </div>
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- COUNTRY OF USER-->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.country"/>
@@ -89,10 +89,10 @@
                         <i data-toggle="tooltip" class="fa fa-info-circle"
                            title="<spring:message code="infomsg.5"/>"></i></a>
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- INSTITUTION OF USER-->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.institution"/>
@@ -125,11 +125,11 @@
                         <i data-toggle="tooltip" class="fa fa-info-circle"
                            title="<spring:message code="infomsg.6"/>"></i></a>
                 </div>
-            </authz:authorize>
+            </div>
             <input type="hidden" name="noneInstitution" value='<spring:message code="user.none.institution" />'/>
 
             <!-- LANGUAGE OF USER-->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.defaultguilang"/>
@@ -149,10 +149,10 @@
                            title="<spring:message code="mandatory.field"/>">
                         </i></a>
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- PROGRAMMING LANGUAGE OF USER-->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.defaultproglang"/>
@@ -172,10 +172,10 @@
                            title="<spring:message code="mandatory.field"/>">
                         </i></a>
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- PASSWORD OF USER-->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.npassword"/>
@@ -193,10 +193,10 @@
                           title="<spring:message code="infomsg.8"/>"></i>
                     </a>
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- CONFIRM PASSWORD OF USER-->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.cpassword"/>
@@ -213,10 +213,10 @@
                           title="<spring:message code="infomsg.8"/>"></i>
                     </a>
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- ACCESS OF USER-->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.accessrule"/>
@@ -235,10 +235,10 @@
                         </i></a>
 
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- ENABLE OF USER-->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.enabled"/>
@@ -251,10 +251,10 @@
                         <span class="label label-danger"><form:errors path="enabled"/></span>
                     </div>
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- BANNER OF USER-->
-            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.banreason"/>
@@ -269,14 +269,14 @@
                     </div>
 
                 </div>
-            </authz:authorize>
+            </div>
 
             <!-- TO ADD TEAM USER RECORDS -->
 
             <c:if test="${user.team == true}">
 
                 <!-- COUCH OF TEAM-->
-                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+                <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.tcoach"/>
@@ -290,10 +290,10 @@
                             <span class="label label-danger"><form:errors path="coach"/></span>
                         </div>
                     </div>
-                </authz:authorize>
+                </div>
 
                 <!-- 1 MEMBER OF TEAM-->
-                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+                <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.tmember"/>
@@ -307,10 +307,10 @@
                             <span class="label label-danger"><form:errors path="user_1"/></span>
                         </div>
                     </div>
-                </authz:authorize>
+                </div>
 
                 <!-- 2 MEMBER OF TEAM-->
-                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+                <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.tmember"/>
@@ -324,10 +324,10 @@
                             <span class="label label-danger"><form:errors path="user_2"/></span>
                         </div>
                     </div>
-                </authz:authorize>
+                </div>
 
                 <!-- 3 MEMBER OF TEAM-->
-                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+                <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.tmember"/>
@@ -341,14 +341,14 @@
                             <span class="label label-danger"><form:errors path="user_3"/></span>
                         </div>
                     </div>
-                </authz:authorize>
+                </div>
 
             </c:if>
 
             <c:if test="${user.team == false}">
 
                 <!-- NAME OF USER-->
-                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+                <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.fname"/>
@@ -369,10 +369,10 @@
                             <i data-toggle="tooltip" class="fa fa-info-circle"
                                title="<spring:message code="infomsg.3"/>"></i></a>
                     </div>
-                </authz:authorize>
+                </div>
 
                 <!-- LAST NAME OF USER-->
-                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+                <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.lname"/>
@@ -393,10 +393,10 @@
                             <i data-toggle="tooltip" class="fa fa-info-circle"
                                title="<spring:message code="infomsg.4"/>"></i></a>
                     </div>
-                </authz:authorize>
+                </div>
 
                 <!-- GENDER OF USER-->
-                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+                <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.gender"/>
@@ -421,10 +421,10 @@
                             </i></a>
 
                     </div>
-                </authz:authorize>
+                </div>
 
                 <!-- BIRTH DATE OF USER-->
-                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+                <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.dob"/>
@@ -455,10 +455,10 @@
                         </div>
 
                     </div>
-                </authz:authorize>
+                </div>
 
                 <!-- ENABLE BIRTH DATE OF USER-->
-                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+                <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.sdob"/>
@@ -471,10 +471,10 @@
                             <span class="label label-danger"><form:errors path="showdob"/></span>
                         </div>
                     </div>
-                </authz:authorize>
+                </div>
 
                 <!-- EMAIL OF USER-->
-                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+                <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.email"/>
@@ -495,10 +495,10 @@
                             <i data-toggle="tooltip" class="fa fa-info-circle"
                                title="<spring:message code="infomsg.7"/>"></i></a>
                     </div>
-                </authz:authorize>
+                </div>
 
                 <!-- NOTIFY CONTESTS OF USER-->
-                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+                <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.notifcontest"/>
@@ -511,10 +511,10 @@
                             <span class="label label-danger"><form:errors path="contestNotifications"/></span>
                         </div>
                     </div>
-                </authz:authorize>
+                </div>
 
                 <!-- NOTIFY PROBLEMS OF USER-->
-                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+                <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.notifproblem"/>
@@ -527,10 +527,10 @@
                             <span class="label label-danger"><form:errors path="problemNotifications"/></span>
                         </div>
                     </div>
-                </authz:authorize>
+                </div>
 
                 <!-- NOTIFY SUBMITS OF USER-->
-                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+                <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.notifsubmit"/>
@@ -543,10 +543,10 @@
                             <span class="label label-danger"><form:errors path="submissionNotifications"/></span>
                         </div>
                     </div>
-                </authz:authorize>
+                </div>
 
                 <!-- EMAIL COUTA OF USER-->
-                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+                <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.mailquota"/> (<spring:message code="fieldval.bytes"/>)
@@ -565,10 +565,10 @@
                             </i>
                         </a>
                     </div>
-                </authz:authorize>
+                </div>
 
                 <!-- ROLES OF USER-->
-                <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+                <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                     <div class="form-group">
                         <label class="control-label col-xs-3">
                             <spring:message code="fieldhdr.roles"/>
@@ -590,7 +590,7 @@
                             </i>
                         </a>
                     </div>
-                </authz:authorize>
+                </div>
 
             </c:if>
 

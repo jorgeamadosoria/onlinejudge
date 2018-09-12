@@ -18,7 +18,7 @@
 				class="shadow fa fa-circle"></i></span>
 		</display:column>
 	</c:if>
-	<authz:authorize access="!isAnonymous()">
+	<div sec:authorize="!isAnonymous()">
 		<display:column titleKey="tablehdr.solved" headerClass="headsolved">
 			<c:choose>
 				<c:when test="${problem.solved == true}">
@@ -29,7 +29,7 @@
 				</c:when>
 			</c:choose>
 		</display:column>
-	</authz:authorize>
+	</div>
 	<display:column titleKey="tablehdr.title" headerClass="headtitle">
 		<c:choose>
 			<c:when test="${problem.see == true}">
