@@ -9,7 +9,6 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import cu.uci.coj.dao.CourseDAO;
 import cu.uci.coj.dao.ProblemDAO;
 import cu.uci.coj.dao.UtilDAO;
 import cu.uci.coj.model.SubmissionJudge;
@@ -19,13 +18,11 @@ import cu.uci.coj.utils.Utils;
 public class submitValidator implements Validator {
 
     @Resource
-    private Utils utils;
+    private Utils      utils;
     @Resource
     private ProblemDAO problemDAO;
     @Resource
-    private UtilDAO utilDAO;
-    @Resource
-    private CourseDAO courseDAO;
+    private UtilDAO    utilDAO;
 
     public UtilDAO getUtilDAO() {
         return utilDAO;
@@ -55,34 +52,43 @@ public class submitValidator implements Validator {
         if (utilDAO.bool("submit.enabled")) {
             if (!errors.hasFieldErrors("pid"))
                 ValidationUtils.rejectIfEmptyOrWhitespace(errors, "pid", "errormsg.25");
-            if (errors.hasFieldErrors("pid") || (!problemDAO.exists(submit.getPid()) || !problemDAO.isEnabled(submit.getPid())) || (submit.getCourse_id() != 0 && !courseDAO.isProblemAvailableInCourse(submit.getCourse_id(), submit.getPid()))) {
+            if (errors.hasFieldErrors("pid") || (!problemDAO.exists(submit.getPid()) || !problemDAO.isEnabled(submit.getPid()))) {
                 if (!errors.hasFieldErrors("pid"))
                     errors.rejectValue("pid", "errormsg.25");
-            } else {
+            }
+            else {
                 if (problemDAO.isDisable24h(submit.getPid()) && !submit.isHaspriviligeForProblem()) {
                     errors.rejectValue("pid", "errormsg.25");
-                } else {
+                }
+                else {
                     if (!errors.hasErrors() && !problemDAO.hasLanguageAvailable(submit.getPid(), submit.getLid())) {
                         errors.rejectValue("key", "errormsg.26");
                     }
                     int problemSourceLimit = problemDAO.getSourceLimitByPid(submit.getPid(), submit.getLid());
                     if (submit.getCode().length() == 0 && submit.getUploadfile().getSize() <= 0) {
                         errors.rejectValue("code", "errormsg.27");
-                    } else if (submit.getCode().length() > problemSourceLimit || submit.getUploadfile().getSize() > problemSourceLimit) {
+                    }
+                    else if (submit.getCode().length() > problemSourceLimit
+                            || submit.getUploadfile().getSize() > problemSourceLimit) {
                         errors.rejectValue("code", "errormsg.28");
-                    } else if (submit.getCode().length() == 0 && !utils.supportExtension(submit.getUploadfile().getOriginalFilename())) {
+                    }
+                    else if (submit.getCode().length() == 0
+                            && !utils.supportExtension(submit.getUploadfile().getOriginalFilename())) {
                         errors.rejectValue("code", "errormsg.29");
-                    } else if (submit.getCode().length() == 0) {
+                    }
+                    else if (submit.getCode().length() == 0) {
                         try {
                             submit.setCode(new String(submit.getUploadfile().getBytes()));
-                        } catch (IOException e) {
+                        }
+                        catch (IOException e) {
                             e.printStackTrace();
                             errors.rejectValue("code", "Exception uploading file");
                         }
                     }
                 }
             }
-        } else {
+        }
+        else {
             errors.rejectValue("pid", "errormsg.43");
         }
 
