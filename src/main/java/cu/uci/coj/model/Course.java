@@ -8,6 +8,9 @@ import java.util.Date;
 import java.util.List;
 import org.springframework.web.multipart.MultipartFile;
 
+import cu.uci.coj.model.entities.Problem;
+import cu.uci.coj.model.entities.User;
+
 /**
  *
  * @author nenes

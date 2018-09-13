@@ -4,8 +4,9 @@
  */
 package cu.uci.coj.dao;
 
-import cu.uci.coj.model.Problem;
-import cu.uci.coj.model.UserProfile;
+import cu.uci.coj.model.entities.Problem;
+import cu.uci.coj.model.entities.UserProfile;
+
 import java.util.List;
 
 /**

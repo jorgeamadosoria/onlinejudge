@@ -3,6 +3,7 @@ package cu.uci.coj.model;
 import java.util.LinkedList;
 
 import cu.uci.coj.config.Config;
+import cu.uci.coj.model.entities.User;
 
 public class Group implements Comparable<Object>{
 

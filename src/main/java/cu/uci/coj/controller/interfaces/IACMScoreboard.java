@@ -14,10 +14,10 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.jdbc.core.RowMapper;
 
 import cu.uci.coj.controller.BaseController;
-import cu.uci.coj.model.Contest;
 import cu.uci.coj.model.Group;
-import cu.uci.coj.model.Problem;
-import cu.uci.coj.model.User;
+import cu.uci.coj.model.entities.Contest;
+import cu.uci.coj.model.entities.Problem;
+import cu.uci.coj.model.entities.User;
 
 public class IACMScoreboard extends BaseController implements RowMapper<Object> {
 

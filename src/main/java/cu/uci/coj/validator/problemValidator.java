@@ -5,7 +5,8 @@
 package cu.uci.coj.validator;
 
 import cu.uci.coj.dao.ProblemDAO;
-import cu.uci.coj.model.Problem;
+import cu.uci.coj.model.entities.Problem;
+
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

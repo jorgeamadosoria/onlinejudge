@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.context.ServletContextAware;
 
 import cu.uci.coj.dao.BaseDAO;
-import cu.uci.coj.model.Roles;
+import cu.uci.coj.model.entities.Roles;
 
 public class BaseController implements ServletContextAware, Serializable{
     

@@ -1,14 +1,14 @@
 package cu.uci.coj.dao.impl;
 
 import cu.uci.coj.dao.PollDAO;
-import cu.uci.coj.model.Poll;
+import cu.uci.coj.model.entities.Poll;
+
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import cu.uci.coj.dao.PollDAO;
-import cu.uci.coj.model.Poll;
 
 @Repository("pollDAO")
 @Transactional

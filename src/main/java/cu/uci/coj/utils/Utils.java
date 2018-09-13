@@ -39,12 +39,11 @@ import cu.uci.coj.adapters.SubmissionJudgeToSubmissionDTOAdapter;
 import cu.uci.coj.config.Config;
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.dao.SubmissionDAO;
-import cu.uci.coj.model.DatagenDataset;
 import cu.uci.coj.model.Filter;
-import cu.uci.coj.model.Language;
-import cu.uci.coj.model.ProblemComplexity;
 import cu.uci.coj.model.Stats;
 import cu.uci.coj.model.SubmissionJudge;
+import cu.uci.coj.model.entities.Language;
+import cu.uci.coj.model.entities.ProblemComplexity;
 import cu.uci.coj.utils.paging.PagingOptions;
 
 @Component
@@ -154,23 +153,6 @@ public class Utils {
         this.cojEvalImpl = cojEvalImpl;
     }
 
-    public static String generateOutput(DatagenDataset dataset) {
-        return cojEvalImpl.generateOutput(dataset);
-    }
-
-    public static String generateInput(DatagenDataset dataset) {
-        dataset.setInput(null);
-        return cojEvalImpl.generateOutput(dataset);
-    }
-
-    /*
-     * public static String generateOutput(DatagenDataset dataset,
-     * SubmissionJudge submission) { String output = null; if
-     * (StringUtils.isEmpty(dataset.getCode())) { output =
-     * cojEvalImpl.generateOutput(submission); }
-     * 
-     * return output; }
-     */
     public static String generateRandomPassword(int length) {
         String password = "";
         for (int i = 0; i < length; i++) {

@@ -3,9 +3,9 @@ package cu.uci.coj.dao;
 import cu.uci.coj.model.Authority;
 import cu.uci.coj.model.GlobalFlags;
 import cu.uci.coj.model.Group;
-import cu.uci.coj.model.Language;
 import cu.uci.coj.model.Locale;
 import cu.uci.coj.model.Rule;
+import cu.uci.coj.model.entities.Language;
 
 import java.util.List;
 

@@ -5,11 +5,10 @@
  */
 package cu.uci.coj.model.dto;
 
-import cu.uci.coj.model.DatasetVerdict;
-import cu.uci.coj.model.Verdicts;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
+
+import cu.uci.coj.model.Verdicts;
 
 /**
  *
@@ -42,7 +41,6 @@ public class VerdictDTO {
 
     protected Date evaluationDate;
 
-    private List<DatasetVerdict> datasetVerdictDTO;
 
     public int getId() {
         return id;
@@ -182,17 +180,4 @@ public class VerdictDTO {
         this.problemId = problemId;
     }
 
-    /**
-     * @return the datasetVerdictDTO
-     */
-    public List<DatasetVerdict> getDatasetVerdictDTO() {
-        return datasetVerdictDTO;
-    }
-
-    /**
-     * @param datasetVerdictDTO the datasetVerdictDTO to set
-     */
-    public void setDatasetVerdictDTO(List<DatasetVerdict> datasetVerdictDTO) {
-        this.datasetVerdictDTO = datasetVerdictDTO;
-    }
 }

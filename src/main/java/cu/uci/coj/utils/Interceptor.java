@@ -22,8 +22,8 @@ import cu.uci.coj.dao.ClarificationDAO;
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.dao.MailDAO;
 import cu.uci.coj.dao.UserDAO;
-import cu.uci.coj.model.Contest;
-import cu.uci.coj.model.Roles;
+import cu.uci.coj.model.entities.Contest;
+import cu.uci.coj.model.entities.Roles;
 
 @Component("interceptor")
 public class Interceptor implements WebRequestInterceptor {

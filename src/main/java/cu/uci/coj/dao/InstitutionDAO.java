@@ -2,7 +2,7 @@ package cu.uci.coj.dao;
 
 import java.util.List;
 
-import cu.uci.coj.model.Institution;
+import cu.uci.coj.model.entities.Institution;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;
 

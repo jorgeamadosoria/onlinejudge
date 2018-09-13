@@ -4,11 +4,11 @@ import java.util.List;
 
 import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestWrapper;
 
-import cu.uci.coj.model.Contest;
 import cu.uci.coj.model.Filter;
-import cu.uci.coj.model.Language;
-import cu.uci.coj.model.Problem;
 import cu.uci.coj.model.SubmissionJudge;
+import cu.uci.coj.model.entities.Contest;
+import cu.uci.coj.model.entities.Language;
+import cu.uci.coj.model.entities.Problem;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;
 

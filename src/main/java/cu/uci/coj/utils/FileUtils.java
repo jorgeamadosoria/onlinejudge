@@ -17,9 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import cu.uci.coj.config.Config;
 import cu.uci.coj.dao.UtilDAO;
-import cu.uci.coj.model.DatagenDataset;
-import cu.uci.coj.model.Language;
 import cu.uci.coj.model.SubmissionJudge;
+import cu.uci.coj.model.entities.Language;
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
 
@@ -49,67 +48,6 @@ public class FileUtils {
 			return name.startsWith("Datagen");
 		}
 	};
-
-	public static boolean inputGenExists(DatagenDataset dataset) {
-		File folder = new File(Config.getProperty("problems.directory") + String.valueOf(dataset.getProblemId()));
-		File[] files = folder.listFiles(inputGenFilter);
-		return (files != null && files.length == 1);
-	}
-
-	public static boolean modelSolutionExists(DatagenDataset dataset) {
-		File folder = new File(Config.getProperty("problems.directory") + String.valueOf(dataset.getProblemId()));
-		File[] files = folder.listFiles(modelSolutionFilter);
-		return (files != null && files.length == 1);
-	}
-
-	public static boolean getModelCode(DatagenDataset dataset, UtilDAO utilDAO) {
-
-		File folder = new File(Config.getProperty("problems.directory") + String.valueOf(dataset.getProblemId()));
-		File[] files = folder.listFiles(modelSolutionFilter);
-		if (files != null && files.length == 1) {
-			try {
-				StringBuilder buffer = new StringBuilder();
-				List<String> lineas = org.apache.commons.io.FileUtils.readLines(files[0]);
-
-				for (String line : lineas) {
-					buffer.append(line);
-					buffer.append("\n");
-				}
-				dataset.setCode(buffer.toString());
-				Language language = utilDAO.getLanguageByExtension(files[0].getName().substring(files[0].getName().indexOf(".") + 1));
-				dataset.setLanguage(language.getLanguage());
-				dataset.setLid(language.getLid());
-				dataset.setKey(language.getKey());
-			} catch (Exception e) {
-			}
-			return true;
-		}
-		return false;
-	}
-
-	public static boolean getInputGenCode(DatagenDataset dataset, UtilDAO utilDAO) {
-
-		File folder = new File(Config.getProperty("problems.directory") + String.valueOf(dataset.getProblemId()));
-		File[] files = folder.listFiles(inputGenFilter);
-		if (files != null && files.length == 1) {
-			try {
-				StringBuilder buffer = new StringBuilder();
-				List<String> lineas = org.apache.commons.io.FileUtils.readLines(files[0]);
-
-				for (String line : lineas) {
-					buffer.append(line);
-					buffer.append("\n");
-				}
-				dataset.setCode(buffer.toString());
-				Language lang = utilDAO.getLanguageByExtension(files[0].getName().substring(files[0].getName().indexOf(".") + 1));
-				dataset.setLanguage(lang.getLanguage());
-				dataset.setKey(lang.getKey());
-			} catch (Exception e) {
-			}
-			return true;
-		}
-		return false;
-	}
 
 	public static void deleteDirectory(File file) throws IOException {
 		org.apache.commons.io.FileUtils.deleteDirectory(file);
@@ -159,28 +97,4 @@ public class FileUtils {
 		}
 	}
 
-	public static void crearArchivoDatasets(OutputStream zipStream, List<DatagenDataset> datasets) {
-
-		// Create a buffer for reading the files
-
-		try {
-			// Create the ZIP file
-			java.util.zip.ZipOutputStream out = new java.util.zip.ZipOutputStream(zipStream);
-
-			// Compress the files
-			for (DatagenDataset dataset : datasets) {
-				String nom = dataset.getId() == null ? "data" : String.valueOf(dataset.getId());
-				out.putNextEntry(new ZipEntry(nom + ".in"));
-				out.write(dataset.getInput().getBytes());
-
-				out.putNextEntry(new ZipEntry(nom + ".out"));
-				out.write(dataset.getOutput().getBytes());
-
-				out.closeEntry();
-			}
-			out.close();
-
-		} catch (IOException e) {
-		}
-	}
 }

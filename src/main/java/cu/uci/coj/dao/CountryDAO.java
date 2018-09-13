@@ -1,6 +1,6 @@
 package cu.uci.coj.dao;
 
-import cu.uci.coj.model.Country;
+import cu.uci.coj.model.entities.Country;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;
 

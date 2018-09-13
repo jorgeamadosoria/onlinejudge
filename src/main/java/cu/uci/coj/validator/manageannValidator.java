@@ -4,10 +4,11 @@
  */
 package cu.uci.coj.validator;
 
-import cu.uci.coj.model.Announcement;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
+
+import cu.uci.coj.model.entities.Announcement;
 
 /**
  *

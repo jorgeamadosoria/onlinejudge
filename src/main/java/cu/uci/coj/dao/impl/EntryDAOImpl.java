@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import cu.uci.coj.dao.EntryDAO;
-import cu.uci.coj.model.Entry;
+import cu.uci.coj.model.entities.Entry;
 
 @Repository("EntryDAO")
 @Transactional

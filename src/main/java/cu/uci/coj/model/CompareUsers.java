@@ -6,6 +6,8 @@ package cu.uci.coj.model;
 
 import java.util.LinkedList;
 
+import cu.uci.coj.model.entities.Problem;
+
 /**
  * @version Caribbean Online Judge(COJ) v2.0
  * @author Juan Carlos Lobaina Guzman & Jorge Luis Roque Alvarez

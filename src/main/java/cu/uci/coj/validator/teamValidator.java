@@ -5,7 +5,8 @@
 package cu.uci.coj.validator;
 
 import cu.uci.coj.dao.UserDAO;
-import cu.uci.coj.model.Team;
+import cu.uci.coj.model.entities.Team;
+
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;

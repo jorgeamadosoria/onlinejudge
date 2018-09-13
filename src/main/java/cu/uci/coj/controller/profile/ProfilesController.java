@@ -3,8 +3,9 @@ package cu.uci.coj.controller.profile;
 import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.CountryDAO;
 import cu.uci.coj.dao.InstitutionDAO;
-import cu.uci.coj.model.Country;
-import cu.uci.coj.model.Institution;
+import cu.uci.coj.model.entities.Country;
+import cu.uci.coj.model.entities.Institution;
+
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;

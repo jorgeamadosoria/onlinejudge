@@ -14,10 +14,10 @@ import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.BaseDAO;
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.dao.UserDAO;
-import cu.uci.coj.model.Contest;
-import cu.uci.coj.model.Language;
 import cu.uci.coj.model.Stats;
-import cu.uci.coj.model.UserClassificationStats;
+import cu.uci.coj.model.entities.Contest;
+import cu.uci.coj.model.entities.Language;
+import cu.uci.coj.model.entities.UserClassificationStats;
 
 @Controller
 @RequestMapping(value = "/")

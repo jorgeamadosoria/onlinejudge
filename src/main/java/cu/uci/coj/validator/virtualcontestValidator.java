@@ -11,8 +11,8 @@ import org.springframework.validation.Validator;
 
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.dao.UserDAO;
-import cu.uci.coj.model.Contest;
-import cu.uci.coj.model.User;
+import cu.uci.coj.model.entities.Contest;
+import cu.uci.coj.model.entities.User;
 
 @Component
 public class virtualcontestValidator implements Validator {

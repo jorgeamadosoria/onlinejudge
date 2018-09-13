@@ -5,7 +5,7 @@
 package cu.uci.coj.validator;
 
 import cu.uci.coj.dao.UserDAO;
-import cu.uci.coj.model.User;
+import cu.uci.coj.model.entities.User;
 
 import java.util.Calendar;
 import java.util.Date;

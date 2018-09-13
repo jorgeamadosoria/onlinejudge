@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import cu.uci.coj.model.SharedFile;
-import cu.uci.coj.model.User;
+import cu.uci.coj.model.entities.User;
 import cu.uci.coj.utils.HandlerInterceptorImpl;
 import cu.uci.coj.utils.SessionsRecord;
 import cu.uci.coj.utils.paging.IPaginatedList;

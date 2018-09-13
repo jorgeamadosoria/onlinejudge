@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.PollDAO;
-import cu.uci.coj.model.Poll;
+import cu.uci.coj.model.entities.Poll;
 import cu.uci.coj.utils.paging.PagingOptions;
 import cu.uci.coj.validator.pollValidator;
 import cu.uci.coj.utils.Notification;

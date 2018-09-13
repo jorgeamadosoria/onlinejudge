@@ -12,6 +12,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import cu.uci.coj.config.Config;
+import cu.uci.coj.model.entities.Contest;
+import cu.uci.coj.model.entities.Language;
 
 public class SubmissionJudge implements Serializable {
 
@@ -80,7 +82,6 @@ public class SubmissionJudge implements Serializable {
 	private Character letter;
 
 	private List<Language> languages;
-        private List<DatasetVerdict> datasetVerdicts;
 	private int ppid;
 	private MultipartFile uploadfile;
 	private Contest contest;
@@ -712,17 +713,4 @@ public class SubmissionJudge implements Serializable {
 		}
 	}
         
-            /**
-     * @return the datasetVerdicts
-     */
-    public List<DatasetVerdict> getDatasetVerdicts() {
-        return datasetVerdicts;
-    }
-
-    /**
-     * @param datasetVerdicts the datasetVerdicts to set
-     */
-    public void setDatasetVerdicts(List<DatasetVerdict> datasetVerdicts) {
-        this.datasetVerdicts = datasetVerdicts;
-    }
 }

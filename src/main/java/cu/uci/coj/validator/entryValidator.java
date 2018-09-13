@@ -9,7 +9,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import cu.uci.coj.model.Entry;
+import cu.uci.coj.model.entities.Entry;
 
 @Component
 public class entryValidator implements Validator {

@@ -1,8 +1,9 @@
 package cu.uci.coj.utils.tabledecorator;
 
-import cu.uci.coj.model.Problem;
 import java.text.DecimalFormat;
 import org.displaytag.decorator.TableDecorator;
+
+import cu.uci.coj.model.entities.Problem;
 
 public class problemsTableDecorator extends TableDecorator{
 

@@ -1,7 +1,8 @@
 package cu.uci.coj.utils.tabledecorator;
 
-import cu.uci.coj.model.Entry;
 import org.displaytag.decorator.TableDecorator;
+
+import cu.uci.coj.model.entities.Entry;
 
 public class newsTableDecorator extends TableDecorator {
 

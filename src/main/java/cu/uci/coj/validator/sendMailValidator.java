@@ -6,7 +6,8 @@ package cu.uci.coj.validator;
 
 import cu.uci.coj.dao.MailDAO;
 import cu.uci.coj.dao.UserDAO;
-import cu.uci.coj.model.Mail;
+import cu.uci.coj.model.entities.Mail;
+
 import java.util.Iterator;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;

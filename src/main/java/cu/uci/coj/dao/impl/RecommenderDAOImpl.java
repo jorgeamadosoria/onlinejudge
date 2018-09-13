@@ -5,9 +5,10 @@
 package cu.uci.coj.dao.impl;
 
 import cu.uci.coj.dao.RecommenderDAO;
-import cu.uci.coj.model.Problem;
-import cu.uci.coj.model.ProblemClassification;
-import cu.uci.coj.model.UserProfile;
+import cu.uci.coj.model.entities.Problem;
+import cu.uci.coj.model.entities.ProblemClassification;
+import cu.uci.coj.model.entities.UserProfile;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;

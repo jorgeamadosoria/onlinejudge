@@ -5,7 +5,7 @@
 package cu.uci.coj.validator;
 
 import cu.uci.coj.dao.ContestDAO;
-import cu.uci.coj.model.Contest;
+import cu.uci.coj.model.entities.Contest;
 
 import java.util.Iterator;
 import javax.annotation.Resource;

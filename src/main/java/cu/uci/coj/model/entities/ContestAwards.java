@@ -1,4 +1,6 @@
-package cu.uci.coj.model;
+package cu.uci.coj.model.entities;
+
+import cu.uci.coj.model.BaseBean;
 
 public class ContestAwards extends BaseBean {
 

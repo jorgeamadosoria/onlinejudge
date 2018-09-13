@@ -14,7 +14,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import cu.uci.coj.dao.UserDAO;
-import cu.uci.coj.model.Roles;
+import cu.uci.coj.model.entities.Roles;
 
 public class COJAuthenticationProcessingFilter extends UsernamePasswordAuthenticationFilter {
 

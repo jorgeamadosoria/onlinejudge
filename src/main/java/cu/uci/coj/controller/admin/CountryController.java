@@ -14,7 +14,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.CountryDAO;
-import cu.uci.coj.model.Country;
+import cu.uci.coj.model.entities.Country;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;
 import cu.uci.coj.validator.countryValidator;

@@ -16,7 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.UtilDAO;
 import cu.uci.coj.model.Faq;
-import cu.uci.coj.model.Language;
+import cu.uci.coj.model.entities.Language;
 import cu.uci.coj.validator.FaqValidator;
 import cu.uci.coj.utils.Notification;
 

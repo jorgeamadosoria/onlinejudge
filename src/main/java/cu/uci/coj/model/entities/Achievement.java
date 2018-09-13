@@ -4,8 +4,9 @@
  * and open the template in the editor.
  */
 
-package cu.uci.coj.model;
+package cu.uci.coj.model.entities;
 
+import cu.uci.coj.model.BaseBean;
 import cu.uci.coj.utils.enums.AchievementType;
 
 /**

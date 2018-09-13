@@ -26,7 +26,7 @@ import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.MailDAO;
 import cu.uci.coj.dao.UserDAO;
 import cu.uci.coj.mail.MailNotificationService;
-import cu.uci.coj.model.Mail;
+import cu.uci.coj.model.entities.Mail;
 import cu.uci.coj.utils.Notification;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;

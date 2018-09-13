@@ -5,9 +5,10 @@
 
 package cu.uci.coj.utils.tabledecorator;
 
-import cu.uci.coj.model.Country;
 import java.text.DecimalFormat;
 import org.displaytag.decorator.TableDecorator;
+
+import cu.uci.coj.model.entities.Country;
 
 /**
  *

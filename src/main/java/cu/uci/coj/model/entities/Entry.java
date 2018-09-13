@@ -1,6 +1,8 @@
-package cu.uci.coj.model;
+package cu.uci.coj.model.entities;
 
 import java.util.Date;
+
+import cu.uci.coj.model.BaseBean;
 
 
 public class Entry extends BaseBean {

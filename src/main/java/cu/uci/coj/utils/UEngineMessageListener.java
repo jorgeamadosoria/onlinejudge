@@ -11,10 +11,10 @@ import cu.uci.coj.adapters.VerdictDTOToSubmissionJudgeAdapter;
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.dao.SubmissionDAO;
 import cu.uci.coj.mail.MailNotificationService;
-import cu.uci.coj.model.Contest;
 import cu.uci.coj.model.SubmissionJudge;
 import cu.uci.coj.model.Verdicts;
 import cu.uci.coj.model.dto.VerdictDTO;
+import cu.uci.coj.model.entities.Contest;
 
 @Component
 public class UEngineMessageListener implements MessageListener {

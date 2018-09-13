@@ -1,7 +1,8 @@
 package cu.uci.coj.controller;
 
 import cu.uci.coj.dao.UserDAO;
-import cu.uci.coj.model.Achievement;
+import cu.uci.coj.model.entities.Achievement;
+
 import java.security.Principal;
 import java.util.List;
 import javax.annotation.Resource;

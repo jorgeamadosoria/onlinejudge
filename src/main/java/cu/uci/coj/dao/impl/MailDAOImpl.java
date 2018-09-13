@@ -2,8 +2,8 @@
 package cu.uci.coj.dao.impl;
 
 import cu.uci.coj.dao.MailDAO;
-import cu.uci.coj.model.Clarification;
-import cu.uci.coj.model.Mail;
+import cu.uci.coj.model.entities.Clarification;
+import cu.uci.coj.model.entities.Mail;
 
 import java.util.HashMap;
 

@@ -16,9 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import cu.uci.coj.dao.ProblemDAO;
-import cu.uci.coj.model.Problem;
-import cu.uci.coj.model.Roles;
 import cu.uci.coj.model.Translation;
+import cu.uci.coj.model.entities.Problem;
+import cu.uci.coj.model.entities.Roles;
+
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**

@@ -13,8 +13,8 @@ import java.util.PriorityQueue;
 import cu.uci.coj.dao.ProblemDAO;
 import cu.uci.coj.dao.RecommenderDAO;
 import cu.uci.coj.dao.UserDAO;
-import cu.uci.coj.model.Problem;
-import cu.uci.coj.model.UserProfile;
+import cu.uci.coj.model.entities.Problem;
+import cu.uci.coj.model.entities.UserProfile;
 
 public class Recommender {
 

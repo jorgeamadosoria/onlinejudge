@@ -42,8 +42,6 @@ public class VerdictDTOToSubmissionJudgeAdapter extends SubmissionJudge {
         setAvgTimeUsed(verdict.getAverageTimeUsed() == null ? 0 : verdict.getAverageTimeUsed().intValue());
         setDate(verdict.getEvaluationDate());
 
-        setDatasetVerdicts(verdict.getDatasetVerdictDTO());
-
         //Extras
         setCid((int) verdict.getMetadata().get("Cid"));
         setLang((String) (verdict.getMetadata().get("Lang")));

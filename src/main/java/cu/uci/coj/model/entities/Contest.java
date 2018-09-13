@@ -1,4 +1,4 @@
-package cu.uci.coj.model;
+package cu.uci.coj.model.entities;
 
 import java.sql.Array;
 import java.util.ArrayList;
@@ -8,6 +8,8 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+
+import cu.uci.coj.model.Level;
 
 public class Contest {
 	

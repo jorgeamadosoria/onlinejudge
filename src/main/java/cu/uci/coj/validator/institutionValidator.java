@@ -5,7 +5,7 @@
 package cu.uci.coj.validator;
 
 import cu.uci.coj.dao.InstitutionDAO;
-import cu.uci.coj.model.Institution;
+import cu.uci.coj.model.entities.Institution;
 
 import javax.annotation.Resource;
 

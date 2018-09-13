@@ -17,9 +17,9 @@ import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.dao.ProblemDAO;
 import cu.uci.coj.dao.UserDAO;
-import cu.uci.coj.model.Contest;
-import cu.uci.coj.model.Problem;
-import cu.uci.coj.model.Roles;
+import cu.uci.coj.model.entities.Contest;
+import cu.uci.coj.model.entities.Problem;
+import cu.uci.coj.model.entities.Roles;
 import cu.uci.coj.utils.paging.PagingOptions;
 
 @Controller

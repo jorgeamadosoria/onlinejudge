@@ -36,7 +36,7 @@ import com.wordnik.swagger.annotations.ApiResponses;
 
 import cu.uci.coj.dao.UserDAO;
 import cu.uci.coj.mail.MailNotificationService;
-import cu.uci.coj.model.User;
+import cu.uci.coj.model.entities.User;
 import cu.uci.coj.restapi.templates.ApiRest;
 import cu.uci.coj.restapi.templates.InputForgotPasswordRest;
 import cu.uci.coj.restapi.templates.InputGenerateApiRest;

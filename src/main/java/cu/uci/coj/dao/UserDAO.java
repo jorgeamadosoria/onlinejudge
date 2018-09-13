@@ -3,16 +3,16 @@ package cu.uci.coj.dao;
 import java.util.List;
 import java.util.Map;
 
-import cu.uci.coj.model.Contest;
-import cu.uci.coj.model.Language;
-import cu.uci.coj.model.Problem;
-import cu.uci.coj.model.ProblemComplexity;
-import cu.uci.coj.model.ProblemRichTitle;
-import cu.uci.coj.model.Registration;
-import cu.uci.coj.model.Team;
-import cu.uci.coj.model.User;
-import cu.uci.coj.model.UserClassificationStats;
-import cu.uci.coj.model.UserProfile;
+import cu.uci.coj.model.entities.Contest;
+import cu.uci.coj.model.entities.Language;
+import cu.uci.coj.model.entities.Problem;
+import cu.uci.coj.model.entities.ProblemComplexity;
+import cu.uci.coj.model.entities.ProblemRichTitle;
+import cu.uci.coj.model.entities.Registration;
+import cu.uci.coj.model.entities.Team;
+import cu.uci.coj.model.entities.User;
+import cu.uci.coj.model.entities.UserClassificationStats;
+import cu.uci.coj.model.entities.UserProfile;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;
 

@@ -11,10 +11,10 @@ import org.springframework.stereotype.Service;
 import cu.uci.coj.board.service.WbNotificationService;
 import cu.uci.coj.dao.EntryDAO;
 import cu.uci.coj.dao.UserDAO;
-import cu.uci.coj.model.Entry;
-import cu.uci.coj.model.User;
 import cu.uci.coj.model.WbContest;
 import cu.uci.coj.model.WbSite;
+import cu.uci.coj.model.entities.Entry;
+import cu.uci.coj.model.entities.User;
 import cu.uci.coj.utils.EntryHelper;
 
 /**

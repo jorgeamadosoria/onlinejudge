@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import cu.uci.coj.dao.InstitutionDAO;
-import cu.uci.coj.model.Institution;
+import cu.uci.coj.model.entities.Institution;
 import cu.uci.coj.query.Order;
 import cu.uci.coj.query.Query;
 import cu.uci.coj.query.Where;

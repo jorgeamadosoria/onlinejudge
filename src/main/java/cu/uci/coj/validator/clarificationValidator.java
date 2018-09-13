@@ -5,7 +5,8 @@
 package cu.uci.coj.validator;
 
 import cu.uci.coj.dao.UserDAO;
-import cu.uci.coj.model.Clarification;
+import cu.uci.coj.model.entities.Clarification;
+
 import java.util.Map;
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;

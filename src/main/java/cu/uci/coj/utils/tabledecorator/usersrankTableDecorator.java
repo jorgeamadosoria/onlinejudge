@@ -1,8 +1,9 @@
 package cu.uci.coj.utils.tabledecorator;
 
-import cu.uci.coj.model.User;
 import java.text.DecimalFormat;
 import org.displaytag.decorator.TableDecorator;
+
+import cu.uci.coj.model.entities.User;
 
 public class usersrankTableDecorator extends TableDecorator{
 

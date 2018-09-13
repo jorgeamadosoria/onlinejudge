@@ -1,7 +1,8 @@
 package cu.uci.coj.dao;
 
-import cu.uci.coj.model.Clarification;
-import cu.uci.coj.model.Mail;
+import cu.uci.coj.model.entities.Clarification;
+import cu.uci.coj.model.entities.Mail;
+
 import java.util.List;
 
 /**

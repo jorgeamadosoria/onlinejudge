@@ -20,8 +20,8 @@ import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.AccountActivationDAO;
 import cu.uci.coj.dao.UserDAO;
 import cu.uci.coj.mail.MailNotificationService;
-import cu.uci.coj.model.AccountActivation;
-import cu.uci.coj.model.User;
+import cu.uci.coj.model.entities.AccountActivation;
+import cu.uci.coj.model.entities.User;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;
 

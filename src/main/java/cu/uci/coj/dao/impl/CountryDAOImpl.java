@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import cu.uci.coj.dao.CountryDAO;
-import cu.uci.coj.model.Country;
+import cu.uci.coj.model.entities.Country;
 import cu.uci.coj.query.Order;
 import cu.uci.coj.query.Query;
 import cu.uci.coj.query.Where;

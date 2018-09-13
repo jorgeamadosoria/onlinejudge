@@ -16,9 +16,9 @@ import cu.uci.coj.dao.CountryDAO;
 import cu.uci.coj.dao.InstitutionDAO;
 import cu.uci.coj.dao.ProblemDAO;
 import cu.uci.coj.dao.UserDAO;
-import cu.uci.coj.model.Country;
-import cu.uci.coj.model.Institution;
-import cu.uci.coj.model.User;
+import cu.uci.coj.model.entities.Country;
+import cu.uci.coj.model.entities.Institution;
+import cu.uci.coj.model.entities.User;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;
 

@@ -2,7 +2,7 @@ package cu.uci.coj.controller.admin;
 
 import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.BaseDAO;
-import cu.uci.coj.model.Language;
+import cu.uci.coj.model.entities.Language;
 import cu.uci.coj.utils.enums.EventType;
 import cu.uci.coj.validator.languageValidator;
 import cu.uci.coj.utils.Notification;

@@ -1,7 +1,8 @@
 package cu.uci.coj.dao;
 
-import cu.uci.coj.model.Poll;
 import java.util.List;
+
+import cu.uci.coj.model.entities.Poll;
 
 public abstract interface PollDAO
   extends BaseDAO

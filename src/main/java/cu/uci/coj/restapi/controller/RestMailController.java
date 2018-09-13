@@ -12,7 +12,7 @@ import com.wordnik.swagger.annotations.ApiResponses;
 import cu.uci.coj.dao.MailDAO;
 import cu.uci.coj.dao.UserDAO;
 import cu.uci.coj.mail.MailNotificationService;
-import cu.uci.coj.model.Mail;
+import cu.uci.coj.model.entities.Mail;
 import cu.uci.coj.restapi.templates.InputMailSend;
 import cu.uci.coj.restapi.templates.MailRest;
 import cu.uci.coj.restapi.utils.ErrorUtils;

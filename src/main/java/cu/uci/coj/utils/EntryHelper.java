@@ -13,7 +13,7 @@ import org.apache.commons.lang.math.NumberUtils;
 import org.springframework.stereotype.Component;
 
 import cu.uci.coj.dao.EntryDAO;
-import cu.uci.coj.model.Entry;
+import cu.uci.coj.model.entities.Entry;
 
 @Component("entryHelper")
 public class EntryHelper {

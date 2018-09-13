@@ -1,7 +1,8 @@
 package cu.uci.coj.controller;
 
 import cu.uci.coj.dao.PollDAO;
-import cu.uci.coj.model.Poll;
+import cu.uci.coj.model.entities.Poll;
+
 import java.security.Principal;
 import java.util.List;
 import javax.annotation.Resource;

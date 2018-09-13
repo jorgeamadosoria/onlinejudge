@@ -1,4 +1,4 @@
-package cu.uci.coj.model;
+package cu.uci.coj.model.entities;
 
 //import javax.persistence.Table;
 

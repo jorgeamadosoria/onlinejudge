@@ -5,8 +5,9 @@
 
 package cu.uci.coj.utils.tabledecorator;
 
-import cu.uci.coj.model.Institution;
-import cu.uci.coj.model.User;
+import cu.uci.coj.model.entities.Institution;
+import cu.uci.coj.model.entities.User;
+
 import java.text.DecimalFormat;
 import org.displaytag.decorator.TableDecorator;
 

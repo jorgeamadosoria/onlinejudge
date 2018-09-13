@@ -4,8 +4,9 @@
  */
 package cu.uci.coj.model;
 
-import cu.uci.coj.model.User;
 import java.util.Date;
+
+import cu.uci.coj.model.entities.User;
 
 /**
  *

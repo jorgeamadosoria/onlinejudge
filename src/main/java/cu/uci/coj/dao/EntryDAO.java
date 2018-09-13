@@ -1,6 +1,6 @@
 package cu.uci.coj.dao;
 
-import cu.uci.coj.model.Entry;
+import cu.uci.coj.model.entities.Entry;
 
 public interface EntryDAO extends BaseDAO {
 	public void addEntry(Entry entry, boolean isAdmin, String username);

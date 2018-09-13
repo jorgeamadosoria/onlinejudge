@@ -4,8 +4,8 @@
  */
 package cu.uci.coj.controller.interfaces;
 
-import cu.uci.coj.model.Problem;
 import cu.uci.coj.config.Config;
+import cu.uci.coj.model.entities.Problem;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

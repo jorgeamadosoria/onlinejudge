@@ -8,9 +8,9 @@ package cu.uci.coj.restapi.controller;
 
 import com.wordnik.swagger.annotations.ApiOperation;
 import cu.uci.coj.dao.ContestDAO;
-import cu.uci.coj.model.Contest;
 import cu.uci.coj.model.ContestStyle;
-import cu.uci.coj.model.Language;
+import cu.uci.coj.model.entities.Contest;
+import cu.uci.coj.model.entities.Language;
 import cu.uci.coj.restapi.templates.ContestDescriptionRest;
 import cu.uci.coj.restapi.templates.ContestRest;
 import cu.uci.coj.restapi.utils.ErrorUtils;

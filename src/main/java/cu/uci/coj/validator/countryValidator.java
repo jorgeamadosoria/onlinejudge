@@ -5,7 +5,7 @@
 package cu.uci.coj.validator;
 
 import cu.uci.coj.dao.CountryDAO;
-import cu.uci.coj.model.Country;
+import cu.uci.coj.model.entities.Country;
 
 import javax.annotation.Resource;
 

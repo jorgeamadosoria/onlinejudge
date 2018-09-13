@@ -7,6 +7,8 @@ package cu.uci.coj.model;
 import java.util.Date;
 import java.util.List;
 
+import cu.uci.coj.model.entities.Problem;
+
 /**
  *
  * @author nenes

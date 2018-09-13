@@ -1,7 +1,8 @@
 package cu.uci.coj.utils.tabledecorator;
 
 import org.displaytag.decorator.TableDecorator;
-import cu.uci.coj.model.Mail;
+
+import cu.uci.coj.model.entities.Mail;
 
 /**
  * Created by michael on 15/02/16.

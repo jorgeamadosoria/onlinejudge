@@ -5,10 +5,10 @@
 
 package cu.uci.coj.mail;
 
-import cu.uci.coj.model.AccountActivation;
-import cu.uci.coj.model.Mail;
 import cu.uci.coj.model.SubmissionJudge;
-import cu.uci.coj.model.User;
+import cu.uci.coj.model.entities.AccountActivation;
+import cu.uci.coj.model.entities.Mail;
+import cu.uci.coj.model.entities.User;
 
 public interface MailNotificationService extends MailService {
 	

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import cu.uci.coj.dao.AnnouncementDAO;
-import cu.uci.coj.model.Announcement;
+import cu.uci.coj.model.entities.Announcement;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;
 

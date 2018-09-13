@@ -1,7 +1,8 @@
 package cu.uci.coj.dao.impl;
 
 import cu.uci.coj.dao.ClarificationDAO;
-import cu.uci.coj.model.Clarification;
+import cu.uci.coj.model.entities.Clarification;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

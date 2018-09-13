@@ -6,8 +6,9 @@ package cu.uci.coj.validator;
 
 import cu.uci.coj.dao.UserDAO;
 import cu.uci.coj.model.IpAddress;
-import cu.uci.coj.model.Team;
-import cu.uci.coj.model.User;
+import cu.uci.coj.model.entities.Team;
+import cu.uci.coj.model.entities.User;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.validator.EmailValidator;
 import org.springframework.stereotype.Component;

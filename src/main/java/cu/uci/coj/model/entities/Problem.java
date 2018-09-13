@@ -1,4 +1,4 @@
-package cu.uci.coj.model;
+package cu.uci.coj.model.entities;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -7,6 +7,8 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
+
+import cu.uci.coj.model.Limits;
 
 public class Problem {
 

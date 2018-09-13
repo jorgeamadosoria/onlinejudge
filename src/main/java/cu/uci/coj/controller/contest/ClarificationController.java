@@ -6,9 +6,9 @@ import cu.uci.coj.dao.ClarificationDAO;
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.dao.ProblemDAO;
 import cu.uci.coj.dao.UserDAO;
-import cu.uci.coj.model.Clarification;
-import cu.uci.coj.model.Contest;
-import cu.uci.coj.model.Problem;
+import cu.uci.coj.model.entities.Clarification;
+import cu.uci.coj.model.entities.Contest;
+import cu.uci.coj.model.entities.Problem;
 import cu.uci.coj.validator.clarificationValidator;
 import cu.uci.coj.validator.sendClarificationValidator;
 

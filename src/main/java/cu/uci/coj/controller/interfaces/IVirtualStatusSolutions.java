@@ -7,8 +7,8 @@ import java.util.Date;
 import org.springframework.jdbc.core.RowMapper;
 
 import cu.uci.coj.controller.BaseController;
-import cu.uci.coj.model.Contest;
 import cu.uci.coj.model.SubmissionJudge;
+import cu.uci.coj.model.entities.Contest;
 
 public class IVirtualStatusSolutions  extends BaseController implements RowMapper<SubmissionJudge> {
 

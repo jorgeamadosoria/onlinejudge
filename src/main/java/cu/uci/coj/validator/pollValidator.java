@@ -6,7 +6,8 @@
 package cu.uci.coj.validator;
 
 import cu.uci.coj.dao.PollDAO;
-import cu.uci.coj.model.Poll;
+import cu.uci.coj.model.entities.Poll;
+
 import javax.annotation.Resource;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;

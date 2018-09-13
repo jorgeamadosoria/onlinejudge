@@ -8,9 +8,10 @@ import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.dao.ProblemDAO;
 import cu.uci.coj.dao.UserDAO;
-import cu.uci.coj.model.Contest;
-import cu.uci.coj.model.Problem;
-import cu.uci.coj.model.User;
+import cu.uci.coj.model.entities.Contest;
+import cu.uci.coj.model.entities.Problem;
+import cu.uci.coj.model.entities.User;
+
 import java.security.Principal;
 import java.util.HashMap;
 import java.util.Iterator;

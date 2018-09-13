@@ -6,6 +6,9 @@ import java.security.Principal;
 import javax.annotation.Resource;
 
 import cu.uci.coj.dao.impl.InstitutionDAOImpl;
+import cu.uci.coj.model.entities.Country;
+import cu.uci.coj.model.entities.Institution;
+
 import org.apache.commons.validator.UrlValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,8 +23,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.InstitutionDAO;
-import cu.uci.coj.model.Country;
-import cu.uci.coj.model.Institution;
 import cu.uci.coj.utils.FileUtils;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;

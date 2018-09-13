@@ -4,11 +4,12 @@
  */
 package cu.uci.coj.validator;
 
-import cu.uci.coj.model.Language;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
+
+import cu.uci.coj.model.entities.Language;
 
 @Component
 public class languageValidator implements Validator {

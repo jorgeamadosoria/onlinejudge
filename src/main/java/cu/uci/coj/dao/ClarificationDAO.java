@@ -1,7 +1,8 @@
 package cu.uci.coj.dao;
 
 import java.util.List;
-import cu.uci.coj.model.Clarification;
+
+import cu.uci.coj.model.entities.Clarification;
 
 /**
  * @version 2.0
