@@ -4,14 +4,20 @@
 package cu.uci.coj.config;
 
 import javax.annotation.Resource;
+import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.DataSourceTransactionManager;
+import org.springframework.orm.jpa.JpaTransactionManager;
+import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
+import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.zaxxer.hikari.HikariDataSource;
 
@@ -30,6 +36,8 @@ import com.zaxxer.hikari.HikariDataSource;
 		"classpath:cu/uci/coj/config/sql/recommender.properties", 
 		"classpath:cu/uci/coj/config/sql/wboard.properties",
 		"classpath:cu/uci/coj/config/sql/ws.properties" })
+@EnableJpaRepositories
+@EnableTransactionManagement
 public class DatabaseConfiguration {
 
 	@Resource
@@ -61,8 +69,27 @@ public class DatabaseConfiguration {
 		return bean;
 	}
 
-	@Bean
-	public DataSourceTransactionManager transactionManager() {
-		return new DataSourceTransactionManager(ds());
-	}
+
+	  @Bean
+	  public EntityManagerFactory entityManagerFactory() {
+
+	    HibernateJpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
+	    vendorAdapter.setGenerateDdl(true);
+
+	    LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
+	    factory.setJpaVendorAdapter(vendorAdapter);
+	    factory.setPackagesToScan("model.entities");
+	    factory.setDataSource(ds());
+	    factory.afterPropertiesSet();
+
+	    return factory.getObject();
+	  }
+
+	  @Bean
+	  public PlatformTransactionManager transactionManager() {
+
+	    JpaTransactionManager txManager = new JpaTransactionManager();
+	    txManager.setEntityManagerFactory(entityManagerFactory());
+	    return txManager;
+	  }
 }
