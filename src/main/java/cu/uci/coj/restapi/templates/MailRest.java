@@ -5,12 +5,12 @@
  */
 package cu.uci.coj.restapi.templates;
 
+import java.util.Date;
+import java.util.List;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.wordnik.swagger.annotations.ApiModel;
 import com.wordnik.swagger.annotations.ApiModelProperty;
-import java.util.Date;
-import java.util.List;
-import org.junit.Ignore;
 
 /**
  *

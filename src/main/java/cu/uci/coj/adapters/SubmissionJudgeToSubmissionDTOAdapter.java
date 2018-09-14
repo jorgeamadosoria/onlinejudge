@@ -5,8 +5,9 @@
  */
 package cu.uci.coj.adapters;
 
-import cu.uci.coj.model.SubmissionJudge;
 import cu.uci.coj.model.dto.SubmissionDTO;
+import cu.uci.coj.model.entities.SubmissionJudge;
+
 import java.util.HashMap;
 
 /**

@@ -1,9 +1,7 @@
-package cu.uci.coj.model;
+package cu.uci.coj.model.entities;
 
 import java.util.Date;
 import java.util.List;
-
-import cu.uci.coj.model.entities.Language;
 
 public class Filter {
 

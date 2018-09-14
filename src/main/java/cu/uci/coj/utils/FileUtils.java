@@ -17,8 +17,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import cu.uci.coj.config.Config;
 import cu.uci.coj.dao.UtilDAO;
-import cu.uci.coj.model.SubmissionJudge;
 import cu.uci.coj.model.entities.Language;
+import cu.uci.coj.model.entities.SubmissionJudge;
 import net.lingala.zip4j.core.ZipFile;
 import net.lingala.zip4j.exception.ZipException;
 

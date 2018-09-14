@@ -63,7 +63,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 
 	public void UpdateUser(int id, String pass, int country, int institution,
 			boolean enabled, String nick, int locale, Registration registration) {
-		dml.update("users", Where.eq("uid", id), DmlPart
+		update("users", Where.eq("uid", id), DmlPart
 				.check("password", pass), DmlPart.check("access_rule",
 				registration.getAccess_rule()), DmlPart.check("country_id",
 				country), DmlPart.check("nick", nick), DmlPart.check("locale",
@@ -80,7 +80,7 @@ public class UserDAOImpl extends BaseDAOImpl implements UserDAO {
 	}
 
 	public void UpdateUserProfile(Registration registration, int uid) {
-		dml.update("user_profile", Where.eq("uid", uid), DmlPart.check(
+		update("user_profile", Where.eq("uid", uid), DmlPart.check(
 				"fullname", registration.getName()), DmlPart.check("fullname",
 				registration.getName()), DmlPart.check("lastname",
 				registration.getLastname()), DmlPart.check("fullname",

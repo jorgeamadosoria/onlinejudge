@@ -10,7 +10,7 @@ import org.springframework.validation.Validator;
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.dao.ProblemDAO;
 import cu.uci.coj.dao.UserDAO;
-import cu.uci.coj.model.SubmissionJudge;
+import cu.uci.coj.model.entities.SubmissionJudge;
 import cu.uci.coj.utils.Utils;
 
 @Component

@@ -4,18 +4,18 @@
  */
 package cu.uci.coj.dao.impl;
 
-import cu.uci.coj.dao.RecommenderDAO;
-import cu.uci.coj.model.entities.Problem;
-import cu.uci.coj.model.entities.ProblemClassification;
-import cu.uci.coj.model.entities.UserProfile;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
+
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import cu.uci.coj.dao.RecommenderDAO;
+import cu.uci.coj.model.entities.Problem;
+import cu.uci.coj.model.entities.ProblemClassification;
+import cu.uci.coj.model.entities.UserProfile;
 
 /**
  *

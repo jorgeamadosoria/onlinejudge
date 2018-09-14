@@ -35,6 +35,55 @@ public class WbContestDAOImpl extends BaseDAOImpl implements WbContestDAO {
 	WbSiteDAO wbSiteDAO;
 
 	@Override
+	@Transactional(readOnly = true)
+	public List<WbSite> getListSitesWithContestsScheduleChangedNotification() {
+		List<WbSite> sites = wbSiteDAO.getSiteList();
+		List<WbSite> res = new ArrayList<WbSite>();
+		boolean exist = false;
+		
+		if(sites != null) {
+			for(int i = 0;i<sites.size();i++) {
+				List<WbContest> contests = getContestsWithScheduleChangeNotificationBySite(sites.get(i).getSid());
+				sites.get(i).setContests(contests);
+				if(contests.size() != 0) {
+					exist = true;
+					res.add(sites.get(i));
+				}
+			}
+		}
+
+		if (!exist) {
+			return null;
+		}
+
+		return res;
+	}
+	
+	@Override
+	@Transactional(readOnly=true)
+	public List<WbSite> getListSitesWithContestsNewContestNotification() {
+		List<WbSite> sites = wbSiteDAO.getSiteList();
+		List<WbSite> result = new ArrayList<WbSite>();
+		boolean exist = false;		
+		if(sites != null) {
+			for(int i = 0;i<sites.size();i++) {
+				List<WbContest> contests =  getContestsWithNewContestNotificationBySite(sites.get(i).getSid());
+				sites.get(i).setContests(contests);			
+				if(contests.size() != 0) {
+					exist = true;
+					result.add(sites.get(i));
+				}
+			}
+		}
+
+		if (!exist) {
+			return null;
+		}
+
+		return result;
+	}
+	
+	@Override
 	@Transactional(readOnly=true)
 	public WbContest getContestById(Integer id) {
 		return object("wbcontest.by.id", WbContest.class, id);

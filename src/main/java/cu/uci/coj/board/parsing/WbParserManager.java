@@ -78,8 +78,8 @@ public class WbParserManager {
 			wbSiteDAO.dml("insert.log", "Sending COJboard notifications", "No user");
 			
 			
-			List<WbSite> newcontestNotificationSites = wbSiteDAO.getListSitesWithContestsNewContestNotification();
-			List<WbSite> changedNotificationSites = wbSiteDAO.getListSitesWithContestsScheduleChangedNotification();		
+			List<WbSite> newcontestNotificationSites = wbContestDAO.getListSitesWithContestsNewContestNotification();
+			List<WbSite> changedNotificationSites = wbContestDAO.getListSitesWithContestsScheduleChangedNotification();		
 			
 			List<WbContest> nearContestNotification = wbContestDAO.getNearContestsNotification();
 

@@ -4,13 +4,13 @@ import java.util.List;
 import java.util.Map;
 
 import cu.uci.coj.controller.interfaces.IACMScoreboard;
-import cu.uci.coj.model.ContestStyle;
-import cu.uci.coj.model.SubmissionJudge;
-import cu.uci.coj.model.VirtualContest;
 import cu.uci.coj.model.entities.Contest;
+import cu.uci.coj.model.entities.ContestStyle;
 import cu.uci.coj.model.entities.Language;
 import cu.uci.coj.model.entities.Problem;
+import cu.uci.coj.model.entities.SubmissionJudge;
 import cu.uci.coj.model.entities.User;
+import cu.uci.coj.model.entities.VirtualContest;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;
 

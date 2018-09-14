@@ -10,8 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cu.uci.coj.dao.AchievementDAO;
 import cu.uci.coj.mail.MailNotificationService;
-import cu.uci.coj.model.Rejudge;
-import cu.uci.coj.model.SubmissionJudge;
+import cu.uci.coj.model.entities.SubmissionJudge;
 import cu.uci.coj.utils.enums.AchievementType;
 
 @Repository("achievementDAO")

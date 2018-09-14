@@ -74,7 +74,7 @@ public class RestScoreboardsController{
         if(found>400)
             found = 400;
      
-        List<User> listUsers = new LinkedList();   
+        List<User> listUsers = new LinkedList<>();   
         
         for(int i=1;i<=end(found);i++){
             PagingOptions options = new PagingOptions(i);            
@@ -82,7 +82,7 @@ public class RestScoreboardsController{
             listUsers.addAll(pages.getList());
         }        
             
-        List<UserRest> listUsersRest = new LinkedList();
+        List<UserRest> listUsersRest = new LinkedList<>();
         
         for(User u:listUsers){
             UserRest ur = new UserRest(u.getRank(), u.getCountry(), u.getCountry_desc(), u.getUsername(), u.getStatus(),u.getTotal(), u.getAccu(),u.getPercent(),u.getPoints());
@@ -108,7 +108,7 @@ public class RestScoreboardsController{
         if(found>400)
             found = 400;
      
-        List<Institution> listInstitution = new LinkedList();   
+        List<Institution> listInstitution = new LinkedList<>();   
         
         for(int i=1;i<=end(found);i++){
             PagingOptions options = new PagingOptions(i);            
@@ -116,7 +116,7 @@ public class RestScoreboardsController{
             listInstitution.addAll(pages.getList());
         }        
             
-        List<InstitutionRest> listInstitucionRest = new LinkedList();
+        List<InstitutionRest> listInstitucionRest = new LinkedList<>();
 
         for(Institution i:listInstitution){
             InstitutionRest ir = new InstitutionRest(i.getId(),i.getRank(), i.getCzip() ,i.getCname(),i.getName(), i.getUsers(), i.getAcc(),i.getPoints());
@@ -140,7 +140,7 @@ public class RestScoreboardsController{
         if(found>400)
             found = 400;
      
-        List<Country> listCountry = new LinkedList();   
+        List<Country> listCountry = new LinkedList<>();   
         
         for(int i=1;i<=end(found);i++){
             PagingOptions options = new PagingOptions(i);            
@@ -148,7 +148,7 @@ public class RestScoreboardsController{
             listCountry.addAll(pages.getList());
         }        
             
-        List<CountryRest> listCountryRest = new LinkedList();
+        List<CountryRest> listCountryRest = new LinkedList<>();
 
         for(Country c:listCountry){
             CountryRest cr = new CountryRest(c.getId(),c.getRank(), c.getZip(), c.getName(),c.getInstitutions(),c.getUsers(), c.getAcc(), c.getPoints());
@@ -176,7 +176,7 @@ public class RestScoreboardsController{
         if(found>400)
             found = 400;
      
-        List<Institution> listInstitution = new LinkedList();   
+        List<Institution> listInstitution = new LinkedList<>();   
         
         for(int i=1;i<=end(found);i++){
             PagingOptions options = new PagingOptions(i);            
@@ -184,7 +184,7 @@ public class RestScoreboardsController{
             listInstitution.addAll(pages.getList());
         }        
             
-        List<InstitutionRest> listInstitucionRest = new LinkedList();
+        List<InstitutionRest> listInstitucionRest = new LinkedList<>();
 
         for(Institution i:listInstitution){
             InstitutionRest ir = new InstitutionRest(i.getId(),i.getRank(), i.getCzip(), i.getCname(),i.getName(), i.getUsers(), i.getAcc(),i.getPoints());
@@ -213,7 +213,7 @@ public class RestScoreboardsController{
         if(found>400)
             found = 400;
 
-        List<User> listUsers = new LinkedList();   
+        List<User> listUsers = new LinkedList<>();   
         
         for(int i=1;i<=end(found);i++){
             PagingOptions options = new PagingOptions(i);            
@@ -221,7 +221,7 @@ public class RestScoreboardsController{
             listUsers.addAll(pages.getList());
         }        
 
-        List<UserRest> listUsersRest = new LinkedList();
+        List<UserRest> listUsersRest = new LinkedList<>();
         
         for(User u:listUsers){
             UserRest ur = new UserRest(u.getRank(), u.getCountry(), u.getCountry_desc(), u.getUsername(), u.getStatus(),u.getTotal(), u.getAccu(),u.getPercent(),u.getPoints());
@@ -250,7 +250,7 @@ public class RestScoreboardsController{
         if(found>400)
             found = 400;
 
-        List<User> listUsers = new LinkedList();   
+        List<User> listUsers = new LinkedList<>();   
         
         for(int i=1;i<=end(found);i++){
             PagingOptions options = new PagingOptions(i);            
@@ -258,7 +258,7 @@ public class RestScoreboardsController{
             listUsers.addAll(pages.getList());
         }        
 
-        List<UserRest> listUsersRest = new LinkedList();
+        List<UserRest> listUsersRest = new LinkedList<>();
         
         for(User u:listUsers){
             UserRest ur = new UserRest(u.getRank(), u.getCountry(), u.getCountry_desc(), u.getUsername(), u.getStatus(),u.getTotal(), u.getAccu(),u.getPercent(),u.getPoints());
@@ -283,7 +283,7 @@ public class RestScoreboardsController{
         if(found>400)
             found = 400;
      
-        List<User> listUsers = new LinkedList();   
+        List<User> listUsers = new LinkedList<>();   
         
         for(int i=1;i<=end(found);i++){
             PagingOptions options = new PagingOptions(i);            
@@ -291,7 +291,7 @@ public class RestScoreboardsController{
             listUsers.addAll(pages.getList());
         }        
             
-        List<UserRest> listUsersRest = new LinkedList();
+        List<UserRest> listUsersRest = new LinkedList<>();
         
         for(User u:listUsers){
             UserRest ur = new UserRest(u.getRank(), u.getCountry(), u.getCountry_desc(), u.getUsername(), u.getStatus(),u.getTotal(), u.getAccu(),u.getPercent(),u.getPoints());
@@ -364,7 +364,7 @@ public class RestScoreboardsController{
             PagingOptions options = new PagingOptions(page);            
             IPaginatedList<User> pages = userDAO.getUserRanking("", found, false, uid, options);
             
-            List<UserRest> listUsersRest = new LinkedList();
+            List<UserRest> listUsersRest = new LinkedList<>();
             for(User u:pages.getList()){
                 UserRest ur = new UserRest(u.getRank(), u.getCountry(),  u.getCountry_desc(), u.getUsername(), u.getStatus(),u.getTotal(), u.getAccu(),u.getPercent(),u.getPoints());
                 listUsersRest.add(ur);
@@ -392,7 +392,7 @@ public class RestScoreboardsController{
             PagingOptions options = new PagingOptions(page);            
             IPaginatedList<Institution> pages = institutionDAO.getEnabledInstitutions("", found, options);
             
-            List<InstitutionRest> listInstitucionRest = new LinkedList();
+            List<InstitutionRest> listInstitucionRest = new LinkedList<>();
             for(Institution i:pages.getList()){
                 InstitutionRest ir = new InstitutionRest(i.getId(),i.getRank(), i.getCzip(), i.getCname(),i.getName(), i.getUsers(), i.getAcc(),i.getPoints());
                 listInstitucionRest.add(ir);
@@ -420,7 +420,7 @@ public class RestScoreboardsController{
             PagingOptions options = new PagingOptions(page);            
             IPaginatedList<Country> pages = countryDAO.getEnabledCountries("", found, options);
             
-            List<CountryRest> listCountryRest = new LinkedList();
+            List<CountryRest> listCountryRest = new LinkedList<>();
             for(Country c:pages.getList()){
                 CountryRest cr = new CountryRest(c.getId(),c.getRank(), c.getZip(), c.getName(),c.getInstitutions(),c.getUsers(), c.getAcc(), c.getPoints());
                 listCountryRest.add(cr);
@@ -446,7 +446,7 @@ public class RestScoreboardsController{
             PagingOptions options = new PagingOptions(page);            
             IPaginatedList<User> pages = contestDAO.getContestGeneralScoreboard(found, "", options);
             
-            List<UserRest> listUsersRest = new LinkedList();        
+            List<UserRest> listUsersRest = new LinkedList<>();        
             for(User u:pages.getList()){
                 UserRest ur = new UserRest(u.getRank(), u.getCountry(), u.getCountry_desc(), u.getUsername(), u.getStatus(),u.getTotal(), u.getAccu(),u.getPercent(),u.getPoints());
                 listUsersRest.add(ur);

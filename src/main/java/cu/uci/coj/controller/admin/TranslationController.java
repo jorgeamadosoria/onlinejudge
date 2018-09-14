@@ -21,7 +21,7 @@ import cu.uci.coj.utils.Notification;
 
 import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.ProblemDAO;
-import cu.uci.coj.model.Translation;
+import cu.uci.coj.model.entities.Translation;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;
 import org.springframework.web.servlet.view.RedirectView;

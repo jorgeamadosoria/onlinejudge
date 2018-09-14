@@ -8,8 +8,6 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import cu.uci.coj.model.Limits;
-
 public class Problem {
 
 	private String forumLink;

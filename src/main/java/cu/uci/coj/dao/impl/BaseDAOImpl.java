@@ -1,5 +1,6 @@
 package cu.uci.coj.dao.impl;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang.StringUtils;
 import org.displaytag.properties.SortOrderEnum;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -16,7 +18,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import cu.uci.coj.config.Config;
 import cu.uci.coj.dao.BaseDAO;
-import cu.uci.coj.query.PostgresDml;
+import cu.uci.coj.query.DmlPart;
+import cu.uci.coj.query.Where;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PaginatedListImpl;
 import cu.uci.coj.utils.paging.PagingOptions;
@@ -30,11 +33,59 @@ public class BaseDAOImpl implements BaseDAO {
 	@Resource
 	protected Config config;
 
-	@Resource
-	protected PostgresDml dml;
-
 	public void log(String message, String user) {
 		dml("insert.log", message, user);
+	}
+
+	public String delete(String table, Where... parameters) {
+
+		if (StringUtils.isEmpty(table))
+			return null;
+		String dml = "delete from " + table + " where ";
+		if (!ArrayUtils.isEmpty(parameters))
+			for (Where parameter : parameters)
+				dml += parameter.toString();
+		return dml;
+	}
+
+	public int insert(String table, DmlPart... attributes) {
+
+		if (StringUtils.isEmpty(table) || ArrayUtils.isEmpty(attributes))
+			return 0;
+		List<Object> args = new ArrayList<>();
+		String dml = "insert into " + table + " (";
+		String values = ") values (";
+		for (DmlPart attribute : attributes) {
+			if (attribute != null) {
+				dml += attribute.getName() + ",";
+				values += "?,";
+				args.add(attribute.getValue());
+			}
+		}
+		dml = dml.substring(0, dml.length() - 1);
+		values = values.substring(0, values.length() - 1);
+		dml += values;
+		dml += ")";
+		return dml(dml, args);
+	}
+
+	public int update(String table, Where parameter, DmlPart... attributes) {
+		if (StringUtils.isEmpty(table) || ArrayUtils.isEmpty(attributes))
+			return 0;
+
+		List<Object> args = new ArrayList<>();
+		String dml = "update " + table + " set ";
+		for (DmlPart attribute : attributes) {
+			if (attribute != null) {
+				dml += attribute.toString() + ",";
+				args.add(attribute.getValue());
+			}
+		}
+		dml = dml.substring(0, dml.length() - 1);
+		dml += " where ";
+		dml += parameter.toString();
+		args.addAll(parameter.getValues());
+		return dml(dml, args);
 	}
 
 	private <T> IPaginatedList<T> getPaginatedList(String direction, String sort, Integer page) {
@@ -105,7 +156,7 @@ public class BaseDAOImpl implements BaseDAO {
 	@Transactional(readOnly = true)
 	public Integer integer(String sqlKey, Object... args) {
 		try {
-			return jdbcTemplate.queryForObject(getSql(sqlKey), Integer.class,args);
+			return jdbcTemplate.queryForObject(getSql(sqlKey), Integer.class, args);
 		} catch (Exception e) {
 			return null;
 		}
@@ -114,7 +165,7 @@ public class BaseDAOImpl implements BaseDAO {
 	@Transactional(readOnly = true)
 	public Integer integer(Integer defaultValue, String sqlKey, Object... args) {
 		try {
-			Integer res = jdbcTemplate.queryForObject(getSql(sqlKey), Integer.class,args);
+			Integer res = jdbcTemplate.queryForObject(getSql(sqlKey), Integer.class, args);
 
 			return res == null ? defaultValue : res;
 		} catch (Exception e) {

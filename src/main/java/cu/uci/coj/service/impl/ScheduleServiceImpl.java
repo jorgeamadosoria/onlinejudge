@@ -13,7 +13,7 @@ import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.dao.ProblemDAO;
 import cu.uci.coj.dao.UserDAO;
 import cu.uci.coj.mail.MailNotificationService;
-import cu.uci.coj.model.SubmissionJudge;
+import cu.uci.coj.model.entities.SubmissionJudge;
 import cu.uci.coj.service.CorrectionDAO;
 import cu.uci.coj.service.ScheduleService;
 

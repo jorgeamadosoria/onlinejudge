@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package cu.uci.coj.model;
+package cu.uci.coj.model.entities;
 
 /**
  * @version Caribbean Online Judge(COJ) v2.0

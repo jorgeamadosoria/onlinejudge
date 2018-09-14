@@ -33,9 +33,8 @@ public interface WbSiteDAO extends BaseDAO {
 	
 	boolean getIfFollow(Integer uid, Integer sid);
 	
-	List<WbSite> getListSitesWithContestsNewContestNotification();
 	
-	List<WbSite> getListSitesWithContestsScheduleChangedNotification();
+	
 	
 	int insertSite(WbSite site);
 	

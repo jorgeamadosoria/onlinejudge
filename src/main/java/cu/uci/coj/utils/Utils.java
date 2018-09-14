@@ -39,11 +39,11 @@ import cu.uci.coj.adapters.SubmissionJudgeToSubmissionDTOAdapter;
 import cu.uci.coj.config.Config;
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.dao.SubmissionDAO;
-import cu.uci.coj.model.Filter;
 import cu.uci.coj.model.Stats;
-import cu.uci.coj.model.SubmissionJudge;
+import cu.uci.coj.model.entities.Filter;
 import cu.uci.coj.model.entities.Language;
 import cu.uci.coj.model.entities.ProblemComplexity;
+import cu.uci.coj.model.entities.SubmissionJudge;
 import cu.uci.coj.utils.paging.PagingOptions;
 
 @Component

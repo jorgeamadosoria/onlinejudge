@@ -1,10 +1,11 @@
 package cu.uci.coj.utils;
 
 import cu.uci.coj.config.Config;
-import cu.uci.coj.model.Rejudge;
 import cu.uci.coj.model.Repoint;
 import cu.uci.coj.model.RepointUser;
-import cu.uci.coj.model.SubmissionJudge;
+import cu.uci.coj.model.entities.Rejudge;
+import cu.uci.coj.model.entities.SubmissionJudge;
+
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;

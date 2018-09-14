@@ -3,15 +3,11 @@ package cu.uci.coj.board.dao.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.annotation.Resource;
-
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import cu.uci.coj.board.dao.WbContestDAO;
 import cu.uci.coj.board.dao.WbSiteDAO;
 import cu.uci.coj.dao.impl.BaseDAOImpl;
-import cu.uci.coj.model.WbContest;
 import cu.uci.coj.model.WbSite;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;
@@ -24,9 +20,6 @@ import cu.uci.coj.utils.paging.PagingOptions;
 @Repository("wbSiteDAO")
 @Transactional
 public class WbSiteDAOImpl extends BaseDAOImpl implements WbSiteDAO {
-
-	@Resource
-	WbContestDAO wbContestDAO;
 
 	@Override
 	@Transactional(readOnly = true)
@@ -89,54 +82,6 @@ public class WbSiteDAOImpl extends BaseDAOImpl implements WbSiteDAO {
 		}
 	}
 
-	@Override
-	@Transactional(readOnly=true)
-	public List<WbSite> getListSitesWithContestsNewContestNotification() {
-		List<WbSite> sites = getSiteList();
-		List<WbSite> result = new ArrayList<WbSite>();
-		boolean exist = false;		
-		if(sites != null) {
-			for(int i = 0;i<sites.size();i++) {
-				List<WbContest> contests =  wbContestDAO.getContestsWithNewContestNotificationBySite(sites.get(i).getSid());
-				sites.get(i).setContests(contests);			
-				if(contests.size() != 0) {
-					exist = true;
-					result.add(sites.get(i));
-				}
-			}
-		}
-
-		if (!exist) {
-			return null;
-		}
-
-		return result;
-	}
-
-	@Override
-	@Transactional(readOnly = true)
-	public List<WbSite> getListSitesWithContestsScheduleChangedNotification() {
-		List<WbSite> sites = getSiteList();
-		List<WbSite> res = new ArrayList<WbSite>();
-		boolean exist = false;
-		
-		if(sites != null) {
-			for(int i = 0;i<sites.size();i++) {
-				List<WbContest> contests = wbContestDAO.getContestsWithScheduleChangeNotificationBySite(sites.get(i).getSid());
-				sites.get(i).setContests(contests);
-				if(contests.size() != 0) {
-					exist = true;
-					res.add(sites.get(i));
-				}
-			}
-		}
-
-		if (!exist) {
-			return null;
-		}
-
-		return res;
-	}
 
 	@Override
 	public int insertSite(WbSite site) {
