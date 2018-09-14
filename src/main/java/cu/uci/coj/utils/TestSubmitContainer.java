@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Component;
 
-import cu.uci.coj.model.entities.SubmissionJudge;
+import cu.uci.coj.model.SubmissionJudge;
 
 @Component(value="testSubmit")
 public class TestSubmitContainer {

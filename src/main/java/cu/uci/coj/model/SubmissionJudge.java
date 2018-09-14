@@ -1,4 +1,4 @@
-package cu.uci.coj.model.entities;
+package cu.uci.coj.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -12,7 +12,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import cu.uci.coj.config.Config;
-import cu.uci.coj.model.Verdicts;
+import cu.uci.coj.model.entities.Contest;
+import cu.uci.coj.model.entities.Language;
 
 public class SubmissionJudge implements Serializable {
 

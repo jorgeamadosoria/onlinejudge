@@ -269,33 +269,6 @@
 			</div>
 		</div>
 	</div>
-	<c:if test="${hasRecommend}">
-		<div class="row">
-			<div class="col-xs-12">
-				<h4 class="text-primary">
-					<spring:message code="problemrec.recommend" />
-				</h4>
-				<div class="ex">
-					<div sec:authorize="hasRole('ROLE_USER')">
-						<spring:message code="problemrec.recommend.message" />
-					</div>
-					<div sec:authorize="isAnonymous()">
-						<spring:message code="problemrec.recommend.message.notlogged" />
-					</div>
-					<c:forEach items="${recommend}" var="recomm" varStatus="status">
-						<c:if test="${status.count ne 1}">
-							<c:out value="  |  " />
-						</c:if>
-						<a href="problem.xhtml?pid=<c:url value="${recomm.pid}"/>"><c:out
-								value="${recomm.pid}" /></a>
-					</c:forEach>
-				</div>
-				<div class="coj_float_rigth">
-					<a href="/24h/problems.xhtml" class="btn btn-primary"><spring:message code="button.close" /></a>
-				</div>
-			</div>
-		</div>
-	</c:if>
 </div>
 
 <script>

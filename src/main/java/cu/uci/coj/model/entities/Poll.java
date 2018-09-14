@@ -1,9 +1,15 @@
 package cu.uci.coj.model.entities;
 
 import java.text.DecimalFormat;
-import java.text.NumberFormat;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+@Entity
 public class Poll {
+    @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
 	private Integer pid;
 	private String question;
 	private String answer1;

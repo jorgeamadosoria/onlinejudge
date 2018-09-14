@@ -6,14 +6,12 @@
 
 package cu.uci.coj.model.entities;
 
-import cu.uci.coj.model.BaseBean;
+import javax.persistence.Entity;
+
 import cu.uci.coj.utils.enums.AchievementType;
 
-/**
- *
- * @author jasoria
- */
-public class Achievement extends BaseBean{
+@Entity
+public class Achievement extends BaseEntity{
     
 	
     private String legend;

@@ -2,10 +2,10 @@ package cu.uci.coj.model.entities;
 
 import java.util.Date;
 
-import cu.uci.coj.model.BaseBean;
+import javax.persistence.Entity;
 
-
-public class Entry extends BaseBean {
+@Entity
+public class Entry extends BaseEntity {
 
     private int rate;
     private String text;
@@ -18,28 +18,18 @@ public class Entry extends BaseBean {
     private boolean forward;
     private boolean hasLinks;
     private boolean hasUsers;
-    
-    
   
     public boolean isReply() {
 		return reply;
 	}
 
-
-
-
 	public void setReply(boolean reply) {
 		this.reply = reply;
 	}
 
-
-
-
 	public boolean isForward() {
 		return forward;
 	}
-
-
 
 
 	public void setForward(boolean forward) {

@@ -5,11 +5,12 @@
  */
 package cu.uci.coj.model.entities;
 
-/**
- *
- * @author lan
- */
-public class Limits {
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="problem_limits")
+public class Limits extends BaseEntity{
 
     private long maxCaseExecutionTime;
     private long maxTotalExecutionTime;

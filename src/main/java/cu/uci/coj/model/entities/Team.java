@@ -1,9 +1,19 @@
 package cu.uci.coj.model.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import org.springframework.web.multipart.MultipartFile;
 
+@Entity
+@Deprecated
+//This is an special kind of user. While a good idea, it is a non essential addition and thus liable to elimination
 public class Team {
 
+    @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private int uid;
     private String username;
     private String password;

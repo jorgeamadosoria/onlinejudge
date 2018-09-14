@@ -1,8 +1,9 @@
 package cu.uci.coj.model.entities;
 
-import cu.uci.coj.model.BaseBean;
+import javax.persistence.Entity;
 
-public class ContestAwards extends BaseBean {
+@Entity
+public class ContestAwards extends BaseEntity {
 
     private Integer uid;
     private String username;

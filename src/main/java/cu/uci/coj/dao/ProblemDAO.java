@@ -1,10 +1,10 @@
 package cu.uci.coj.dao;
 
+import cu.uci.coj.model.ProblemClassification;
 import cu.uci.coj.model.entities.Contest;
 import cu.uci.coj.model.entities.Language;
 import cu.uci.coj.model.entities.Limits;
 import cu.uci.coj.model.entities.Problem;
-import cu.uci.coj.model.entities.ProblemClassification;
 import cu.uci.coj.model.entities.ProblemSource;
 import cu.uci.coj.model.entities.Translation;
 import cu.uci.coj.model.entities.UserProfile;

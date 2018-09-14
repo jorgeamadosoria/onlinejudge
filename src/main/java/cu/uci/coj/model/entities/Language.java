@@ -4,13 +4,17 @@
  */
 package cu.uci.coj.model.entities;
 
-/**
- * @version Caribbean Online Judge(COJ) v2.0
- * @see http://coj.uci.cu
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Language {
-
+    
+    @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    private int lid;
     private String language;
     private String name_bin;
     private boolean active_contest;
@@ -43,7 +47,6 @@ public class Language {
     private float uq_percent;
     private float ivf_percent;
     private int total;
-    private int lid;
     private String even;
 
     public Language() {

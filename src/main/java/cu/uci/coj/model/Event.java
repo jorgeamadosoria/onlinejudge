@@ -5,13 +5,14 @@
 
 package cu.uci.coj.model;
 
+import cu.uci.coj.model.entities.BaseEntity;
 import cu.uci.coj.utils.enums.EventType;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 
-public class Event extends BaseBean {
+public class Event extends BaseEntity {
 
     private Integer type;
     

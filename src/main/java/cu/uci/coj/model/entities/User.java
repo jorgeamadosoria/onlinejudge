@@ -4,26 +4,30 @@
  */
 package cu.uci.coj.model.entities;
 
-import cu.uci.coj.controller.interfaces.CommonScoreboardInterface;
-
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.util.StringUtils;
-import org.springframework.web.multipart.MultipartFile;
+import cu.uci.coj.controller.interfaces.CommonScoreboardInterface;
 
+@Entity
 public class User implements CommonScoreboardInterface {
 
 	private String banReason;
-	private static final String ACTIVE = "active";
-	private static final String DORMANT = "dormant";
-	private static final String DISABLED = "disabled";
+	public static final String ACTIVE = "active";
+	public static final String DORMANT = "dormant";
+	public static final String DISABLED = "disabled";
 	private String status;
 	
-    private int uid;
+	@Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    private Integer uid;
     private int y;//para estadisticas
     public final static String GOLD = "gold";
     public final static String SILVER = "silver";

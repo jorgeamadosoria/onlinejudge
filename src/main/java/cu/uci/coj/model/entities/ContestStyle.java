@@ -5,14 +5,15 @@
 
 package cu.uci.coj.model.entities;
 
-/**
- * @version Caribbean Online Judge(COJ) v2.0
- * @author Juan Carlos Lobaina Guzman & Jorge Luis Roque Alvarez
- * @since 2010-09-01
- * @see http://coj.uci.cu
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class ContestStyle {
+    @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private int sid;
     private String name;
     private boolean enabled;

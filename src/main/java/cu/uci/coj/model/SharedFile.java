@@ -2,7 +2,9 @@ package cu.uci.coj.model;
 
 import org.apache.commons.io.FilenameUtils;
 
-public class SharedFile extends BaseBean{
+import cu.uci.coj.model.entities.BaseEntity;
+
+public class SharedFile extends BaseEntity{
 
 	private Integer fid;
 	private String name;

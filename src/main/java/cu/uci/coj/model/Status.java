@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 
-package cu.uci.coj.model.entities;
+package cu.uci.coj.model;
 
 import java.util.LinkedList;
 import java.util.List;

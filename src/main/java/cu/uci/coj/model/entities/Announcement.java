@@ -1,10 +1,15 @@
 package cu.uci.coj.model.entities;
 
-//import javax.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Announcement {
-
-    private int aid;
+    @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    private Integer aid;
     private String content;
     private String username;
     private String date;
@@ -25,11 +30,11 @@ public class Announcement {
         this.contest = contest;
     }
 
-    public int getAid() {
+    public Integer getAid() {
         return aid;
     }
 
-    public void setAid(int aid) {
+    public void setAid(Integer aid) {
         this.aid = aid;
     }
 

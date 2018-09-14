@@ -4,18 +4,26 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+@Entity
 public class Problem {
-
+    @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    private Integer pid = 0;
 	private String forumLink;
 	private boolean editingAllowed;
 	private DecimalFormat decimal;
 	private String even;
 	private String balloonColor;
-	private Integer pid = 0;
 	private String title;
 	private String slvimg;
 	private String description;

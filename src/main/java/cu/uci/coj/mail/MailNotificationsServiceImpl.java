@@ -12,11 +12,11 @@ import org.springframework.util.CollectionUtils;
 import cu.uci.coj.config.Config;
 import cu.uci.coj.dao.BaseDAO;
 import cu.uci.coj.dao.SubmissionDAO;
+import cu.uci.coj.model.SubmissionJudge;
 import cu.uci.coj.model.entities.AccountActivation;
 import cu.uci.coj.model.entities.Contest;
 import cu.uci.coj.model.entities.Mail;
 import cu.uci.coj.model.entities.Problem;
-import cu.uci.coj.model.entities.SubmissionJudge;
 import cu.uci.coj.model.entities.User;
 import cu.uci.coj.utils.RenderFTLTemplate;
 

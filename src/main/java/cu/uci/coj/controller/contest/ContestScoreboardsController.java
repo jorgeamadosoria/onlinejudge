@@ -10,7 +10,6 @@ import cu.uci.coj.model.*;
 import cu.uci.coj.model.entities.Contest;
 import cu.uci.coj.model.entities.ContestAwards;
 import cu.uci.coj.model.entities.Problem;
-import cu.uci.coj.model.entities.Roles;
 import cu.uci.coj.model.entities.User;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;

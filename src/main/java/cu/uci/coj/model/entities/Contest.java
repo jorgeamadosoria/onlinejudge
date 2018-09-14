@@ -1,17 +1,22 @@
 package cu.uci.coj.model.entities;
 
-import java.sql.Array;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 import cu.uci.coj.model.Level;
 
+@Entity
 public class Contest {
+    @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    private Integer cid;
 	
 	public static final int ACM_ICPC_STYLE = 1;
 	public static final int PROGRESSIVE_STYLE = 4;
@@ -19,13 +24,7 @@ public class Contest {
 	private boolean saris;
 	private boolean balloon;
 	private boolean gallery;
-    public boolean isGallery() {
-		return gallery;
-	}
-
-	public void setGallery(boolean gallery) {
-		this.gallery = gallery;
-	}
+    
 
 	private String even;
     //Create Contest
@@ -38,7 +37,7 @@ public class Contest {
     private boolean enabled;
     private boolean locked;
     private boolean grouped;
-    private int cid;
+    
     private String name;
     private Date initdate;
     private Date rinitdate;
@@ -121,7 +120,13 @@ public class Contest {
     private String guestGroup;
     private int template;
 
-    
+    public boolean isGallery() {
+        return gallery;
+    }
+
+    public void setGallery(boolean gallery) {
+        this.gallery = gallery;
+    }
     public List<User> getBalloontrackers() {
 		return balloontrackers;
 	}
@@ -614,11 +619,11 @@ public class Contest {
         this.cid = cid;
     }
 
-    public int getCid() {
+    public Integer getCid() {
         return cid;
     }
 
-    public void setCid(int cid) {
+    public void setCid(Integer cid) {
         this.cid = cid;
     }
 

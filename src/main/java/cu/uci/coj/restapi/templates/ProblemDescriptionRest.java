@@ -50,10 +50,8 @@ public class ProblemDescriptionRest {
     String sampleOutput;
     @ApiModelProperty(value = "Sugerencia(s)", required = true)
     String hints;
-    @ApiModelProperty(value = "Recomendación", required = true)
-    List<String> recommendation;
 
-    public ProblemDescriptionRest(String createdby, String source, String author, String addedby, String dateOfCreation, List<Long> totaltime, List<Long> testtime, List<String> memory, String outputMB, List<String> size, List<String> enabledlanguages, String description, String inputSpecification, String outputSpecification, String sampleInput, String sampleOutput, String hints, List<String> recommendation) {
+    public ProblemDescriptionRest(String createdby, String source, String author, String addedby, String dateOfCreation, List<Long> totaltime, List<Long> testtime, List<String> memory, String outputMB, List<String> size, List<String> enabledlanguages, String description, String inputSpecification, String outputSpecification, String sampleInput, String sampleOutput, String hints) {
         this.createdby = createdby;
         this.source = source;
         this.author = author;
@@ -71,7 +69,6 @@ public class ProblemDescriptionRest {
         this.sampleInput = sampleInput;
         this.sampleOutput = sampleOutput;
         this.hints = hints;
-        this.recommendation = recommendation;
     }
 
     public String getSource() {
@@ -212,16 +209,5 @@ public class ProblemDescriptionRest {
         this.hints = hints;
     }
 
-    public List<String> getRecommendation() {
-        return recommendation;
-    }
-
-    public void setRecommendation(List<String> recommendation) {
-        this.recommendation = recommendation;
-    }
-    
-    
-
-    
 
 }

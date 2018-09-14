@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
-import cu.uci.coj.model.entities.Status;
+import cu.uci.coj.model.Status;
 
 @Component("config")
 public class Config {

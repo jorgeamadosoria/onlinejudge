@@ -5,8 +5,9 @@
 
 package cu.uci.coj.model;
 
+import cu.uci.coj.model.entities.BaseEntity;
 
-public class Faq extends BaseBean {
+public class Faq extends BaseEntity {
     private String answer;
     private String question;
 

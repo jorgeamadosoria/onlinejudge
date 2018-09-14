@@ -29,8 +29,8 @@ import com.google.common.collect.Lists;
 
 import cu.uci.coj.dao.EntryDAO;
 import cu.uci.coj.dao.UserDAO;
+import cu.uci.coj.model.Roles;
 import cu.uci.coj.model.entities.Entry;
-import cu.uci.coj.model.entities.Roles;
 import cu.uci.coj.model.entities.User;
 import cu.uci.coj.utils.EntryHelper;
 import cu.uci.coj.utils.paging.IPaginatedList;

@@ -1,9 +1,10 @@
-package cu.uci.coj.model.entities;
+package cu.uci.coj.model;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import javax.persistence.Entity;
 public class UserClassificationStats {
 
 	private String labels;

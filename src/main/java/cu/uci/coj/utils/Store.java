@@ -7,7 +7,7 @@ package cu.uci.coj.utils;
 import cu.uci.coj.config.Config;
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.model.Stats;
-import cu.uci.coj.model.entities.SubmissionJudge;
+import cu.uci.coj.model.SubmissionJudge;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;

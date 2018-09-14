@@ -20,8 +20,8 @@ import cu.uci.coj.utils.Notification;
 
 import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.ProblemDAO;
+import cu.uci.coj.model.ProblemClassification;
 import cu.uci.coj.model.entities.Problem;
-import cu.uci.coj.model.entities.ProblemClassification;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;
 import org.springframework.web.servlet.view.RedirectView;

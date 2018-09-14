@@ -4,13 +4,23 @@
  */
 package cu.uci.coj.model.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+@Deprecated
+//need to find a way to merge it with Problem, if possible
 public class ProblemSource implements Comparable<Object> {
 
     private String name;
     private String author;
-    private int idSource;
+    @Id
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
+    private Integer idSource;
 
-    public ProblemSource(String name, String author,int idSource) {
+    public ProblemSource(String name, String author,Integer idSource) {
         this.name = name;
         this.author = author;
         this.idSource = idSource;
@@ -44,12 +54,12 @@ public class ProblemSource implements Comparable<Object> {
         this.name = name;
     }
 
-    public int getIdSource() {
+    public Integer getIdSource() {
 		return idSource;
 	}
 
 
-	public void setIdSource(int idSource) {
+	public void setIdSource(Integer idSource) {
 		this.idSource = idSource;
 	}
 

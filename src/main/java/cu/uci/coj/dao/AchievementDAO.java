@@ -4,7 +4,7 @@
  */
 package cu.uci.coj.dao;
 
-import cu.uci.coj.model.entities.SubmissionJudge;
+import cu.uci.coj.model.SubmissionJudge;
 
 
 public interface AchievementDAO {

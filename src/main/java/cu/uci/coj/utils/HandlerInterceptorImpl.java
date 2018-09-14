@@ -13,8 +13,8 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 import cu.uci.coj.dao.BaseDAO;
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.dao.UserDAO;
+import cu.uci.coj.model.Roles;
 import cu.uci.coj.model.entities.Contest;
-import cu.uci.coj.model.entities.Roles;
 
 /**
  * @version 2.0

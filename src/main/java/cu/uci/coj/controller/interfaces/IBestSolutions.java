@@ -10,9 +10,9 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestWrapper;
 
+import cu.uci.coj.model.Roles;
+import cu.uci.coj.model.SubmissionJudge;
 import cu.uci.coj.model.entities.Problem;
-import cu.uci.coj.model.entities.Roles;
-import cu.uci.coj.model.entities.SubmissionJudge;
 
 @Deprecated 
 //FIXME esta clase esta mal no deberia usar requestWrapper para nada

@@ -5,18 +5,13 @@
 
 package cu.uci.coj.model.entities;
 
+import javax.persistence.Entity;
+
 import cu.uci.coj.controller.interfaces.CommonScoreboardInterface;
 
-/**
- * @version Caribbean Online Judge(COJ) v2.0
- * @author Juan Carlos Lobaina Guzman & Jorge Luis Roque Alvarez
- * @since 2010-09-01
- * @see http://coj.uci.cu
- */
+@Entity
+public class Institution extends BaseEntity implements CommonScoreboardInterface{
 
-public class Institution implements CommonScoreboardInterface{
-
-    private int id;
     private int country_id;
     private String zip;
     private String name;    
@@ -96,13 +91,6 @@ public class Institution implements CommonScoreboardInterface{
         this.country_id = country_id;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

@@ -1,4 +1,4 @@
-package cu.uci.coj.model.entities;
+package cu.uci.coj.model;
 
 public class Roles {
 

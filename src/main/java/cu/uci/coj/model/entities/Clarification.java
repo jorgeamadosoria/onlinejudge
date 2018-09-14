@@ -1,8 +1,10 @@
 package cu.uci.coj.model.entities;
 
-public class Clarification {
+import javax.persistence.Entity;
 
-    private int id;
+@Entity
+public class Clarification extends BaseEntity {
+
     private int cid;
     private int idteam;
     private int idteamfor;
@@ -97,14 +99,6 @@ public class Clarification {
 
     public void setForall(boolean forall) {
         this.forall = forall;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public int getIdteam() {

@@ -39,7 +39,6 @@ import cu.uci.coj.model.entities.Contest;
 import cu.uci.coj.model.entities.Language;
 import cu.uci.coj.model.entities.Limits;
 import cu.uci.coj.model.entities.Problem;
-import cu.uci.coj.recommender.Recommender;
 import cu.uci.coj.restapi.templates.ProblemContestRest;
 import cu.uci.coj.restapi.templates.ProblemDescriptionRest;
 import cu.uci.coj.restapi.templates.ProblemRest;
@@ -99,28 +98,11 @@ public class RestProblemsController {
             filterby = 0;
         }
 
-        if (filterby == 5 && privateMode) {
-            PagingOptions options = new PagingOptions(1);
-            Recommender recommender = new Recommender(userDAO, problemDAO, recommenderDAO);
-            List<Problem> recommendations = recommender.recommendations(username, username == null ? 0 : problemDAO.integer(
-                    "select.uid.by.username", username), options.getSort(), options.getDirection());
-            int found = recommendations.size();
-            if (found != 0) {
-                List<ProblemRest> listProblemsRest = new LinkedList();
-                for (Problem p : recommendations) {
-                    ProblemRest pr = BuildProblemRest(p, username);
-                    listProblemsRest.add(pr);
-                }
-
-                return listProblemsRest;
-            }
-        }
-
         int found = problemDAO.countProblem(pattern, filterby, username, idClassification, complexity);
         if(found>1000)
             found = 1000;
 
-        List<Problem> listProblems = new LinkedList();
+        List<Problem> listProblems = new LinkedList<>();
         for (int i = 1; i <= end(found); i++) {
             PagingOptions options = new PagingOptions(i);
             int x = username == null ? 0 : problemDAO.integer("select.uid.by.username", username);
@@ -128,7 +110,7 @@ public class RestProblemsController {
             listProblems.addAll(pages.getList());
         }
 
-        List<ProblemRest> listProblemsRest = new LinkedList();
+        List<ProblemRest> listProblemsRest = new LinkedList<>();
 
         for (Problem p : listProblems) {
             ProblemRest pr = BuildProblemRest(p, username);
@@ -175,7 +157,7 @@ public class RestProblemsController {
             IPaginatedList<Problem> pages = problemDAO.findAllProblems("en", null, found, options, username, idUsername, 0, -1, -1);
 
             List<Problem> listProblems = pages.getList();
-            List<ProblemRest> listProblemsRest = new LinkedList();
+            List<ProblemRest> listProblemsRest = new LinkedList<>();
 
             for (Problem p : listProblems) {
                 ProblemRest pr = BuildProblemRest(p, username);
@@ -212,7 +194,7 @@ public class RestProblemsController {
             PagingOptions options = new PagingOptions(1);
             IPaginatedList<Problem> pages = problemDAO.getContestProblems(found,"en",username, contest, options);
             
-            List<ProblemContestRest> listProblemsContestRest = new LinkedList();
+            List<ProblemContestRest> listProblemsContestRest = new LinkedList<>();
 
             for (Problem p : pages.getList()) {
                 String balloon = contest.isBalloon() == true ? p.getBalloonColor() : null;
@@ -257,14 +239,12 @@ public class RestProblemsController {
         p.setDate(p.getDate().split(" ")[0]);
         problemDAO.fillProblemLanguages(p);
         problemDAO.fillProblemLimits(p);
-        Recommender recommender = new Recommender(userDAO, problemDAO, recommenderDAO);
-        List<Problem> recommendations = recommender.findSimilarProblems(p);
  
-        List<String> languages = new LinkedList();
-        List<Long> totaltime = new LinkedList();
-        List<Long> testtime = new LinkedList();
-        List<String> memory = new LinkedList();
-        List<String> size = new LinkedList();
+        List<String> languages = new LinkedList<>();
+        List<Long> totaltime = new LinkedList<>();
+        List<Long> testtime = new LinkedList<>();
+        List<String> memory = new LinkedList<>();
+        List<String> size = new LinkedList<>();
         for (Language leng : p.getLanguages()) {
             for (Limits limit : p.getLimits()) {
                 if (leng.getLid() == limit.getLanguageId()) {
@@ -278,15 +258,10 @@ public class RestProblemsController {
             languages.add(leng.getLanguage());
         }
 
-        List<String> recomended = new LinkedList();
-
-        for (Problem pro : recommendations) {
-            recomended.add("" + pro.getPid());
-        }
 
         String[] arreglo = author_source(pid);
         ProblemDescriptionRest problemDescrptions;
-        problemDescrptions = new ProblemDescriptionRest(p.getAuthor(),arreglo[0].trim(),arreglo[1].trim(), p.getUsername(), p.getDate(), totaltime, testtime, memory, "64 MB", size, languages, p.getDescription(), p.getInput(), p.getOutput(), p.getInputex(), p.getOutputex(), p.getComments(), recomended);
+        problemDescrptions = new ProblemDescriptionRest(p.getAuthor(),arreglo[0].trim(),arreglo[1].trim(), p.getUsername(), p.getDate(), totaltime, testtime, memory, "64 MB", size, languages, p.getDescription(), p.getInput(), p.getOutput(), p.getInputex(), p.getOutputex(), p.getComments());
 
         return new ResponseEntity<>(problemDescrptions, HttpStatus.OK);
 
@@ -341,7 +316,7 @@ public class RestProblemsController {
         
         int found = problemDAO.countProblem(null, 0, null, -1, -1);
 
-        List<Problem> listProblems = new LinkedList();
+        List<Problem> listProblems = new LinkedList<>();
         PagingOptions options = new PagingOptions(end(found));
         IPaginatedList<Problem> pages = problemDAO.findAllProblems("en", null, found, options, null, 0, 0, -1, -1);
         listProblems.addAll(pages.getList());

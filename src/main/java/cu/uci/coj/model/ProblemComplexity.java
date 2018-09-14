@@ -1,6 +1,6 @@
 //frankr addition start
 //para encapsular datos en el comparador por etiquetas
-package cu.uci.coj.model.entities;
+package cu.uci.coj.model;
 
 public class ProblemComplexity implements Comparable<ProblemComplexity> {
 	@Override

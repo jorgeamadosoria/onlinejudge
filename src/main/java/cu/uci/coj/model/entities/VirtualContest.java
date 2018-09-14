@@ -1,37 +1,36 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * To change this template, choose Tools | Templates and open the template in the editor.
  */
 
 package cu.uci.coj.model.entities;
 
-/**
- * @version Caribbean Online Judge(COJ) v2.0
- * @author Juan Carlos Lobaina Guzman & Jorge Luis Roque Alvarez
- * @since 2010-09-01
- * @see http://coj.uci.cu
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class VirtualContest {
-
-    private int vid;
-    private int cid;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Integer vid;
+    private Integer cid;
     private String  username;
-    private String ctime;
-    private String itime;
-    private String etime;
-    private String even;
+    private String  ctime;
+    private String  itime;
+    private String  etime;
+    private String  even;
     private boolean past;
     private boolean running;
     private boolean coming;
-    private int father;
+    private Integer father;
     private boolean ispublic;
 
-    public int getFather() {
+    public Integer getFather() {
         return father;
     }
 
-    public void setFather(int father) {
+    public void setFather(Integer father) {
         this.father = father;
     }
 
@@ -46,7 +45,7 @@ public class VirtualContest {
     public VirtualContest() {
     }
 
-    public VirtualContest(int vid, int cid, String username, String ctime, String itime, String etime) {
+    public VirtualContest(Integer vid, Integer cid, String username, String ctime, String itime, String etime) {
         this.vid = vid;
         this.cid = cid;
         this.username = username;
@@ -55,11 +54,11 @@ public class VirtualContest {
         this.etime = etime;
     }
 
-    public int getCid() {
+    public Integer getCid() {
         return cid;
     }
 
-    public void setCid(int cid) {
+    public void setCid(Integer cid) {
         this.cid = cid;
     }
 
@@ -95,11 +94,11 @@ public class VirtualContest {
         this.username = username;
     }
 
-    public int getVid() {
+    public Integer getVid() {
         return vid;
     }
 
-    public void setVid(int vid) {
+    public void setVid(Integer vid) {
         this.vid = vid;
     }
 

@@ -7,8 +7,6 @@ import cu.uci.coj.mail.MailNotificationService;
 import cu.uci.coj.model.*;
 import cu.uci.coj.model.entities.Contest;
 import cu.uci.coj.model.entities.Problem;
-import cu.uci.coj.model.entities.Rejudge;
-import cu.uci.coj.model.entities.Roles;
 import cu.uci.coj.model.entities.User;
 import cu.uci.coj.model.entities.VirtualContest;
 import cu.uci.coj.service.ContestService;
