@@ -33,10 +33,10 @@ import cu.uci.coj.model.Roles;
 import cu.uci.coj.model.entities.Entry;
 import cu.uci.coj.model.entities.User;
 import cu.uci.coj.utils.EntryHelper;
+import cu.uci.coj.utils.Notification;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;
 import cu.uci.coj.validator.entryValidator;
-import cu.uci.coj.utils.Notification;
 
 @Controller("EntryController")
 public class EntryController extends BaseController {

@@ -5,14 +5,16 @@
  */
 package cu.uci.coj.config;
 
-import com.mangofactory.swagger.configuration.SpringSwaggerConfig;
-import com.mangofactory.swagger.plugin.EnableSwagger;
-import com.mangofactory.swagger.plugin.SwaggerSpringMvcPlugin;
-import com.wordnik.swagger.model.ApiInfo;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.mangofactory.swagger.configuration.SpringSwaggerConfig;
+import com.mangofactory.swagger.models.dto.ApiInfo;
+import com.mangofactory.swagger.plugin.EnableSwagger;
+import com.mangofactory.swagger.plugin.SwaggerSpringMvcPlugin;
  
 @Configuration
 @EnableSwagger
