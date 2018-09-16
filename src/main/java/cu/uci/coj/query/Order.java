@@ -8,7 +8,7 @@ import java.util.List;
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.util.CollectionUtils;
-
+@Deprecated
 public class Order {
 	private String name;
 	private List<Order> params;

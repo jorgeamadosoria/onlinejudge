@@ -5,7 +5,6 @@ import javax.annotation.Resource;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import cu.uci.coj.board.parsing.WbParserManager;
 import cu.uci.coj.dao.AccountActivationDAO;
 import cu.uci.coj.dao.AchievementDAO;
 import cu.uci.coj.dao.BaseDAO;
@@ -13,9 +12,9 @@ import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.dao.ProblemDAO;
 import cu.uci.coj.dao.UserDAO;
 import cu.uci.coj.mail.MailNotificationService;
-import cu.uci.coj.model.SubmissionJudge;
 import cu.uci.coj.service.CorrectionDAO;
 import cu.uci.coj.service.ScheduleService;
+import cu.uci.coj.utils.parsing.WbParserManager;
 
 @Service("scheduleService")
 public class ScheduleServiceImpl implements ScheduleService {

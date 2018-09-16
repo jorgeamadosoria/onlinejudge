@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.util.CollectionUtils;
-
+@Deprecated
 public class Where {
 	private String name;
 	private Object value;

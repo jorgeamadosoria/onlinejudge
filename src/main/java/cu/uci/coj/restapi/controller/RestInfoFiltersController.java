@@ -8,10 +8,11 @@ package cu.uci.coj.restapi.controller;
 import com.wordnik.swagger.annotations.ApiOperation;
 import com.wordnik.swagger.annotations.ApiResponse;
 import com.wordnik.swagger.annotations.ApiResponses;
-import cu.uci.coj.board.dao.WbSiteDAO;
+
 import cu.uci.coj.config.Config;
 import cu.uci.coj.dao.ProblemDAO;
 import cu.uci.coj.dao.UtilDAO;
+import cu.uci.coj.dao.WbSiteDAO;
 import cu.uci.coj.model.Locale;
 import cu.uci.coj.model.ProblemClassification;
 import cu.uci.coj.model.WbSite;

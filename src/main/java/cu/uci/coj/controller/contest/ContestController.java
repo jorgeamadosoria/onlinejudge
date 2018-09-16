@@ -56,20 +56,10 @@ public class ContestController extends BaseController {
 
 	// devuelve los datos relacionados con los envios en un concurso
 	@RequestMapping(produces = "application/json", value = "/contest/contestsubmits.json", method = RequestMethod.GET, headers = { "Accept=application/json" })
-	public @ResponseBody() List<String>[] contestSubmits(@RequestParam int cid,
+	public @ResponseBody() List<Map<String,Object>> contestSubmits(@RequestParam int cid,
 			@RequestParam(required = false) String username) {
 
-		List<Map<String,Object>> mapa = contestSubmissions(cid, username);
-		List<String> tags = new ArrayList<String>();
-		List<String> values = new ArrayList<String>();
-		List[] other = new ArrayList[2];
-		for (Map<String,Object> u : mapa) {
-			tags.add(Config.getProperty(String.valueOf(u.get("state")).replace(" ", ".")));
-			values.add(String.valueOf(u.get("cstats")));
-		}
-		other[0] = tags;
-		other[1] = values;
-		return other;
+		return contestSubmissions(cid, username);
 	}
 
 	@RequestMapping(value = "/contest/cballoontracker.xhtml", method = RequestMethod.GET)

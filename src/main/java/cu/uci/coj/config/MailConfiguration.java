@@ -6,8 +6,8 @@ import javax.annotation.Resource;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 
 @Configuration
@@ -34,4 +34,12 @@ public class MailConfiguration {
 
 		return bean;
 	}
+	
+	@Bean
+	public SimpleMailMessage mailMessage() {
+		SimpleMailMessage bean = new SimpleMailMessage();
+		bean.setFrom("coj@uci.cu");
+		return bean;
+	}
+	
 }

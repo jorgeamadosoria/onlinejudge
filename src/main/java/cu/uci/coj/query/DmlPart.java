@@ -1,7 +1,7 @@
 package cu.uci.coj.query;
 
 import org.apache.commons.lang.StringUtils;
-
+@Deprecated
 public class DmlPart {
 
 	private String name;

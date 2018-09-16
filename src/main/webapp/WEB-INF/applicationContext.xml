@@ -16,28 +16,12 @@
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
                 http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
 
-	<!-- configuracion para el soporte de las anotaciones -->
-	<context:annotation-config />
-	<context:component-scan base-package="cu.uci.coj">
-	</context:component-scan>
-
-	<tx:annotation-driven />
-
-	<task:annotation-driven />
-
-
 	<mvc:interceptors>
 		<bean id="handlerInterceptor" class="cu.uci.coj.utils.HandlerInterceptorImpl" />
 		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
 			<property name="paramName" value="lang"></property>
 		</bean>
 	</mvc:interceptors>
-
-	<mvc:annotation-driven>
-		<mvc:argument-resolvers>
-			<bean class="cu.uci.coj.utils.paging.PaginatedArgumentResolver" />
-		</mvc:argument-resolvers>
-	</mvc:annotation-driven>
 
 	<!--<mvc:resources mapping="/resources/**" location="/resources/" /> -->
 
@@ -117,21 +101,6 @@
 			access="hasRole('ROLE_USER')" />
 		<security:intercept-url pattern="/**" access="permitAll" />
 	</security:filter-security-metadata-source>
-	<!-- <context:property-placeholder properties-ref="prop" /> <util:properties 
-		id="prop" location="file:/home/coj/config.properties" /> -->
-
-
-	<bean id="mailMessage" class="org.springframework.mail.SimpleMailMessage">
-		<property name="from" value="coj@uci.cu" />
-	</bean>
-
-	<!-- DAO Initialization -->
-
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="104857600" />
-		<property name="maxInMemorySize" value="524288000" />
-	</bean>
 
 	
 </beans>

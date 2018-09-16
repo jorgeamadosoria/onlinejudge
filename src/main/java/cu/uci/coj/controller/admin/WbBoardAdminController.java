@@ -21,16 +21,16 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import cu.uci.coj.utils.Notification;
 
-import cu.uci.coj.board.dao.WbContestDAO;
-import cu.uci.coj.board.dao.WbSiteDAO;
-import cu.uci.coj.board.parsing.WbParserManager;
 import cu.uci.coj.controller.BaseController;
+import cu.uci.coj.dao.WbContestDAO;
+import cu.uci.coj.dao.WbSiteDAO;
 import cu.uci.coj.model.WbContest;
 import cu.uci.coj.model.WbSite;
+import cu.uci.coj.utils.Notification;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;
+import cu.uci.coj.utils.parsing.WbParserManager;
 import cu.uci.coj.validator.WbContestValidator;
 import cu.uci.coj.validator.WbSiteValidator;
 

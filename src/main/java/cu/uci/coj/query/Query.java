@@ -7,7 +7,7 @@ import java.util.List;
 import org.apache.commons.lang.StringUtils;
 
 import cu.uci.coj.utils.paging.PagingOptions;
-
+@Deprecated
 public class Query {
 
 	private String table;

@@ -35,7 +35,6 @@ import org.springframework.security.crypto.password.MessageDigestPasswordEncoder
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
-import cu.uci.coj.adapters.SubmissionJudgeToSubmissionDTOAdapter;
 import cu.uci.coj.config.Config;
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.dao.SubmissionDAO;
@@ -43,6 +42,7 @@ import cu.uci.coj.model.Filter;
 import cu.uci.coj.model.ProblemComplexity;
 import cu.uci.coj.model.Stats;
 import cu.uci.coj.model.SubmissionJudge;
+import cu.uci.coj.model.adapters.SubmissionJudgeToSubmissionDTOAdapter;
 import cu.uci.coj.model.entities.Language;
 import cu.uci.coj.utils.paging.PagingOptions;
 

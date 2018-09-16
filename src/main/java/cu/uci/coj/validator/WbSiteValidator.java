@@ -12,7 +12,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
 
-import cu.uci.coj.board.dao.WbSiteDAO;
+import cu.uci.coj.dao.WbSiteDAO;
 import cu.uci.coj.model.WbContest;
 import cu.uci.coj.model.WbSite;
 
