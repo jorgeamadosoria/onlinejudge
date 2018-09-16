@@ -16,17 +16,7 @@
 		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
                 http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
 
-	<mvc:interceptors>
-		<bean id="handlerInterceptor" class="cu.uci.coj.utils.HandlerInterceptorImpl" />
-		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
-			<property name="paramName" value="lang"></property>
-		</bean>
-	</mvc:interceptors>
-
-	<!--<mvc:resources mapping="/resources/**" location="/resources/" /> -->
-
-	<!--mvc:resources mapping="/css/**" location="/css/" /> <mvc:resources mapping="/images/**" 
-		location="/images/" /> <mvc:resources mapping="/js/**" location="/js/" / -->
+	
 
 
 	<!-- ======================== AUTHENTICATION ======================= -->

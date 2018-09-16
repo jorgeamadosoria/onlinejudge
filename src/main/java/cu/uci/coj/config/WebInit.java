@@ -23,12 +23,12 @@ public class WebInit extends AbstractAnnotationConfigDispatcherServletInitialize
 	
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class<?>[] {DatabaseConfiguration.class,AMQPConfiguration.class,MailConfiguration.class};
+		return new Class<?>[] {RootConfiguration.class,SecurityConfiguration.class};
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class<?>[] {WebConfiguration.class,SecurityConfiguration.class,SwaggerSpringMvcConfig.class};
+		return new Class<?>[] {WebConfiguration.class};
 	}
 
 	@Override
