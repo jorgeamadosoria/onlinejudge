@@ -1,6 +1,8 @@
 package cu.uci.coj.config;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.LinkedHashMap;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -11,8 +13,9 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.security.access.AccessDecisionVoter;
+import org.springframework.security.access.ConfigAttribute;
+import org.springframework.security.access.SecurityConfig;
 import org.springframework.security.access.vote.AffirmativeBased;
-import org.springframework.security.access.vote.AuthenticatedVoter;
 import org.springframework.security.authentication.AnonymousAuthenticationProvider;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
@@ -30,6 +33,7 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandlerImpl;
 import org.springframework.security.web.access.ExceptionTranslationFilter;
 import org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler;
+import org.springframework.security.web.access.expression.ExpressionBasedFilterInvocationSecurityMetadataSource;
 import org.springframework.security.web.access.expression.WebExpressionVoter;
 import org.springframework.security.web.access.intercept.FilterInvocationSecurityMetadataSource;
 import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
@@ -64,9 +68,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	private COJSessionRegistryImpl cojSessionRegistryImpl;
 
 	@Resource
-	private FilterInvocationSecurityMetadataSource securityMetadataSource;
-
-	@Resource
 	private MessageSource messageSource;
 
 	@Resource
@@ -78,6 +79,45 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	private AuthenticationManager authenticationManager;
 
 	private TokenBasedRememberMeServices rememberMeServices;
+
+	@Bean
+	public FilterInvocationSecurityMetadataSource filterInvocationSecurityMetadataSource() {
+
+		LinkedHashMap<RequestMatcher, Collection<ConfigAttribute>> requestMap = new LinkedHashMap<RequestMatcher, Collection<ConfigAttribute>>();
+
+		requestMap.put(new AntPathRequestMatcher("/practice/virtualstatistics.xhtml"), SecurityConfig.createList("permitAll"));
+		requestMap.put(new AntPathRequestMatcher("/contest/csubmission.xhtml"), SecurityConfig.createList("isAuthenticated()"));
+		requestMap.put(new AntPathRequestMatcher("/practice/globallist.xhtml"), SecurityConfig.createList("permitAll"));
+		requestMap.put(new AntPathRequestMatcher("/contest/csubmit.xhtml"), SecurityConfig.createList("hasAnyRole('ROLE_USER','ROLE_TEAM')"));
+		requestMap.put(new AntPathRequestMatcher("/user/updateaccount.xhtml"), SecurityConfig.createList("hasAnyRole('ROLE_USER','ROLE_TEAM')"));
+		requestMap.put(new AntPathRequestMatcher("/user/forgottenpassword.xhtml"), SecurityConfig.createList("permitAll"));
+		requestMap.put(new AntPathRequestMatcher("/24h/submission.xhtml"), SecurityConfig.createList("hasRole('ROLE_USER')"));
+		requestMap.put(new AntPathRequestMatcher("/24h/submit.xhtml"), SecurityConfig.createList("hasRole('ROLE_USER')"));
+		requestMap.put(new AntPathRequestMatcher("/admin/index.xhtml"), SecurityConfig.createList("hasAnyRole('ROLE_ADMIN','ROLE_ENTRIES_MANAGER','ROLE_PSETTER','ROLE_SUPER_PSETTER','ROLE_FILE_MANAGER')"));
+		requestMap.put(new AntPathRequestMatcher("/admin/files/**"), SecurityConfig.createList("hasAnyRole('ROLE_ADMIN','ROLE_FILE_MANAGER')"));
+		requestMap.put(new AntPathRequestMatcher("/admin/manageuser.xhtml"), SecurityConfig.createList("hasRole('ROLE_ADMIN')"));
+		requestMap.put(new AntPathRequestMatcher("/admin/addproblem.xhtml"), SecurityConfig.createList("hasAnyRole('ROLE_SUPER_PSETTER','ROLE_PSETTER','ROLE_ADMIN')"));
+		requestMap.put(new AntPathRequestMatcher("/admin/adminproblems.xhtml"), SecurityConfig.createList("hasAnyRole('ROLE_SUPER_PSETTER','ROLE_PSETTER','ROLE_ADMIN')"));
+		requestMap.put(new AntPathRequestMatcher("/admin/manageproblem.xhtml"), SecurityConfig.createList("hasAnyRole('ROLE_PSETTER','ROLE_ADMIN')"));
+		requestMap.put(new AntPathRequestMatcher("/admin/manageclassifications.xhtml"), SecurityConfig.createList("hasAnyRole('ROLE_SUPER_PSETTER','ROLE_PSETTER','ROLE_ADMIN')"));
+		requestMap.put(new AntPathRequestMatcher("/admin/addclassifications.xhtml"), SecurityConfig.createList("hasAnyRole('ROLE_SUPER_PSETTER','ROLE_PSETTER','ROLE_ADMIN')"));
+		requestMap.put(new AntPathRequestMatcher("/admin/deleteclassifications.xhtml"), SecurityConfig.createList("hasAnyRole('ROLE_SUPER_PSETTER','ROLE_PSETTER','ROLE_ADMIN')"));
+		requestMap.put(new AntPathRequestMatcher("/admin/updateclassifications.xhtml"), SecurityConfig.createList("hasAnyRole('ROLE_SUPER_PSETTER','ROLE_PSETTER','ROLE_ADMIN')"));
+		requestMap.put(new AntPathRequestMatcher("/admin/manageproblemclassification.xhtml"), SecurityConfig.createList("hasAnyRole('ROLE_SUPER_PSETTER','ROLE_PSETTER','ROLE_ADMIN')"));
+		requestMap.put(new AntPathRequestMatcher("/admin/uploadfile.xhtml"), SecurityConfig.createList("hasAnyRole('ROLE_SUPER_PSETTER','ROLE_EDITOR','ROLE_PSETTER','ROLE_ADMIN')"));
+		requestMap.put(new AntPathRequestMatcher("/admin/**"), SecurityConfig.createList("hasAnyRole('ROLE_SUPER_PSETTER','ROLE_ADMIN','ROLE_PSETTER')"));
+		requestMap.put(new AntPathRequestMatcher("/24h/translation.xhtml"), SecurityConfig.createList("hasRole('ROLE_USER')"));
+		requestMap.put(new AntPathRequestMatcher("/24h/**"), SecurityConfig.createList("permitAll"));
+		requestMap.put(new AntPathRequestMatcher("/mail/**"), SecurityConfig.createList("hasRole('ROLE_USER')"));
+		requestMap.put(new AntPathRequestMatcher("/practice/**"), SecurityConfig.createList("hasAnyRole('ROLE_USER','ROLE_TEAM')"));
+		requestMap.put(new AntPathRequestMatcher("/teamanalyzer/**"), SecurityConfig.createList("hasAnyRole('ROLE_ADMIN','ROLE_COACH')"));
+		requestMap.put(new AntPathRequestMatcher("/contest/sendclarification.xhtml"), SecurityConfig.createList("hasAnyRole('ROLE_USER','ROLE_TEAM')"));
+		requestMap.put(new AntPathRequestMatcher("/contest/clarification.xhtml"), SecurityConfig.createList("hasAnyRole('ROLE_USER','ROLE_TEAM')"));
+		requestMap.put(new AntPathRequestMatcher("/datasets/**"), SecurityConfig.createList("hasRole('ROLE_USER')"));
+		requestMap.put(new AntPathRequestMatcher("/**"), SecurityConfig.createList("permitAll"));
+
+		return new ExpressionBasedFilterInvocationSecurityMetadataSource(requestMap, new DefaultWebSecurityExpressionHandler());
+	}
 
 	@Resource(name = "jdbcTemplate")
 	private JdbcTemplate jdbcTemplate;
@@ -186,7 +226,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		FilterSecurityInterceptor bean = new FilterSecurityInterceptor();
 		bean.setAuthenticationManager(authenticationManager());
 		bean.setAccessDecisionManager(voters);
-		bean.setSecurityMetadataSource(securityMetadataSource);
+		bean.setSecurityMetadataSource(filterInvocationSecurityMetadataSource());
 		bean.setMessageSource(messageSource);
 		return bean;
 	}

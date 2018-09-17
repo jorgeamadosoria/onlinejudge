@@ -35,7 +35,6 @@ import org.springframework.security.crypto.password.MessageDigestPasswordEncoder
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.dao.SubmissionDAO;
 import cu.uci.coj.model.Filter;

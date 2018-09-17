@@ -11,9 +11,9 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.model.entities.Contest;
 import cu.uci.coj.model.entities.Language;
+import cu.uci.coj.utils.Config;
 
 public class SubmissionJudge implements Serializable {
 

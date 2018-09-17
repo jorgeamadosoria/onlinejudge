@@ -1,6 +1,5 @@
 package cu.uci.coj.controller.admin;
 
-import cu.uci.coj.config.Config;
 import java.security.Principal;
 
 import javax.annotation.Resource;
@@ -23,6 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.InstitutionDAO;
+import cu.uci.coj.utils.Config;
 import cu.uci.coj.utils.FileUtils;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;

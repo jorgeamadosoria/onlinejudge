@@ -17,11 +17,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.model.Roles;
 import cu.uci.coj.model.entities.Contest;
+import cu.uci.coj.utils.Config;
 import cu.uci.coj.utils.Utils;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;

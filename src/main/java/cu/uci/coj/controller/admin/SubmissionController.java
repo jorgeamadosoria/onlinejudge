@@ -22,7 +22,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.AchievementDAO;
 import cu.uci.coj.dao.ContestDAO;
@@ -32,6 +31,7 @@ import cu.uci.coj.model.Filter;
 import cu.uci.coj.model.Status;
 import cu.uci.coj.model.SubmissionJudge;
 import cu.uci.coj.model.entities.Language;
+import cu.uci.coj.utils.Config;
 import cu.uci.coj.utils.Notification;
 import cu.uci.coj.utils.Utils;
 import cu.uci.coj.utils.paging.IPaginatedList;

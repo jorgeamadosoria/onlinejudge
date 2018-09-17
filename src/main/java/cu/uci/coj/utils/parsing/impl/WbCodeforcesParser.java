@@ -18,10 +18,10 @@ import org.jsoup.select.Elements;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.dao.WbSiteDAO;
 import cu.uci.coj.model.WbContest;
 import cu.uci.coj.model.WbSite;
+import cu.uci.coj.utils.Config;
 import cu.uci.coj.utils.ConnectionErrorException;
 import cu.uci.coj.utils.parsing.WbParser;
 

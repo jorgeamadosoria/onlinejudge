@@ -9,9 +9,7 @@ import org.springframework.security.web.servletapi.SecurityContextHolderAwareReq
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.controller.interfaces.IBestSolutions;
 import cu.uci.coj.controller.interfaces.IVirtualStatusSolutions;
 import cu.uci.coj.dao.AchievementDAO;
@@ -24,6 +22,7 @@ import cu.uci.coj.model.entities.Problem;
 import cu.uci.coj.query.Order;
 import cu.uci.coj.query.Query;
 import cu.uci.coj.query.Where;
+import cu.uci.coj.utils.Config;
 import cu.uci.coj.utils.Utils;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;
@@ -35,9 +34,6 @@ public class SubmissionDAOImpl extends BaseDAOImpl implements SubmissionDAO {
 	@Resource
 	private AchievementDAO achievementDAO;
 	
-	@Resource
-	private ObjectMapper objectMapper;
-
 	@Transactional(readOnly = true)
 	public boolean Solved(int uid, int pid) {
 		return bool("solved", uid, pid);

@@ -8,11 +8,11 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.dao.impl.BaseDAOImpl;
 import cu.uci.coj.model.SharedFile;
 import cu.uci.coj.model.entities.Language;
 import cu.uci.coj.service.CorrectionDAO;
+import cu.uci.coj.utils.Config;
 import cu.uci.coj.utils.enums.AchievementType;
 
 @Repository("correctionDAO")

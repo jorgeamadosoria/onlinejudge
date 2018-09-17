@@ -31,7 +31,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.CountryDAO;
 import cu.uci.coj.dao.InstitutionDAO;
@@ -55,6 +54,7 @@ import cu.uci.coj.model.entities.Institution;
 import cu.uci.coj.model.entities.Problem;
 import cu.uci.coj.model.entities.User;
 import cu.uci.coj.service.WbContestService;
+import cu.uci.coj.utils.Config;
 import cu.uci.coj.utils.FileUtils;
 import cu.uci.coj.utils.Notification;
 import cu.uci.coj.utils.Utils;

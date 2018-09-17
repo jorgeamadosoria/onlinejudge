@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.dao.ProblemDAO;
@@ -29,6 +28,7 @@ import cu.uci.coj.model.SubmissionJudge;
 import cu.uci.coj.model.entities.Contest;
 import cu.uci.coj.model.entities.Language;
 import cu.uci.coj.model.entities.Problem;
+import cu.uci.coj.utils.Config;
 import cu.uci.coj.utils.Utils;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;

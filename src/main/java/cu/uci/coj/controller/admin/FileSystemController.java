@@ -26,8 +26,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.multipart.MultipartFile;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.controller.BaseController;
+import cu.uci.coj.utils.Config;
 import cu.uci.coj.utils.FileUtils;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 

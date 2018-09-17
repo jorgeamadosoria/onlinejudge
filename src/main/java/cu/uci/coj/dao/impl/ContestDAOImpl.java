@@ -16,7 +16,6 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.controller.interfaces.IACMScoreboard;
 import cu.uci.coj.dao.ContestAwardDAO;
 import cu.uci.coj.dao.ContestDAO;
@@ -31,6 +30,7 @@ import cu.uci.coj.model.entities.VirtualContest;
 import cu.uci.coj.query.Order;
 import cu.uci.coj.query.Query;
 import cu.uci.coj.query.Where;
+import cu.uci.coj.utils.Config;
 import cu.uci.coj.utils.Utils;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;

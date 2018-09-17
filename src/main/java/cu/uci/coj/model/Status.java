@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import cu.uci.coj.config.Config;
+import cu.uci.coj.utils.Config;
 
 public class Status {
 

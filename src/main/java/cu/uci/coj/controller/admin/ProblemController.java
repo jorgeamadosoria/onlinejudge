@@ -1,6 +1,5 @@
 package cu.uci.coj.controller.admin;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.dao.ProblemDAO;
@@ -10,6 +9,7 @@ import cu.uci.coj.model.entities.Language;
 import cu.uci.coj.model.entities.Limits;
 import cu.uci.coj.model.entities.Problem;
 import cu.uci.coj.model.entities.User;
+import cu.uci.coj.utils.Config;
 import cu.uci.coj.utils.FileUtils;
 import cu.uci.coj.utils.RsyncThread;
 import cu.uci.coj.utils.Utils;

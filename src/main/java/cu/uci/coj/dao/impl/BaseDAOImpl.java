@@ -16,10 +16,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.dao.BaseDAO;
 import cu.uci.coj.query.DmlPart;
 import cu.uci.coj.query.Where;
+import cu.uci.coj.utils.Config;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PaginatedListImpl;
 import cu.uci.coj.utils.paging.PagingOptions;

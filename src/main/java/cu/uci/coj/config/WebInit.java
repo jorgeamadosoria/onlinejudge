@@ -16,19 +16,18 @@ public class WebInit extends AbstractAnnotationConfigDispatcherServletInitialize
 	
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
-		servletContext.addListener(new COJContextLoaderListener());
 		servletContext.addListener(new HttpSessionEventPublisher());
 		super.onStartup(servletContext);
 	}
 	
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class<?>[] {RootConfiguration.class,SecurityConfiguration.class};
+		return new Class<?>[] {RootConfiguration.class};
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class<?>[] {WebConfiguration.class};
+		return new Class<?>[] {WebConfiguration.class,SecurityConfiguration.class};
 	}
 
 	@Override

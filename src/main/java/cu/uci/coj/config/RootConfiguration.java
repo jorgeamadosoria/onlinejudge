@@ -3,7 +3,9 @@
  */
 package cu.uci.coj.config;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
@@ -27,6 +29,8 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
@@ -37,7 +41,9 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.client.RestTemplate;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zaxxer.hikari.HikariDataSource;
 
 import cu.uci.coj.model.dto.VerdictDTO;
@@ -52,9 +58,27 @@ import cu.uci.coj.utils.UEngineMessageListener;
 @EnableScheduling
 @ComponentScan({ "cu.uci.coj.dao", "cu.uci.coj.mail", "cu.uci.coj.security", "cu.uci.coj.service", "cu.uci.coj.utils" })
 public class RootConfiguration {
+    @Bean
+    public ObjectMapper objectMapper() {
+        return new ObjectMapper();
+    }
 
+    @Bean
+    public HttpMessageConverter<?> marshallingHttpMessageConverter() {
+        MappingJackson2HttpMessageConverter bean = new MappingJackson2HttpMessageConverter();
+        bean.setObjectMapper(objectMapper());
+        return bean;
+    }
     @Resource
     protected Environment env;
+    @Bean
+    public RestTemplate restTemplate() {
+        RestTemplate bean = new RestTemplate();
+        List<HttpMessageConverter<?>> lists = new ArrayList<>();
+        lists.add(marshallingHttpMessageConverter());
+        bean.setMessageConverters(lists);
+        return bean;
+    }
 
     @Bean
     public CachingConnectionFactory connectionFactory() {

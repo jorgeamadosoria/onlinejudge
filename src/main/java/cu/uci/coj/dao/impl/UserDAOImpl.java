@@ -11,7 +11,6 @@ import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.dao.UserDAO;
 import cu.uci.coj.mail.MailNotificationService;
 import cu.uci.coj.model.ProblemClassification;
@@ -30,6 +29,7 @@ import cu.uci.coj.query.DmlPart;
 import cu.uci.coj.query.Order;
 import cu.uci.coj.query.Query;
 import cu.uci.coj.query.Where;
+import cu.uci.coj.utils.Config;
 import cu.uci.coj.utils.Utils;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;

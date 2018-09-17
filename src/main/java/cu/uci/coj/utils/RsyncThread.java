@@ -4,8 +4,6 @@
  */
 package cu.uci.coj.utils;
 
-import cu.uci.coj.config.Config;
-
 /**
  * @version Caribbean Online Judge(COJ) v2.0
  * @author Juan Carlos Lobaina Guzman & Jorge Luis Roque Alvarez

@@ -1,8 +1,8 @@
 package cu.uci.coj.dao.impl;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.dao.UtilDAO;
 import cu.uci.coj.model.entities.Language;
+import cu.uci.coj.utils.Config;
 
 import java.util.Iterator;
 import java.util.List;

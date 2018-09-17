@@ -19,7 +19,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.dao.ProblemDAO;
 import cu.uci.coj.dao.SubmissionDAO;
 import cu.uci.coj.dao.UserDAO;
@@ -30,6 +29,7 @@ import cu.uci.coj.model.Status;
 import cu.uci.coj.model.SubmissionJudge;
 import cu.uci.coj.model.entities.Language;
 import cu.uci.coj.model.entities.Problem;
+import cu.uci.coj.utils.Config;
 import cu.uci.coj.utils.FileUtils;
 import cu.uci.coj.utils.TestSubmitContainer;
 import cu.uci.coj.utils.Utils;

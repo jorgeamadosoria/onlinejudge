@@ -1,6 +1,5 @@
 package cu.uci.coj.dao.impl;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.controller.interfaces.IForIntegerMap;
 import cu.uci.coj.dao.ContributionDAO;
 import cu.uci.coj.dao.ProblemDAO;
@@ -18,6 +17,7 @@ import cu.uci.coj.model.entities.UserProfile;
 import cu.uci.coj.query.Order;
 import cu.uci.coj.query.Query;
 import cu.uci.coj.query.Where;
+import cu.uci.coj.utils.Config;
 import cu.uci.coj.utils.paging.IPaginatedList;
 import cu.uci.coj.utils.paging.PagingOptions;
 

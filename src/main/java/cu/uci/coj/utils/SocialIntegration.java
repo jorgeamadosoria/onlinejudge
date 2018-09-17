@@ -7,8 +7,6 @@ import org.springframework.social.twitter.api.Twitter;
 import org.springframework.social.twitter.api.impl.TwitterTemplate;
 import org.springframework.stereotype.Component;
 
-import cu.uci.coj.config.Config;
-
 @Component
 @DependsOn("config")
 public class SocialIntegration {

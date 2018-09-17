@@ -34,12 +34,12 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.controller.BaseController;
 import cu.uci.coj.dao.BaseDAO;
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.mail.MailNotificationService;
 import cu.uci.coj.security.COJSessionRegistryImpl;
+import cu.uci.coj.utils.Config;
 import cu.uci.coj.utils.FileUtils;
 import cu.uci.coj.utils.HandlerInterceptorImpl;
 import cu.uci.coj.utils.paging.IPaginatedList;

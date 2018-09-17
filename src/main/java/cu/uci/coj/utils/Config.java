@@ -1,4 +1,4 @@
-package cu.uci.coj.config;
+package cu.uci.coj.utils;
 
 import java.util.HashMap;
 

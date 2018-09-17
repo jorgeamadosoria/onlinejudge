@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
+import javax.annotation.Resource;
+
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.http.converter.HttpMessageConverter;
-import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.http.converter.xml.MarshallingHttpMessageConverter;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.LocaleResolver;
@@ -26,8 +27,6 @@ import org.springframework.web.servlet.view.tiles3.SimpleSpringPreparerFactory;
 import org.springframework.web.servlet.view.tiles3.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles3.TilesViewResolver;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import cu.uci.coj.utils.HandlerInterceptorImpl;
 import cu.uci.coj.utils.paging.PaginatedArgumentResolver;
 
@@ -35,6 +34,8 @@ import cu.uci.coj.utils.paging.PaginatedArgumentResolver;
 @EnableWebMvc
 @ComponentScan({ "cu.uci.coj.dao", "cu.uci.coj.controller", "cu.uci.coj.validator" })
 public class WebConfiguration implements WebMvcConfigurer {
+	@Resource
+	private MarshallingHttpMessageConverter marshallingHttpMessageConverter;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
@@ -92,34 +93,16 @@ public class WebConfiguration implements WebMvcConfigurer {
         return bean;
     }
 
-    @Bean
-    public ObjectMapper objectMapper() {
-        return new ObjectMapper();
-    }
 
-    @Bean
-    public HttpMessageConverter<?> marshallingHttpMessageConverter() {
-        MappingJackson2HttpMessageConverter bean = new MappingJackson2HttpMessageConverter();
-        bean.setObjectMapper(objectMapper());
-        return bean;
-    }
 
     @Bean
     public RequestMappingHandlerAdapter adapter() {
         RequestMappingHandlerAdapter bean = new RequestMappingHandlerAdapter();
         List<HttpMessageConverter<?>> lists = new ArrayList<>();
-        lists.add(marshallingHttpMessageConverter());
+        lists.add(marshallingHttpMessageConverter);
         bean.setMessageConverters(lists);
         return bean;
     }
 
-    @Bean
-    public RestTemplate restTemplate() {
-        RestTemplate bean = new RestTemplate();
-        List<HttpMessageConverter<?>> lists = new ArrayList<>();
-        lists.add(marshallingHttpMessageConverter());
-        bean.setMessageConverters(lists);
-        return bean;
-    }
-
+    
 }

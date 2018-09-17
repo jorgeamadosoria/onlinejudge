@@ -15,7 +15,6 @@ import java.util.zip.ZipEntry;
 import org.apache.commons.io.IOUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.dao.UtilDAO;
 import cu.uci.coj.model.SubmissionJudge;
 import cu.uci.coj.model.entities.Language;

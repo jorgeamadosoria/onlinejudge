@@ -9,8 +9,6 @@ import javax.annotation.PostConstruct;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.stereotype.Component;
 
-import cu.uci.coj.config.Config;
-
 /**
 *
 * @author Eddy Roberto Morales Perez

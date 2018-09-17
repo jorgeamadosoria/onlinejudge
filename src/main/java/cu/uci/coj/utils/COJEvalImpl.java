@@ -1,6 +1,5 @@
 package cu.uci.coj.utils;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.model.Rejudge;
 import cu.uci.coj.model.Repoint;
 import cu.uci.coj.model.RepointUser;

@@ -4,7 +4,6 @@
  */
 package cu.uci.coj.utils;
 
-import cu.uci.coj.config.Config;
 import cu.uci.coj.dao.ContestDAO;
 import cu.uci.coj.model.Stats;
 import cu.uci.coj.model.SubmissionJudge;
