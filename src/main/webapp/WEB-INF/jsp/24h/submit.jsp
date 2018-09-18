@@ -88,6 +88,21 @@
 								<th><spring:message code="tablehdr.mem" /></th>
 							</thead>
 			
+							<c:forEach items="${testSubmit.datasetVerdicts}" var="dv" varStatus="loop">
+								<tr>
+									<td><c:out value="${loop.index + 1}" /></td>
+									<td><label class=<c:if test="${dv.verdict.associatedMessage() eq 'Accepted'}">"subAC"</c:if>
+													 <c:if test="${!(dv.verdict.associatedMessage() eq 'Accepted')}">"subWA"</c:if>	> 
+										<c:out value="${dv.verdict.associatedMessage()}" />
+										</label></td>
+									<td><c:out value="${dv.userTime}" /> <c:if
+										test="${!empty dv.userTime}">ms</c:if><c:if
+										test="${empty dv.userTime}">...</c:if></td>
+									<td><c:if
+										test="${!empty dv.memory}"> <c:out value="${FileUtils.byteCountToDisplaySize(dv.memory)}" /></c:if><c:if
+										test="${empty dv.memory}">...</c:if></td>
+								</tr>
+							</c:forEach>
 						</table>			
 					</div>
 
@@ -103,7 +118,7 @@
 	<div class="col-xs-10">
 		<!-- article-content -->
 		<form:form method="post" enctype="multipart/form-data"
-			cssClass="form-horizontal" modelAttribute="submit">
+			cssClass="form-horizontal" commandName="submit">
 			<div class="form-group">
 				<label class="control-label col-xs-3"><spring:message
 						code="fieldhdr.problemid" /></label>
@@ -130,7 +145,7 @@
 					<span class="label label-danger"><form:errors path="key" /></span>
 				</div>
 			</div>
-			<div sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_SUPER_PSETTER','ROLE_PSETTER')">
+			<authz:authorize ifAnyGranted="ROLE_ADMIN,ROLE_SUPER_PSETTER,ROLE_PSETTER">
 				<div class="form-group col-xs-12">
 					<label class="control-label col-xs-3"><spring:message
 							code="fieldhdr.test" /></label>
@@ -138,7 +153,7 @@
 						<form:checkbox cssClass="checkbox" path="test" />
 					</div>
 				</div>
-			</div>
+			</authz:authorize>
                                 <div class="clearfix" > </div>
 			<div class="form-group">
 				<label class="control-label col-xs-3"> <spring:message

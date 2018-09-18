@@ -11,7 +11,7 @@
 
 <div class="row postcontent">
     <div class="panel panel-primary text-center">
-        <div sec:authorize="!isAnonymous()">
+        <authz:authorize ifNotGranted="ROLE_ANONYMOUS">
             <c:if test="${contest.running == true}">
                 &nbsp;&nbsp;<a
                     href="<c:url value="csubmit.xhtml?pid=${problem.pid}&cid=${contest.cid}"/>"><spring:message
@@ -20,7 +20,7 @@
             &nbsp;&nbsp;<a
                 href="<c:url value="cstatus.xhtml?pid=${problem.pid}&cid=${contest.cid}&username="/><authz:authentication property="principal.username" />"><spring:message
                     code="link.mysubmissions" /></a>
-            </div>
+            </authz:authorize>
         &nbsp;&nbsp;<a
             href="<c:url value="cstatus.xhtml?pid=${problem.pid}&cid=${contest.cid}"/>"><spring:message
                 code="link.submissions" /></a>

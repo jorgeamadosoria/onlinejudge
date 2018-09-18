@@ -9,10 +9,10 @@
 <div class="row">
     <div class="col-xs-10">
         <form:form method="post" enctype="multipart/form-data"
-                   modelAttribute="notification" cssClass="form-horizontal">
+                   commandName="notification" cssClass="form-horizontal">
 
             <!-- SUBJECT OF MAIL -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="mail.subject"/>
@@ -31,10 +31,10 @@
                         </i>
                     </a>
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- BODY OF MAIL -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="mail.body"/>
@@ -52,7 +52,7 @@
                         </i>
                     </a>
                 </div>
-            </div>
+            </authz:authorize>
 
             <div class="form-actions pull-right">
                 <input class="btn btn-primary" type="submit" name="submit"

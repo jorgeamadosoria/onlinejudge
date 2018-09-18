@@ -7,7 +7,7 @@
 	<spring:message code="pagehdr.admin" />
 </h2>
 <div class="postcontent">
-	<div sec:authorize="hasAnyRole('ROLE_ADMIN')">
+	<authz:authorize ifAnyGranted="ROLE_ADMIN">
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="panel panel-primary">
@@ -21,7 +21,7 @@
 					<div id="gUsers" class="panel-body collapse in">
 						<div>
 
-							<div sec:authorize="hasAnyRole('ROLE_ADMIN')">
+							<authz:authorize ifAnyGranted="ROLE_ADMIN">
 								<div id="userStatus" class="panel-body collapse in">
 									<ul class="list-inline">
 										<c:if test="${not empty userStatus[0]['status']}">
@@ -68,15 +68,15 @@
 										class="fa fa-gear"></i>&nbsp;<spring:message
 											code="tableval.systemsessions" /></a>
 								</div>
-							</div>
+							</authz:authorize>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</authz:authorize>
 	<authz:authorize
-		access="hasAnyRole('ROLE_ADMIN','ROLE_PSETTER','ROLE_SUPER_PSETTER')">
+		ifAnyGranted="ROLE_ADMIN,ROLE_PSETTER,ROLE_SUPER_PSETTER">
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="panel panel-primary">
@@ -89,7 +89,7 @@
 					</div>
 					<div id="gProblems" class="panel-body collapse in">
 						<authz:authorize
-							access="hasAnyRole('ROLE_ADMIN','ROLE_PSETTER','ROLE_SUPER_PSETTER')">
+							ifAnyGranted="ROLE_ADMIN,ROLE_PSETTER,ROLE_SUPER_PSETTER">
 							<div class="col-xs-4">
 								<a href="<c:url value="adminproblems.xhtml" />"
 									title="<spring:message code="titval.manage"/>"><i data-toggle="tooltip"
@@ -108,29 +108,29 @@
 									class="fa fa-gear"></i>&nbsp;<spring:message
 										code="tableval.sources" /></a>
 							</div>
-						</div>
-						<div sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_SUPER_PSETTER')">
+						</authz:authorize>
+						<authz:authorize ifAnyGranted="ROLE_ADMIN,ROLE_SUPER_PSETTER">
 							<div class="col-xs-4">
 								<a href="<c:url value="manageclassifications.xhtml" />"
 									title="<spring:message code="titval.manage"/>"><i data-toggle="tooltip"
 									class="fa fa-gear"></i>&nbsp;<spring:message
 										code="tableval.tags" /></a>
 							</div>
-						</div>
-						<div sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_TRANSLATOR')">
+						</authz:authorize>
+						<authz:authorize ifAnyGranted="ROLE_ADMIN,ROLE_TRANSLATOR">
 							<div class="col-xs-4">
 								<a href="<c:url value="managetranslations.xhtml" />"
 									title="<spring:message code="titval.manage"/>"><i data-toggle="tooltip"
 									class="fa fa-gear"></i>&nbsp;<spring:message
 										code="tableval.translations" /></a>
 							</div>
-						</div>
+						</authz:authorize>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div sec:authorize="hasAnyRole('ROLE_ADMIN')">
+	</authz:authorize>
+	<authz:authorize ifAnyGranted="ROLE_ADMIN">
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="panel panel-primary">
@@ -142,7 +142,7 @@
 						</div>
 					</div>
 					<div id="gContests" class="panel-body collapse in">
-						<div sec:authorize="hasAnyRole('ROLE_ADMIN')">
+						<authz:authorize ifAnyGranted="ROLE_ADMIN">
 							<div class="col-xs-4">
 								<a href="<c:url value="admincontests.xhtml?access=all" />"
 									title="<spring:message code="titval.manage"/>"><i data-toggle="tooltip"
@@ -163,13 +163,13 @@
 									class="fa fa-gear"></i>&nbsp;<spring:message
 										code="tableval.teams"/></a>
 							</div>
-						</div>
+						</authz:authorize>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div sec:authorize="hasAnyRole('ROLE_ADMIN')">
+	</authz:authorize>
+	<authz:authorize ifAnyGranted="ROLE_ADMIN">
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="panel panel-primary">
@@ -181,21 +181,21 @@
 						</div>
 					</div>
 					<div id="gSubmits" class="panel-body collapse in">
-						<div sec:authorize="hasAnyRole('ROLE_ADMIN')">
+						<authz:authorize ifAnyGranted="ROLE_ADMIN">
 							<div class="col-xs-4">
 								<a href="<c:url value="managesubmissions.xhtml" />"
 									title="<spring:message code="titval.manage"/>"><i data-toggle="tooltip"
 									class="fa fa-gear"></i>&nbsp;<spring:message
 										code="tableval.submissions" /></a>
 							</div>
-						</div>
+						</authz:authorize>
 
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_FILE_MANAGER')">
+	</authz:authorize>
+	<authz:authorize ifAnyGranted="ROLE_ADMIN,ROLE_FILE_MANAGER">
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="panel panel-primary">
@@ -207,32 +207,32 @@
 						</div>
 					</div>
 					<div id="gMisc" class="panel-body collapse in">
-						<div sec:authorize="hasAnyRole('ROLE_ADMIN')">
+						<authz:authorize ifAnyGranted="ROLE_ADMIN">
 							<div class="col-xs-4">
 								<a href="<c:url value="listann.xhtml" />"
 									title="<spring:message code="titval.manage"/>"><i data-toggle="tooltip"
 									class="fa fa-gear"></i>&nbsp;<spring:message
 										code="tableval.announcements" /></a>
 							</div>
-						</div>
-						<div sec:authorize="hasAnyRole('ROLE_ADMIN')">
+						</authz:authorize>
+						<authz:authorize ifAnyGranted="ROLE_ADMIN">
 							<div class="col-xs-4">
 								<a href="<c:url value="notify.xhtml" />"
 									title="<spring:message code="titval.manage"/>"><i data-toggle="tooltip"
 									class="fa fa-gear"></i>&nbsp;<spring:message
 										code="tableval.mailnotify" /></a>
 							</div>
-						</div>
+						</authz:authorize>
 
-						<div sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_FILE_MANAGER')">
+						<authz:authorize ifAnyGranted="ROLE_ADMIN,ROLE_FILE_MANAGER">
 							<div class="col-xs-4">
 								<a href="<c:url value="files/list.xhtml" />"
 									title="<spring:message code="titval.manage"/>"><i data-toggle="tooltip"
 									class="fa fa-gear"></i>&nbsp;<spring:message
 										code="tableval.files" /></a>
 							</div>
-						</div>
-						<div sec:authorize="hasAnyRole('ROLE_ADMIN')">
+						</authz:authorize>
+						<authz:authorize ifAnyGranted="ROLE_ADMIN">
 							<div class="col-xs-4">
 								<a href="<c:url value="programminglanguages.xhtml" />"
 									title="<spring:message code="titval.manage"/>"><i data-toggle="tooltip"
@@ -245,8 +245,8 @@
 									class="fa fa-gear"></i>&nbsp;<spring:message
 										code="tableval.faq" /></a>
 							</div>
-						</div>
-						<div sec:authorize="hasAnyRole('ROLE_ADMIN')">
+						</authz:authorize>
+						<authz:authorize ifAnyGranted="ROLE_ADMIN">
 
 							<div class="col-xs-4">
 								<a href="<c:url value="manageinstitutions.xhtml" />"
@@ -275,29 +275,29 @@
 									class="fa fa-gear"></i>&nbsp;<spring:message
 										code="tableval.corrections" /></a>
 							</div>
-						</div>
-						<div sec:authorize="hasAnyRole('ROLE_ADMIN')">
+						</authz:authorize>
+						<authz:authorize ifAnyGranted="ROLE_ADMIN">
 							<div class="col-xs-4">
 								<a href="<c:url value="poll/list.xhtml" />"
 									title="<spring:message code="titval.manage"/>"><i data-toggle="tooltip"
 									class="fa fa-gear"></i>&nbsp;<spring:message
 										code="tableval.polls" /></a>
 							</div>
-						</div>
-						<div sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_ENTRIES_MANAGER')">
+						</authz:authorize>
+						<authz:authorize ifAnyGranted="ROLE_ADMIN,ROLE_ENTRIES_MANAGER">
 							<div class="col-xs-4">
 								<a href="<c:url value="/admin/manageentries.xhtml" />"
 									title="<spring:message code="titval.entries"/>"><i data-toggle="tooltip"
 									class="fa fa-gear"></i>&nbsp;<spring:message
 										code="tableval.entries" /></a>
 							</div>
-						</div>
+						</authz:authorize>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div sec:authorize="hasAnyRole('ROLE_ADMIN')">
+	</authz:authorize>
+	<authz:authorize ifAnyGranted="ROLE_ADMIN">
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="panel panel-primary">
@@ -309,7 +309,7 @@
 						</div>
 					</div>
 					<div id="gConfiguration" class="panel-body collapse in">
-						<div sec:authorize="hasAnyRole('ROLE_ADMIN')">
+						<authz:authorize ifAnyGranted="ROLE_ADMIN">
 							<div class="col-xs-4">
 								<a href="<c:url value="listlog.xhtml" />"
 									title="<spring:message code="titval.manage"/>"><i data-toggle="tooltip"
@@ -328,13 +328,13 @@
 									class="fa fa-gear"></i>&nbsp;<spring:message
 										code="tableval.gar" /></a>
 							</div>
-						</div>
+						</authz:authorize>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
-	<div sec:authorize="hasAnyRole('ROLE_ADMIN')">
+	</authz:authorize>
+	<authz:authorize ifAnyGranted="ROLE_ADMIN">
 		<div class="row">
 			<div class="col-xs-12">
 				<div class="panel panel-primary">
@@ -368,7 +368,7 @@
 				</div>
 			</div>
 		</div>
-	</div>
+	</authz:authorize>
 </div>
 
 <script>

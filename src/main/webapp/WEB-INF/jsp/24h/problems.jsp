@@ -40,7 +40,7 @@
 						</c:forEach>
 					</select>
 				</div>
-				<div sec:authorize="hasRole('ROLE_USER')">
+				<authz:authorize ifAllGranted="ROLE_USER">
 					<div class="form-group">
 						<select class="form-control" name="filterby">
 							<option value="0"><spring:message code="link.all" /></option>
@@ -52,7 +52,7 @@
 									code="link.recommended" /></option>
 						</select>
 					</div>
-				</div>
+				</authz:authorize>
 				<div class="form-group">
 					<input id="filter-button" type="submit" class="btn btn-primary form-control"
 						value="<spring:message code="button.filter"/>">

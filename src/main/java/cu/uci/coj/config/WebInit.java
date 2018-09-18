@@ -10,8 +10,6 @@ import org.springframework.web.filter.DelegatingFilterProxy;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import org.tuckey.web.filters.urlrewrite.UrlRewriteFilter;
 
-import cu.uci.coj.utils.COJContextLoaderListener;
-
 public class WebInit extends AbstractAnnotationConfigDispatcherServletInitializer {
 	
 	@Override
@@ -22,12 +20,12 @@ public class WebInit extends AbstractAnnotationConfigDispatcherServletInitialize
 	
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
-		return new Class<?>[] {RootConfiguration.class};
+		return new Class<?>[] {RootConfiguration.class,SecurityConfiguration.class};
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
-		return new Class<?>[] {WebConfiguration.class,SecurityConfiguration.class};
+		return new Class<?>[] {WebConfiguration.class};
 	}
 
 	@Override

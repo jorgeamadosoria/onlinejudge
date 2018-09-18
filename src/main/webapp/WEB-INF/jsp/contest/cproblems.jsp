@@ -20,10 +20,10 @@
 					<table class="volume">
 						<thead>
 							<th class="headid"><spring:message code="tablehdr.id" /></th>
-							<div sec:authorize="!isAnonymous()">
+							<authz:authorize ifNotGranted="ROLE_ANONYMOUS">
 								<th class="headsolved"><spring:message
 										code="tablehdr.solved" /></th>
-							</div>
+							</authz:authorize>
 							<th><spring:message code="tablehdr.title" /></th>
 							<c:if test="${contest.style eq 4}">
 								<th><spring:message code="tablehdr.level" /></th>

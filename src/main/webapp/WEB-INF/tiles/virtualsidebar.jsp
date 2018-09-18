@@ -2,12 +2,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <div class="layout-cell sidebar1">
-	<div sec:authorize="isAnonymous()">
+	<authz:authorize ifAnyGranted="ROLE_ANONYMOUS">
 		<%@include file="/WEB-INF/tiles/sidebarpublic.jsp"%>
-	</div>
-	<div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+	</authz:authorize>
+	<authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
 		<%@include file="/WEB-INF/tiles/sidebarlogged.jsp"%>
-	</div>
+	</authz:authorize>
 	<div class="block">
 		<div class="panel panel-primary block-body">
 			<div class="panel-heading">
@@ -18,7 +18,7 @@
 				<!-- block-content -->
 				<div>
 					<ul class="list-unstyled">
-						<div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+						<authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
 							<c:choose>
 								<c:when
 									test="${contest.running == true || contest.past == true}">
@@ -30,8 +30,8 @@
 													key="link.problems" /></a></li>
 								</c:when>
 							</c:choose>
-						</div>
-						<div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+						</authz:authorize>
+						<authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
 							<c:choose>
 								<c:when test="${contest.running == true}">
 									<li><a
@@ -39,8 +39,8 @@
 													key="link.submit" /></a></li>
 								</c:when>
 							</c:choose>
-						</div>
-						<div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+						</authz:authorize>
+						<authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
 							<c:choose>
 								<c:when
 									test="${contest.running == true || contest.past == true}">
@@ -52,7 +52,7 @@
 													key="link.standings" /></a></li>
 								</c:when>
 							</c:choose>
-						</div>
+						</authz:authorize>
 					</ul>
 				</div>
 				<!-- /block-content -->

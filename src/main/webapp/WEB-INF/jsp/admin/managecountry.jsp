@@ -5,7 +5,7 @@
 <div class="row">
     <div class="col-xs-10">
         <form:form method="post" enctype="multipart/form-data"
-                   modelAttribute="country" cssClass="form-horizontal">
+                   commandName="country" cssClass="form-horizontal">
 
             <!-- NAME OF VIEW -->
             <legend>
@@ -29,7 +29,7 @@
             </div>
 
             <!-- NAME OF COUNTRY -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="page.addcountry.name"/>
@@ -48,10 +48,10 @@
                         </i>
                     </a>
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- ACRONYM OF COUNTRY -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="page.addcountry.zip"/>
@@ -70,11 +70,11 @@
                         </i>
                     </a>
                 </div>
-            </div>
+            </authz:authorize>
 
 
             <!-- TWO LETTER OF COUNTRY -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="page.addcountry.twozip"/>
@@ -93,10 +93,10 @@
                         </i>
                     </a>
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- WEB OF COUNTRY -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="page.addcountry.website"/>
@@ -116,7 +116,7 @@
                     </a>
 
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- ENABLED OF COUNTRY -->
 

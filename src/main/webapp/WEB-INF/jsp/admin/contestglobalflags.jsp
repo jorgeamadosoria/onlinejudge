@@ -47,6 +47,9 @@
         <li><a
                 href="<c:url value="contestimg.xhtml?cid=${contest.cid}"/>"><fmt:message
                 key="page.managecontest.link.img"/></a></li>
+        <li><a
+                href="<c:url value="downloadsourcezip.xhtml?cid=${contest.cid}"/>"><fmt:message
+                key="page.managecontest.link.download.sources"/></a></li>
     </ul>
     <br/>
 
@@ -57,7 +60,7 @@
         </div>
     </c:if>
 
-    <form:form method="post" modelAttribute="globalFlags">
+    <form:form method="post" commandName="globalFlags">
         <input type="hidden" name="cid" value="${cid}"/>
         <table class="createnewuser">
             <tbody>

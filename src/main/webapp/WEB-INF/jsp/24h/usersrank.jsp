@@ -11,7 +11,7 @@
     <form id="filter-form" class="form-inline coj_float_rigth">
 
         <div class="form-group">
-            <input placeholder="<spring:message code="fieldhdr.searchusersu" />" >
+            <input placeholder="<spring:message code="fieldhdr.searchusersu" />"
             <input
                     type="text" name="pattern" value="${pattern}" class="form-control"/> <input
                 type="hidden" name="filter" value="${filter}" class="form-control"/>
@@ -46,7 +46,7 @@
     </div>
     <div class="clearfix"></div>
         <div id="display-table-container" data-reload-url="/tables/usersrank.xhtml"></div>
-</div>
+
         <!-- /content -->
 
     <script>

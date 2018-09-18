@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-xs-10">
         <form:form method="post" enctype="multipart/form-data"
-                   modelAttribute="institution" cssClass="form-horizontal">
+                   commandName="institution" cssClass="form-horizontal">
 
             <!-- NAME OF VIEW -->
             <legend>
@@ -14,7 +14,7 @@
             </legend>
 
             <!-- NAME OF INTITUTION -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="page.addcountry.name" />
@@ -32,10 +32,10 @@
                         </i>
                     </a>
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- ACRONYM OF INTITUTION -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="page.addinstitution.acronym" />
@@ -53,11 +53,11 @@
                         </i>
                     </a>
                 </div>
-            </div>
+            </authz:authorize>
 
 
             <!-- LOGO OF INTITUTION -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3" for="imagefile">Logo
                         (120x120, &lt;35KB)</label>
@@ -68,10 +68,10 @@
                     </div>
                     
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- WEB OF INTITUTION -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="page.addinstitution.website" />
@@ -89,10 +89,10 @@
                         </i>
                     </a>
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- COUNTRY OF INTITUTION -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="judge.register.country" />
@@ -115,7 +115,7 @@
                         </i>
                     </a>
                 </div>
-            </div>
+            </authz:authorize>
 
             <div class="form-actions pull-right">
                 <input class="btn btn-primary" type="submit" name="submit"

@@ -10,7 +10,7 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="panel panel-primary text-center">
-				<div sec:authorize="!isAuthenticated()">
+				<authz:authorize access="!isAuthenticated()">
     &nbsp;<a href="status.xhtml?pid=<c:url value="${problem.pid}"/>"><spring:message
 							code="link.submissions" /></a>
 							&nbsp;&nbsp;<a
@@ -22,8 +22,8 @@
 							&nbsp;&nbsp;<a href="${problem.forumLink}"><spring:message
 								code="link.discussion" /></a>
 					</c:if>
-				</div>
-				<div sec:authorize="!isAnonymous()">
+				</authz:authorize>
+				<authz:authorize ifNotGranted="ROLE_ANONYMOUS">
 			&nbsp;<a href="submit.xhtml?pid=<c:url value="${problem.pid}"/>"><spring:message
 							code="link.submit" /></a>
 			&nbsp;<a
@@ -35,11 +35,11 @@
 						href="bestsolutions.xhtml?pid=<c:url value="${problem.pid}"/>"><spring:message
 							code="link.bestsolutions" /></a>
 					<!--
-			<div sec:authorize="hasRole('ROLE_USER')">
+			<authz:authorize ifAllGranted="ROLE_USER">
 				&nbsp;<a
 					href="<c:url value="/datagen/datasets.xhtml?problemId=${problem.pid}&mode=modelsol"/>"><spring:message
 							code="link.datagen" /></a>
-			</div>
+			</authz:authorize>
 			-->
 					<c:if test="${problem.solved == true}">
 				&nbsp;<a href="<c:url value="votes.xhtml?pid=${problem.pid}"/>"><spring:message
@@ -52,7 +52,7 @@
 					</c:if>
 			&nbsp;<a href="/24h/translation.xhtml?pid=${problem.pid}"><spring:message
 							code="link.translation" /></a>
-				</div>
+				</authz:authorize>
 			</div>
 		</div>
 	</div>
@@ -137,7 +137,7 @@
                                                 </td>
 					</tr>
 					<c:if test="${view_pinfo}">
-						<div sec:authorize="hasRole('ROLE_USER')">
+						<authz:authorize ifAllGranted="ROLE_USER">
 
 							<tr>
 								<td><spring:message code="fieldhdr.classif" /></td>
@@ -154,7 +154,7 @@
 									</c:forEach></td>
 							</tr>
 
-						</div>
+						</authz:authorize>
 					</c:if>
 					<tr>
 						<td><spring:message code="fieldhdr.availablein" /></td>
@@ -269,6 +269,33 @@
 			</div>
 		</div>
 	</div>
+	<c:if test="${hasRecommend}">
+		<div class="row">
+			<div class="col-xs-12">
+				<h4 class="text-primary">
+					<spring:message code="problemrec.recommend" />
+				</h4>
+				<div class="ex">
+					<authz:authorize ifAllGranted="ROLE_USER">
+						<spring:message code="problemrec.recommend.message" />
+					</authz:authorize>
+					<authz:authorize ifAllGranted="ROLE_ANONYMOUS">
+						<spring:message code="problemrec.recommend.message.notlogged" />
+					</authz:authorize>
+					<c:forEach items="${recommend}" var="recomm" varStatus="status">
+						<c:if test="${status.count ne 1}">
+							<c:out value="  |  " />
+						</c:if>
+						<a href="problem.xhtml?pid=<c:url value="${recomm.pid}"/>"><c:out
+								value="${recomm.pid}" /></a>
+					</c:forEach>
+				</div>
+				<div class="coj_float_rigth">
+					<a href="/24h/problems.xhtml" class="btn btn-primary"><spring:message code="button.close" /></a>
+				</div>
+			</div>
+		</div>
+	</c:if>
 </div>
 
 <script>

@@ -34,21 +34,21 @@
 
     <br/>
 
-    <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+    <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
         <c:if test="${contest.running eq true}">
             <a
                     href="<c:url value="/contest/clarification.xhtml?cid=${contest.cid}"/>"><i
                     class="fa fa-pencil"></i>&nbsp;<spring:message code="link.request"/></a>
         </c:if>
-    </div>
+    </authz:authorize>
     <authz:authorize
-            access="hasAnyRole('ROLE_ADMIN','ROLE_SUPER_PSETTER','ROLE_PSETTER')">
+            ifAnyGranted="ROLE_ADMIN,ROLE_SUPER_PSETTER,ROLE_PSETTER">
 
         <c:if test="${contest.running}">
             <a href="<c:url value="sendclarification.xhtml?cid=${contest.cid}"/>"><i
                     class="fa fa-send"></i>&nbsp;<spring:message code="link.send"/></a>
         </c:if>
-    </div>
+    </authz:authorize>
     <div>
         <c:choose>
             <c:when test="${clarifications[0]!=null}">
@@ -100,14 +100,14 @@
                             <td class="date">${clarification.date}</td>
 
                             <td><authz:authorize
-                                    access="hasAnyRole('ROLE_ADMIN','ROLE_SUPER_PSETTER','ROLE_PSETTER')">
+                                    ifAnyGranted="ROLE_ADMIN,ROLE_SUPER_PSETTER,ROLE_PSETTER">
                                 <c:if test="${isContestJudge and contest.running}">
                                     <a data-toggle="tooltip" title="<spring:message code="titval.sendclarification" />"
                                        href="<c:url value="sendclarification.xhtml?cid=${contest.cid}&ccid=${clarification.id}&uid=${clarification.username}&pid=${clarification.pid}"/>">
                                         <i class="fa fa-reply"></i>
                                     </a>
                                 </c:if>
-                            </div> <c:if test="${clarification.isread == false}">
+                            </authz:authorize> <c:if test="${clarification.isread == false}">
                                 <a
                                         href="<c:url value="markanswered.xhtml?cid=${contest.cid}&ccid=${clarification.id}"/>"
                                         data-toggle="tooltip"

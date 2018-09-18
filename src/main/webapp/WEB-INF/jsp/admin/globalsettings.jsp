@@ -45,6 +45,9 @@
         <li><a
                 href="<c:url value="contestimg.xhtml?cid=${contest.cid}"/>"><fmt:message
                 key="page.managecontest.link.img"/></a></li>
+        <li><a
+                href="<c:url value="downloadsourcezip.xhtml?cid=${contest.cid}"/>"><fmt:message
+                key="page.managecontest.link.download.sources"/></a></li>
     </ul>
 
     <br/>
@@ -55,7 +58,7 @@
         </div>
     </c:if>
 
-    <form:form method="post" modelAttribute="contest">
+    <form:form method="post" commandName="contest">
         <fieldset style="width: 400px;">
             <legend>
                 <fmt:message key="page.managecontest.style"/>

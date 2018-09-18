@@ -36,7 +36,7 @@
 						</a>
 					</div>
 					<div id="actions${f.uid}" class="margin-top-05 pull-right">
-						<div sec:authorize="isAuthenticated()">
+						<authz:authorize access="isAuthenticated()">
 							<c:if test="${user == principal.username}">
 								<a data-toggle='tooltip' title="PM"
 									href="<c:url value="/mail/composemail.xhtml?usernameto=${f.username}"/>"><i
@@ -47,7 +47,7 @@
 									title='<spring:message code="link.unfollow" />'> <i
 									class="fa fa-minus-square"></i></a>
 							</c:if>
-						</div>
+						</authz:authorize>
 					</div>
 				</div>
 			</div>

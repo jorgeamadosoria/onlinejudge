@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
@@ -16,10 +17,7 @@ import cu.uci.coj.dao.UserDAO;
 import cu.uci.coj.model.Roles;
 import cu.uci.coj.model.entities.Contest;
 
-/**
- * @version 2.0
- * @since 2010-09-01
- */
+@Component("handlerInterceptor")
 public class HandlerInterceptorImpl extends HandlerInterceptorAdapter {
 
 	@Resource
@@ -90,7 +88,7 @@ public class HandlerInterceptorImpl extends HandlerInterceptorAdapter {
 					boolean isjudge = baseDAO.bool("exist.judge.contest", uid, cid);
 					boolean isballoontracker = baseDAO.bool("exist.bt.contest", uid, cid);
 
-					request.setAttribute("isjudge", isjudge);
+					request.setAttribute("zx isjudge", isjudge);
 					showSaris = showSaris || request.isUserInRole(Roles.ROLE_ADMIN) || isjudge;
 					showBalloons = showBalloons && isballoontracker;
 

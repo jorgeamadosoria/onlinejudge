@@ -8,7 +8,7 @@
     <spring:message code="pagehdr.vccreate"/>
 </h2>
 <div class="postcontent">    
-    <form:form method="post" modelAttribute="virtualcontest">
+    <form:form method="post" commandName="virtualcontest">
         <table class="createnewuser">
             <tr>
                 <td style="align:right"><spring:message code="fieldhdr.rc"/>: <i class="fa fa-asterisk"></i></td>

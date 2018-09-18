@@ -49,6 +49,9 @@
         <li><a
                 href="<c:url value="contestimg.xhtml?cid=${contest.cid}"/>"><fmt:message
                 key="page.managecontest.link.img"/></a></li>
+        <li><a
+                href="<c:url value="downloadsourcezip.xhtml?cid=${contest.cid}"/>"><fmt:message
+                key="page.managecontest.link.download.sources"/></a></li>
     </ul>
 
     <br/>
@@ -58,7 +61,7 @@
             <i class="fa fa-check"></i><spring:message code="${message}"/>
         </div>
     </c:if>
-    <form:form method="post" modelAttribute="contest">
+    <form:form method="post" commandName="contest">
         <button class="btn btn-info"><fmt:message key="page.contestproblemcolors.randomize"/></button>
         <table>
             <c:forEach items="${contest.problems}" var="problem">

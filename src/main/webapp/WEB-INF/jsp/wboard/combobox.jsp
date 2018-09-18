@@ -10,7 +10,7 @@
 					</select>
 
 		<c:if test="${followed  == 0}">		
-			<div sec:authorize="hasRole('ROLE_USER')">
+			<authz:authorize ifAllGranted="ROLE_USER">
 				<c:forEach items="${sites}" var="current_site">
 					<c:choose>
 						<c:when test="${mapIds.get( current_site.sid )}">
@@ -23,5 +23,5 @@
 						</c:otherwise>
 					</c:choose>
 				</c:forEach>
-			</div>
+			</authz:authorize>
 		</c:if>

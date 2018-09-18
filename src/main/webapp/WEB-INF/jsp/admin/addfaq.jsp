@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-xs-10">
         <form:form method="post" enctype="multipart/form-data"
-                   modelAttribute="faq" cssClass="form-horizontal">
+                   commandName="faq" cssClass="form-horizontal">
 
             <!-- NAME OF VIEW -->
             <legend>
@@ -16,7 +16,7 @@
             </legend>
 
             <!-- NAME OF FAQ -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="addfaq.question" />
@@ -34,10 +34,10 @@
                         <span class="label label-danger"><form:errors path="question" /></span>
                     </div>                    
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- ANSWEAR OF FAQ -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="addfaq.answer" />
@@ -57,7 +57,7 @@
                      
                     </div>                    
                 </div>
-            </div>
+            </authz:authorize>
 
             <div class="form-actions pull-right">
                 <input class="btn btn-primary" type="submit" name="submit"

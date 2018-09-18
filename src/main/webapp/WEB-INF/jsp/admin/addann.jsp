@@ -13,10 +13,10 @@ src="<c:url value="/js/WYSIWYG/source.js" />"></script>
 <div class="row">
     <div class="col-xs-10">
         <form:form method="post" enctype="multipart/form-data"
-                   modelAttribute="announcement" cssClass="form-horizontal">
+                   commandName="announcement" cssClass="form-horizontal">
 
             <!-- TEXT OF ANNOUNCEMENT -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.content" />
@@ -33,7 +33,7 @@ src="<c:url value="/js/WYSIWYG/source.js" />"></script>
                         </i>
                     </a>
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- ENABLED OF ANNOUNCEMENT -->
             <div class="form-group" style="margin-top: 100px;">

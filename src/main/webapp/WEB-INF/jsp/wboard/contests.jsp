@@ -18,14 +18,14 @@
 
 				</div>		
 				
-				<div sec:authorize="hasRole('ROLE_USER')">
+				<authz:authorize ifAllGranted="ROLE_USER">
 					<div class="form-group pull-right">
 						<select id="follow-select" class="form-control" name="followed">
 							<option value="0"><spring:message code="link.all"/></option>
 							<option value="1"><spring:message code="link.followed"/></option>
 						</select>
 					</div>
-				</div>
+				</authz:authorize>
 			</form>
 		</div>
 	</div>

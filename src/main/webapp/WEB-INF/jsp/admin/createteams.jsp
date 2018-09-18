@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col-xs-10">
         <form:form method="post" enctype="multipart/form-data"
-                   modelAttribute="team" cssClass="form-horizontal">
+                   commandName="team" cssClass="form-horizontal">
 
             <!-- NAME OF VIEW -->
             <legend>
@@ -15,7 +15,7 @@
             </legend>
 
             <!-- USERNAME OF TEAM -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="judge.register.username"/>
@@ -34,10 +34,10 @@
                         </i>
                     </a>
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- NICK OF TEAM -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.nname"/>
@@ -60,10 +60,10 @@
                            title="<spring:message code="infomsg.2"/>"></i>
                     </a>
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- UPDATE NICK OF TEAM -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.modnickname"/>
@@ -76,10 +76,10 @@
                         <span class="label label-danger"><form:errors path="update_nick"/></span>
                     </div>
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- PASSWORD OF TEAM -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.npassword"/>
@@ -101,10 +101,10 @@
                           title="<spring:message code="infomsg.8"/>"></i>
                     </a>
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- CONFIRM-PASSWORD OF TEAM -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.cpassword"/>
@@ -123,10 +123,10 @@
                         </i>
                     </a>
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- TOTAL OF TEAM -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="judge.createteams.total"/>
@@ -145,10 +145,10 @@
                         </i>
                     </a>
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- COUNTRY OF TEAM -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.country"/>
@@ -175,10 +175,10 @@
                            title="<spring:message code="infomsg.5"/>"></i>
                     </a>
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- INSTITUTION OF TEAM -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.institution"/>
@@ -203,12 +203,12 @@
                            title="<spring:message code="infomsg.6"/>"></i>
                     </a>
                 </div>
-            </div>
+            </authz:authorize>
 
             <input type="hidden" name="noneInstitution" value='<spring:message code="user.none.institution" />'/>
 
             <!-- DEFAULT GUI LANGUAGUE OF TEAM -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.defaultguilang"/>
@@ -231,10 +231,10 @@
                         </i>
                     </a>
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- CONTEST OF TEAM -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="judge.createteams.contest"/>
@@ -253,7 +253,7 @@
                     </div>
 
                 </div>
-            </div>
+            </authz:authorize>
 
             <div class="form-actions pull-right">
                 <input class="btn btn-primary" type="submit" name="submit"

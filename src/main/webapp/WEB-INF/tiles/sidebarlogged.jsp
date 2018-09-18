@@ -10,19 +10,19 @@
 			<div>
 				<ul class="list-unstyled">
 					<authz:authorize
-						access="hasAnyRole('ROLE_ADMIN','ROLE_SUPER_PSETTER','ROLE_FILE_MANAGER','ROLE_PSETTER')">
+						ifAnyGranted="ROLE_ADMIN,ROLE_SUPER_PSETTER,ROLE_FILE_MANAGER,ROLE_PSETTER">
 						<li <c:if test="${idpage == 'linkadmin'}"> class="item-sidebar-selected" </c:if>><a href="<c:url value="/admin/index.xhtml"/>"><i
 								class="fa fa-wrench"></i>&nbsp;<spring:message code="link.admin" /></a></li>
-					</div>
-					<div sec:authorize="hasRole('ROLE_USER')">
+					</authz:authorize>
+					<authz:authorize ifAllGranted="ROLE_USER">
 						<li <c:if test="${idpage == 'useraccount'}"> class="item-sidebar-selected" </c:if>><a
 							href="<c:url value="/user/useraccount.xhtml?username=" /><authz:authentication property="principal.username" />"><i
 								class="fa fa-user"></i>&nbsp;<spring:message
 									code="link.vprofile" /></a></li>
-					</div>
+					</authz:authorize>
 					<li <c:if test="${idpage == 'updateaccount'}"> class="item-sidebar-selected" </c:if>><a href="<c:url value="/user/updateaccount.xhtml" />"><i
 							class="fa fa-edit"></i>&nbsp;<spring:message code="link.eaccount" /></a></li>
-					<div sec:authorize="hasAnyRole('ROLE_USER')">
+					<authz:authorize ifAnyGranted="ROLE_USER">
 						<li><a href="<c:url value="/mail/inbox.xhtml?start=1"/>"><i
 								class="fa fa-envelope"></i>&nbsp;<spring:message
 									code="link.mail" /></a>
@@ -46,7 +46,7 @@
 											<span class="label label-default label-drafts">(${drafts})</span>
 										</c:if> </a></li>
 							</ul></li>
-					</div>
+					</authz:authorize>
 
 					<li <c:if test="${idpage == 'tos'}"> class="item-sidebar-selected" </c:if>><a href="<c:url value="/general/tos.xhtml"/>"><i
 							class="fa fa-check"></i> <spring:message code="fieldhdr.agreementcojtos.menu"/></a></li>

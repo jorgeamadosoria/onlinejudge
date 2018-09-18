@@ -63,19 +63,14 @@ public class RootConfiguration {
         return new ObjectMapper();
     }
 
-    @Bean
-    public HttpMessageConverter<?> marshallingHttpMessageConverter() {
-        MappingJackson2HttpMessageConverter bean = new MappingJackson2HttpMessageConverter();
-        bean.setObjectMapper(objectMapper());
-        return bean;
-    }
     @Resource
     protected Environment env;
     @Bean
     public RestTemplate restTemplate() {
+    	MappingJackson2HttpMessageConverter marshallingHttpMessageConverter = new MappingJackson2HttpMessageConverter(objectMapper());
         RestTemplate bean = new RestTemplate();
         List<HttpMessageConverter<?>> lists = new ArrayList<>();
-        lists.add(marshallingHttpMessageConverter());
+        lists.add(marshallingHttpMessageConverter);
         bean.setMessageConverters(lists);
         return bean;
     }

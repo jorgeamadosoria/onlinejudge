@@ -14,7 +14,7 @@
     <fmt:message key="page.general.admin.header"/>: <fmt:message key="mail.compose" />
 </h2>
 <div class="postcontent">
-    <form:form action="sendmail.xhtml" method="post" modelAttribute="sendmail">
+    <form:form action="sendmail.xhtml" method="post" commandName="sendmail">
         <table class="userinfo" style="width: 100%;">
             <tr>
                 <td><fmt:message key="mail.subject" /></td>

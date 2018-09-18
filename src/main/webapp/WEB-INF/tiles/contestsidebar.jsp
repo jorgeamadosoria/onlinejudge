@@ -2,12 +2,12 @@
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 
 <div class="layout-cell sidebar1">
-    <div sec:authorize="isAnonymous()">
+    <authz:authorize ifAnyGranted="ROLE_ANONYMOUS">
         <%@include file="/WEB-INF/tiles/sidebarpublic.jsp" %>
-    </div>
-    <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+    </authz:authorize>
+    <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
         <%@include file="/WEB-INF/tiles/sidebarlogged.jsp" %>
-    </div>
+    </authz:authorize>
     <div class="block">
         <div class="panel panel-primary block-body">
             <div class="panel-heading">
@@ -45,7 +45,7 @@
                                         code="link.problems"/></a></li>
                             </c:when>
                         </c:choose>
-                        <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+                        <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                             <c:choose>
                                 <c:when test="${contest.running == true}">
                                     <li <c:if test="${idpage == 'csubmit_contest'}"> class="item-sidebar-selected" </c:if>><a
@@ -54,7 +54,7 @@
                                             code="link.submit"/></a></li>
                                 </c:when>
                             </c:choose>
-                        </div>
+                        </authz:authorize>
                         <c:choose>
                             <c:when test="${contest.running == true || contest.past == true}">
                                 <li <c:if test="${idpage == 'cstatus_contest'}"> class="item-sidebar-selected" </c:if>>
@@ -68,17 +68,17 @@
                                         class="fa fa-sort-numeric-asc"></i>&nbsp;<spring:message
                                         code="link.standings"/></a></li>
                                 <c:if test="${contest.balloon and showBalloons}">
-                                    <div sec:authorize="hasAnyRole('ROLE_USER')">
+                                    <authz:authorize ifAnyGranted="ROLE_USER">
                                     <li <c:if test="${idpage == 'cballontracker_contest'}"> class="item-sidebar-selected" </c:if>>
                                         <a target="_blank"
                                            href="<c:url value="/contest/cballoontracker.xhtml?cid=${contest.cid}" />">
                                             <i class="fa fa-circle-o"></i>&nbsp;<spring:message code="link.balloontracker"/>
                                         </a>
                                     </li>
-                                    </div>
+                                    </authz:authorize>
                                 </c:if>
                                 <c:if test="${contest.saris and showSaris}">
-                                    <div sec:authorize="hasAnyRole('ROLE_USER')">
+                                    <authz:authorize ifAnyGranted="ROLE_USER">
                                     <li <c:if test="${idpage == 'saris_contest'}"> class="item-sidebar-selected" </c:if>>
                                         <a target="_blank"
                                            href="<c:url value="/contest/saris.xhtml?cid=${contest.cid}" />">
@@ -86,7 +86,7 @@
                                                 code="link.saris"/>
                                         </a>
                                     </li>
-                                    </div>
+                                    </authz:authorize>
                                 </c:if>
                                 <c:if test="${contest.past and contest.style == 1}">
                                     <li <c:if test="${idpage == 'cawards_contest'}"> class="item-sidebar-selected" </c:if>>

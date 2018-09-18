@@ -9,12 +9,12 @@
 <div class="postcontent">
     <table class="navigating" width="100%">
         <tr>
-            <div sec:authorize="!isAnonymous()">
+            <authz:authorize ifNotGranted="ROLE_ANONYMOUS">
                 <c:if test="${contest.running == true}">
                     <td width="10%"><a href="<c:url value="vsubmit.xhtml?pid=${problem.pid}"/>"><spring:message code="link.submit"/></a></td>
                 </c:if>
                 <td width="10%"><a href="<c:url value="vstatus.xhtml?pid=${problem.pid}&username="/><authz:authentication property="principal.username" />"><spring:message code="link.mysubmissions"/></a></td>
-            </div>
+            </authz:authorize>
             <td width="10%"><a href="<c:url value="vstatus.xhtml?pid=${problem.pid}"/>"><spring:message code="link.submissions"/></a></td>                        
         </tr>
     </table>    

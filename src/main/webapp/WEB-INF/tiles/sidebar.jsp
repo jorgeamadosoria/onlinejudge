@@ -3,13 +3,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <div class="layout-cell sidebar1">
-	<div sec:authorize="hasAnyRole('ROLE_ANONYMOUS')">
+	<authz:authorize ifAnyGranted="ROLE_ANONYMOUS">
 		<%@include file="/WEB-INF/tiles/sidebarpublic.jsp"%>
-	</div>
-	<div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+	</authz:authorize>
+	<authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
 	<%@include file="/WEB-INF/tiles/sidebarlogged.jsp"%>
 		
-	</div>
+	</authz:authorize>
 	<div class="block">
 		<div class="panel panel-primary block-body">
 			<div class="panel-heading">
@@ -22,11 +22,11 @@
 					<ul class="list-unstyled">
 						<li <c:if test="${idpage == 'problems'}"> class="item-sidebar-selected" </c:if>><a href="<c:url value="/24h/problems.xhtml" />"><i
 								class="fa fa-list"></i> <spring:message code="link.problems" /></a></li>
-						<authz:authorize  access="hasAnyRole('ROLE_USER')">
+						<authz:authorize ifAnyGranted="ROLE_USER">
 							<li <c:if test="${idpage == 'submit'}"> class="item-sidebar-selected" </c:if>><a href="<c:url value="/24h/submit.xhtml" />"><i
 									class="fa fa-file-code-o"></i>&nbsp;<spring:message
 										code="link.submit" /></a></li>
-						</div>
+						</authz:authorize>
 
 						<li <c:if test="${idpage == 'status'}"> class="item-sidebar-selected" </c:if>><a href="<c:url value="/24h/status.xhtml" />"><i
 								class="fa fa-legal"></i>&nbsp;<spring:message

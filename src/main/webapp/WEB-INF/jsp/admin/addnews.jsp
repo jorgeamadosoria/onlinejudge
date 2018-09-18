@@ -8,7 +8,7 @@
     <fmt:message key="page.general.admin.header"/>: Add News
 </h2>
 <div class="postcontent">    
-    <form:form method="post" modelAttribute="addnews">
+    <form:form method="post" commandName="addnews">
         <table class="createnewuser">
             <tbody>
                 <tr>

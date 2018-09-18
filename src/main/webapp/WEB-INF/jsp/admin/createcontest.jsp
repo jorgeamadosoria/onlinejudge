@@ -10,11 +10,11 @@
 <div class="row">
     <div class="col-xs-10">
         <form:form method="post" enctype="multipart/form-data"
-                   modelAttribute="contest" cssClass="form-horizontal">
+                   commandName="contest" cssClass="form-horizontal">
 
 
             <!-- ID OF CONTEST -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                        <spring:message code="mandatory.id"/>
@@ -34,10 +34,10 @@
                         </i>
                     </a> 
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- IMPORT OF CONTEST -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="page.createcontest.import" />
@@ -49,10 +49,10 @@
                         <span class="label label-danger"><form:errors path="importData" /></span>
                     </div>                    
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- CID OF CONTEST -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                        <spring:message code="mandatory.cid"/>
@@ -68,12 +68,12 @@
                         <span class="label label-danger"><form:errors path="importCid" /></span>
                     </div>
                                  </div>
-            </div>
+            </authz:authorize>
 
             <legend><spring:message code="page.createcontest.importtag" /></legend>
 
             <!-- IMPORT ALL OF CONTEST -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="page.createcontest.import.all" />
@@ -85,10 +85,10 @@
                         <span class="label label-danger"><form:errors path="imports" /></span>
                     </div>                    
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- IMPORT GENERAL OF CONTEST -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="page.createcontest.import.general" />
@@ -100,10 +100,10 @@
                         <span class="label label-danger"><form:errors path="imports" /></span>
                     </div>                    
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- IMPORT PROBLEMS OF CONTEST -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="page.managecontest.link.mp" />
@@ -115,10 +115,10 @@
                         <span class="label label-danger"><form:errors path="imports" /></span>
                     </div>                    
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- IMPORT LANGUAGES OF CONTEST -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <fmt:message key="page.managecontest.link.ml"/>
@@ -130,10 +130,10 @@
                         <span class="label label-danger"><form:errors path="imports" /></span>
                     </div>                    
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- IMPORT FLAGS OF CONTEST -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <fmt:message key="page.createcontest.import.flags"/>
@@ -145,10 +145,10 @@
                         <span class="label label-danger"><form:errors path="imports" /></span>
                     </div>                    
                 </div>
-            </div>
+            </authz:authorize>
 
             <!-- IMPORT USERS OF CONTEST -->
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <fmt:message key="page.managecontest.link.mu"/>
@@ -160,7 +160,7 @@
                         <span class="label label-danger"><form:errors path="imports" /></span>
                     </div>                    
                 </div>
-            </div>
+            </authz:authorize>
 
             <div class="form-actions pull-right">
                 <input class="btn btn-primary" type="submit" name="submit"

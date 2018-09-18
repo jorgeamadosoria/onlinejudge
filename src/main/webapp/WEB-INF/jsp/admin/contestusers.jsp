@@ -45,6 +45,9 @@
         <li><a
                 href="<c:url value="contestimg.xhtml?cid=${contest.cid}"/>"><fmt:message
                 key="page.managecontest.link.img"/></a></li>
+        <li><a
+                href="<c:url value="downloadsourcezip.xhtml?cid=${contest.cid}"/>"><fmt:message
+                key="page.managecontest.link.download.sources"/></a></li>
     </ul>
     <br/>
     <c:if test="${message1 != null}">
@@ -54,7 +57,7 @@
         </div>
     </c:if>
     <form:form method="post" onsubmit="return SeleccionarRangosContest();"
-               modelAttribute="contest">
+               commandName="contest">
         <c:if test="${contest.grouped eq true}">
             <div class="row">
                 <div class="form-group">

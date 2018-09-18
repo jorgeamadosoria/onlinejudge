@@ -15,28 +15,6 @@
             </div>
         </c:if>
 
-        <div sec:authorize="isAuthenticated()">
-            <form:form method="post" modelAttribute="entry">
-                <div class="form-group">
-                    <label class="control-label"><fmt:message key="entry.text"/></label>
-                    <form:textarea id="text" maxlength="255" cssClass="form-control"
-                                   path="text"/>
-                    <div>
-                        <span class="label label-danger"><form:errors path="text"/></span>
-                    </div>
-                </div>
-                <div class="margin-top-05 form-actions pull-left">
-                    <c:forEach items="${emoties}" var="emot">
-                        <a href="javascript:insertText('${emot.key}');">${emot.value}</a>&nbsp;
-                    </c:forEach>
-                </div>
-                <div class="margin-top-05 form-actions pull-right">
-                    <input class="btn btn-primary" type="submit" name="submit"
-                           id="submit"
-                           value="<fmt:message key="judge.register.submit.value"/>"/>
-                </div>
-            </form:form>
-        </div>
     </div>
 </div>
 <div class="row">
@@ -44,14 +22,15 @@
         <ul class="list-inline pull-right">
             <li><a href="javascript:displayTableReload('');"><spring:message
                     code="link.entry.user"/></a></li>
-            <div sec:authorize="isAuthenticated()">
+            <authz:authorize access="isAuthenticated()">
                 <li><a href="javascript:displayTableReload('?entries=following');"><spring:message
                         code="link.entry.fallowing"/></a></li>
-            </div>
+            </authz:authorize>
             <li><a href="javascript:displayTableReload('?entries=cojboard');"><spring:message
                     code="link.entry.cojboard"/></a></li>
         </ul>
     </div>
+
     <div id="display-table-container" data-reload-url="/tables/entries.xhtml" class="col-xs-12"></div>
 </div>
 <script>

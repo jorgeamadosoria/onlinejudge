@@ -13,7 +13,7 @@
 </h2>
 
 <div class="postcontent">
-    <form:form action="sendclarification.xhtml?cid=${contest.cid}" method="post" modelAttribute="clarification">
+    <form:form action="sendclarification.xhtml?cid=${contest.cid}" method="post" commandName="clarification">
 
 
         <table class="userinfo" style="width: 100%;">

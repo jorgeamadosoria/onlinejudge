@@ -11,7 +11,7 @@
     <spring:message code="pagehdr.pcscreate"/>
 </h2>
 <div class="postcontent">    
-    <form:form method="post"  onsubmit="return SeleccionarRangosVirtualContest();" modelAttribute="contest">
+    <form:form method="post"  onsubmit="return SeleccionarRangosVirtualContest();" commandName="contest">
 
         <table class="createnewuser"> 
 

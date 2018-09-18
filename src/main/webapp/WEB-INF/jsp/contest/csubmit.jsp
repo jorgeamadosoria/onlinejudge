@@ -12,7 +12,7 @@
 	<div class="col-xs-10">
 		<!-- article-content -->
 		<form:form method="post" enctype="multipart/form-data"
-			cssClass="form-horizontal" modelAttribute="submit">
+			cssClass="form-horizontal" commandName="submit">
 			<div class="form-group">
 				<div class="error col-xs-8 col-xs-offset-3">
 					<span class="label label-danger"><form:errors path="username" /></span>

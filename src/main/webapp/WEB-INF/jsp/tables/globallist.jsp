@@ -45,7 +45,7 @@
 	<display:column titleKey="tablehdr.duration" property="duration" />
 	<display:column titleKey="tablehdr.users">
             ${contest.total_users}
-            <div sec:authorize="hasAnyRole('ROLE_USER','ROLE_TEAM')">
+            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
 			<c:if test="${contest.is_public == true || isadmin == true}">
 				<c:choose>
 					<c:when
@@ -57,6 +57,6 @@
 					</c:when>
 				</c:choose>
 			</c:if>
-		</div>
+		</authz:authorize>
 	</display:column>
 </display:table>

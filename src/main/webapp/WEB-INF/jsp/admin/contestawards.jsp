@@ -36,6 +36,9 @@
                 key="page.managecontest.link.ov"/></a></li>
         <li><a href="<c:url value="contestimg.xhtml?cid=${contest.cid}"/>"><fmt:message
                 key="page.managecontest.link.img"/></a></li>
+        <li><a
+                href="<c:url value="downloadsourcezip.xhtml?cid=${contest.cid}"/>"><fmt:message
+                key="page.managecontest.link.download.sources"/></a></li>
     </ul>
     <br/>
     <c:if test="${message != null}">
@@ -45,7 +48,7 @@
         </div>
     </c:if>
 
-    <form:form method="post" modelAttribute="contestawardsflags">
+    <form:form method="post" commandName="contestawardsflags">
         <table class="contestsetting">
             <tr>
                 <td><fmt:message key="page.contestawards.accurateteam"/>:</td>

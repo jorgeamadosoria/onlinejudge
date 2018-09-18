@@ -37,14 +37,20 @@ public class WebConfiguration implements WebMvcConfigurer {
 	@Resource
 	private MarshallingHttpMessageConverter marshallingHttpMessageConverter;
 
+	@Resource
+	HandlerInterceptorImpl handlerInterceptor;
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new HandlerInterceptorImpl());
+        registry.addInterceptor(handlerInterceptor);
         LocaleChangeInterceptor bean = new LocaleChangeInterceptor();
         bean.setParamName("lang");
         registry.addInterceptor(bean);
     }
-
+    @Bean
+    public HttpMessageConverter<?> marshallingHttpMessageConverter() {
+        
+        return new MarshallingHttpMessageConverter();
+    }
     @Bean
     public InternalResourceViewResolver viewResolver() {
         InternalResourceViewResolver bean = new InternalResourceViewResolver();

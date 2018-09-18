@@ -59,7 +59,7 @@
            </div>
 
 
-    <div sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_COACH')">
+    <authz:authorize ifAnyGranted="ROLE_ADMIN,ROLE_COACH">
         <div class="col-xs-3">
             <a href="/teamanalyzer/main.xhtml" class="clearfix">
                 <i title=" <spring:message code="text.tools.8"/>" data-toggle="tooltip"
@@ -68,7 +68,7 @@
             </a>
             <label><spring:message code="text.tools.8"/></label>
         </div>
-    </div>
+    </authz:authorize>
 
     <!-- /article-content -->
 </div>

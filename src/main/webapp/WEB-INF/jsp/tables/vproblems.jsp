@@ -6,7 +6,7 @@
 	decorator="cu.uci.coj.utils.tabledecorator.problemsTableDecorator">
 	<display:column property="letter" titleKey="tablehdr.id"
 		headerClass="headid" />
-	<div sec:authorize="!isAnonymous()">
+	<authz:authorize ifNotGranted="ROLE_ANONYMOUS">
 		<display:column titleKey="tablehdr.solved">
 			<c:choose>
 				<c:when test="${problem.solved == true}">
@@ -17,7 +17,7 @@
 				</c:when>
 			</c:choose>
 		</display:column>
-	</div>
+	</authz:authorize>
 	<display:column property="title" titleKey="tablehdr.title"
 		href="vproblem.xhtml" paramId="pid" paramProperty="pid" />
 	<display:column property="accu" titleKey="tablehdr.ac"

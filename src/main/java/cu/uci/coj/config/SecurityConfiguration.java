@@ -239,14 +239,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		return bean;
 	}
 
-	private List<SecurityFilterChain> filterChain() {
-		List<SecurityFilterChain> filters = new ArrayList<SecurityFilterChain>(12);
-		RequestMatcher req = new AntPathRequestMatcher("/**");
-
-		filters.add(new DefaultSecurityFilterChain(req, new SecurityContextPersistenceFilter(), logoutFilter(), cojAuthenticationProcessingFilter(), securityContextHolderAwareRequestFilter(), rememberMeAuthenticationFilter(), anonymousAuthenticationFilter(), exceptionTranslationFilter(), filterInvocationInterceptor()));
-		return filters;
-	}
-
 	@Bean
 	public SecurityContextHolderAwareRequestFilter securityContextHolderAwareRequestFilter() {
 
@@ -255,7 +247,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	public FilterChainProxy springSecurityFilterChain() {
-		FilterChainProxy bean = new FilterChainProxy(filterChain());
+		List<SecurityFilterChain> filters = new ArrayList<SecurityFilterChain>(12);
+		RequestMatcher req = new AntPathRequestMatcher("/**");
+
+		filters.add(new DefaultSecurityFilterChain(req, new SecurityContextPersistenceFilter(), logoutFilter(), cojAuthenticationProcessingFilter(), securityContextHolderAwareRequestFilter(), rememberMeAuthenticationFilter(), anonymousAuthenticationFilter(), exceptionTranslationFilter(), filterInvocationInterceptor()));
+		
+		FilterChainProxy bean = new FilterChainProxy(filters);
 		return bean;
 	}
 

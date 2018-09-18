@@ -38,7 +38,7 @@
             </c:choose>
         </c:if>
         <form:form method="post" enctype="multipart/form-data"
-                   cssClass="form-horizontal" modelAttribute="file">
+                   cssClass="form-horizontal" commandName="file">
             <div class="row panel panel-primary">
                 <div class="label label-primary col-xs-12">
                     <i class="pull-left fa fa-folder-open-o fa-lg"></i><spring:message code="public.files.root"/>

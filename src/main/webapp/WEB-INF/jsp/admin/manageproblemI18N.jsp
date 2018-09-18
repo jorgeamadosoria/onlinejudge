@@ -6,7 +6,7 @@
 </h2>
 <div class="row postcontent">
 	<div class="col-xs-12">
-		<form:form method="post" modelAttribute="problem">
+		<form:form method="post" commandName="problem">
 			<div class="form-group col-xs-12">
 				<label class="control-label col-xs-3">PID</label>
 				<div class="col-xs-8">
