@@ -15,7 +15,7 @@ src="<c:url value="/js/WYSIWYG/source.js" />"></script>
                    commandName="announcement" cssClass="form-horizontal">
             
             <!-- ID OF ANNOUNCEMENT -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.id" />
@@ -31,7 +31,7 @@ src="<c:url value="/js/WYSIWYG/source.js" />"></script>
             </authz:authorize>
 
             <!-- TEXT OF ANNOUNCEMENT -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.content" />

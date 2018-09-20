@@ -14,7 +14,7 @@
             </legend>
 
             <!-- NAME OF INTITUTION -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="page.addcountry.name" />
@@ -35,7 +35,7 @@
             </authz:authorize>
 
             <!-- ACRONYM OF INTITUTION -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="page.addinstitution.acronym" />
@@ -57,7 +57,7 @@
 
 
             <!-- LOGO OF INTITUTION -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3" for="imagefile">Logo
                         (120x120, &lt;35KB)</label>
@@ -71,7 +71,7 @@
             </authz:authorize>
 
             <!-- WEB OF INTITUTION -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="page.addinstitution.website" />
@@ -92,7 +92,7 @@
             </authz:authorize>
 
             <!-- COUNTRY OF INTITUTION -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="judge.register.country" />

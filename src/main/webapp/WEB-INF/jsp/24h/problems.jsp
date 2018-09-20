@@ -40,7 +40,7 @@
 						</c:forEach>
 					</select>
 				</div>
-				<authz:authorize ifAllGranted="ROLE_USER">
+				<authz:authorize access="hasRole('ROLE_USER')">
 					<div class="form-group">
 						<select class="form-control" name="filterby">
 							<option value="0"><spring:message code="link.all" /></option>

@@ -73,7 +73,7 @@
 					href="<c:url value="/contest/cproblems.xhtml?cid=${contest.cid}" />" data-toggle="tooltip"><i
 										class="fa fa-list"></i>&nbsp;<spring:message
 							code="link.problems" /> </a></td>
-				<authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+				<authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
 					<c:choose>
 						<c:when test="${contest.running == true}">
 							<td><a

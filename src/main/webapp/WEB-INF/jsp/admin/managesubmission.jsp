@@ -14,7 +14,7 @@
             </legend>
 
             <!-- ID OF SUBMISSION -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         ID:
@@ -30,7 +30,7 @@
             </authz:authorize>
 
             <!-- USERNAME OF SUBMISSION -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="judge.register.username" />
@@ -46,7 +46,7 @@
             </authz:authorize>
 
             <!-- STATUS OF SUBMISSION -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="tablehdr.status" />
@@ -62,7 +62,7 @@
             </authz:authorize>
 
             <!-- TIME (MS)OF SUBMISSION -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group" style="display: none">
                     <label class="control-label col-xs-3">
                         <spring:message code="addproblem.time" /> (MS)
@@ -78,7 +78,7 @@
             </authz:authorize>
 
             <!-- MEMORY OF SUBMISSION -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group" style="display: none">
                     <label class="control-label col-xs-3">
                         <spring:message code="addproblem.memory" /> (KB)
@@ -94,7 +94,7 @@
             </authz:authorize>
 
             <!-- LANGUAGUE OF SUBMISSION -->
-            <%--<authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">--%>
+            <%--<authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">--%>
                 <%--<div class="form-group" style="display: none">--%>
                     <%--<label class="control-label col-xs-3">--%>
                         <%--<spring:message code="judge.register.language" />--%>
@@ -110,7 +110,7 @@
             <%--</authz:authorize>--%>
 
             <%--<!-- LANGUAGUE OF SUBMISSION -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="judge.register.language" />
@@ -128,7 +128,7 @@
             </authz:authorize>--%>
 
             <!-- ENABLE OF SUBMISSION-->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.enabled" />
@@ -143,7 +143,7 @@
             </authz:authorize>
 
             <!-- SOURCE CODE OF SUBMISSION-->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group"  style="display: none">
                     <label class="control-label col-xs-3">
                         <spring:message code="fieldhdr.sourcecode" />

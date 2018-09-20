@@ -9,7 +9,7 @@
 <div class="postcontent">
     <table class="navigating" width="100%">
         <tr>
-            <authz:authorize ifNotGranted="ROLE_ANONYMOUS">
+            <authz:authorize access="!isAnonymous()">
                 <c:if test="${contest.running == true}">
                     <td width="10%"><a href="<c:url value="vsubmit.xhtml?pid=${problem.pid}"/>"><spring:message code="link.submit"/></a></td>
                 </c:if>

@@ -145,7 +145,7 @@
 					<span class="label label-danger"><form:errors path="key" /></span>
 				</div>
 			</div>
-			<authz:authorize ifAnyGranted="ROLE_ADMIN,ROLE_SUPER_PSETTER,ROLE_PSETTER">
+			<authz:authorize access="hasAnyRole('ROLE_ADMIN','ROLE_SUPER_PSETTER','ROLE_PSETTER')">
 				<div class="form-group col-xs-12">
 					<label class="control-label col-xs-3"><spring:message
 							code="fieldhdr.test" /></label>

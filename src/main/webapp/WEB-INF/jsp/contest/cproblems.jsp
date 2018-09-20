@@ -20,7 +20,7 @@
 					<table class="volume">
 						<thead>
 							<th class="headid"><spring:message code="tablehdr.id" /></th>
-							<authz:authorize ifNotGranted="ROLE_ANONYMOUS">
+							<authz:authorize access="!isAnonymous()">
 								<th class="headsolved"><spring:message
 										code="tablehdr.solved" /></th>
 							</authz:authorize>

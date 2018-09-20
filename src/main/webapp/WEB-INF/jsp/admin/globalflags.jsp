@@ -20,7 +20,7 @@
             </c:if> 
 
             <!-- EMAILS NOTIFICATIONS OF FLAGS -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-6">
                         <spring:message code="page.globalflags.disabledmailnotifications" />
@@ -35,7 +35,7 @@
             </authz:authorize>
 
             <!-- ABLE EMAIL OF FLAGS -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-6">
                         <spring:message code="page.globalflags.enabledinternalmail" />
@@ -50,7 +50,7 @@
             </authz:authorize>
 
             <!-- ABLE CODE OF FLAGS -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-6">
                         <spring:message code="page.globalflags.enabledsourcecodeview" />
@@ -65,7 +65,7 @@
             </authz:authorize>
 
             <!-- ABLE SEND OF FLAGS -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-6">
                         <spring:message code="page.globalflags.enabledsubmissionjudge" />
@@ -80,7 +80,7 @@
             </authz:authorize>
 
             <!-- MAINTENANCE OF FLAGS -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-6">
                         <spring:message code="tableval.maintenancemode" />

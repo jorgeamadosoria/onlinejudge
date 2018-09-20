@@ -8,7 +8,7 @@
 				<!-- block-content -->
 				<div>
 					<ul class="list-unstyled">
-						<authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+						<authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
 							<li><a href="<c:out value="/practice/createvc.xhtml"/>"><i
 									class="fa fa-plus-circle"></i>&nbsp;<spring:message
 										code="link.create" /></a></li>

@@ -13,7 +13,7 @@
             </legend>
 
             <!-- NAME OF COUNTRY -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-4">
                         <spring:message code="page.addcountry.name"/>
@@ -35,7 +35,7 @@
             </authz:authorize>
 
             <!-- ACRONYM OF COUNTRY -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-4">
                         <spring:message code="page.addcountry.zip"/>
@@ -58,7 +58,7 @@
 
 
             <!-- TWO LETTER OF COUNTRY -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-4">
                         <spring:message code="page.addcountry.twozip"/>
@@ -80,7 +80,7 @@
             </authz:authorize>
 
             <!-- WEB OF COUNTRY -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-4">
                         <spring:message code="page.addcountry.website"/>

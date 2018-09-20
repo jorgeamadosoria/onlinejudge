@@ -23,7 +23,7 @@
 								code="link.discussion" /></a>
 					</c:if>
 				</authz:authorize>
-				<authz:authorize ifNotGranted="ROLE_ANONYMOUS">
+				<authz:authorize access="!isAnonymous()">
 			&nbsp;<a href="submit.xhtml?pid=<c:url value="${problem.pid}"/>"><spring:message
 							code="link.submit" /></a>
 			&nbsp;<a
@@ -35,7 +35,7 @@
 						href="bestsolutions.xhtml?pid=<c:url value="${problem.pid}"/>"><spring:message
 							code="link.bestsolutions" /></a>
 					<!--
-			<authz:authorize ifAllGranted="ROLE_USER">
+			<authz:authorize access="hasRole('ROLE_USER')">
 				&nbsp;<a
 					href="<c:url value="/datagen/datasets.xhtml?problemId=${problem.pid}&mode=modelsol"/>"><spring:message
 							code="link.datagen" /></a>
@@ -137,7 +137,7 @@
                                                 </td>
 					</tr>
 					<c:if test="${view_pinfo}">
-						<authz:authorize ifAllGranted="ROLE_USER">
+						<authz:authorize access="hasRole('ROLE_USER')">
 
 							<tr>
 								<td><spring:message code="fieldhdr.classif" /></td>
@@ -276,10 +276,10 @@
 					<spring:message code="problemrec.recommend" />
 				</h4>
 				<div class="ex">
-					<authz:authorize ifAllGranted="ROLE_USER">
+					<authz:authorize access="hasRole('ROLE_USER')">
 						<spring:message code="problemrec.recommend.message" />
 					</authz:authorize>
-					<authz:authorize ifAllGranted="ROLE_ANONYMOUS">
+					<authz:authorize access="isAnonymous()">
 						<spring:message code="problemrec.recommend.message.notlogged" />
 					</authz:authorize>
 					<c:forEach items="${recommend}" var="recomm" varStatus="status">

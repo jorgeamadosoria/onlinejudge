@@ -34,7 +34,7 @@
 
     <br/>
 
-    <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+    <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
         <c:if test="${contest.running eq true}">
             <a
                     href="<c:url value="/contest/clarification.xhtml?cid=${contest.cid}"/>"><i
@@ -42,7 +42,7 @@
         </c:if>
     </authz:authorize>
     <authz:authorize
-            ifAnyGranted="ROLE_ADMIN,ROLE_SUPER_PSETTER,ROLE_PSETTER">
+            access="hasAnyRole('ROLE_ADMIN','ROLE_SUPER_PSETTER','ROLE_PSETTER')">
 
         <c:if test="${contest.running}">
             <a href="<c:url value="sendclarification.xhtml?cid=${contest.cid}"/>"><i
@@ -100,7 +100,7 @@
                             <td class="date">${clarification.date}</td>
 
                             <td><authz:authorize
-                                    ifAnyGranted="ROLE_ADMIN,ROLE_SUPER_PSETTER,ROLE_PSETTER">
+                                    access="hasAnyRole('ROLE_ADMIN','ROLE_SUPER_PSETTER','ROLE_PSETTER')">
                                 <c:if test="${isContestJudge and contest.running}">
                                     <a data-toggle="tooltip" title="<spring:message code="titval.sendclarification" />"
                                        href="<c:url value="sendclarification.xhtml?cid=${contest.cid}&ccid=${clarification.id}&uid=${clarification.username}&pid=${clarification.pid}"/>">

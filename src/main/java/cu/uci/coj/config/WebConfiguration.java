@@ -18,6 +18,7 @@ import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 import org.springframework.web.servlet.i18n.SessionLocaleResolver;
@@ -39,7 +40,17 @@ public class WebConfiguration implements WebMvcConfigurer {
 
 	@Resource
 	HandlerInterceptorImpl handlerInterceptor;
+	
+	
+	
+	
     @Override
+	public void configureViewResolvers(ViewResolverRegistry registry) {
+    	registry.tiles();
+    	registry.jsp("/WEB-INF/jsp/", ".jsp");
+		WebMvcConfigurer.super.configureViewResolvers(registry);
+	}
+	@Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(handlerInterceptor);
         LocaleChangeInterceptor bean = new LocaleChangeInterceptor();
@@ -51,18 +62,18 @@ public class WebConfiguration implements WebMvcConfigurer {
         
         return new MarshallingHttpMessageConverter();
     }
-    @Bean
-    public InternalResourceViewResolver viewResolver() {
-        InternalResourceViewResolver bean = new InternalResourceViewResolver();
-        bean.setPrefix("/WEB-INF/jsp/");
-        bean.setSuffix(".jsp");
-        return bean;
-    }
-
-    @Bean
-    public TilesViewResolver tilesViewResolver() {
-        return new TilesViewResolver();
-    }
+//    @Bean
+//    public InternalResourceViewResolver viewResolver() {
+//        InternalResourceViewResolver bean = new InternalResourceViewResolver();
+//        bean.setPrefix("/WEB-INF/jsp/");
+//        bean.setSuffix(".jsp");
+//        return bean;
+//    }
+//
+//    @Bean
+//    public TilesViewResolver tilesViewResolver() {
+//        return new TilesViewResolver();
+//    }
 
     @Bean
     public TilesConfigurer tilesConfigurer() {

@@ -45,7 +45,7 @@
 	<display:column titleKey="tablehdr.duration" property="duration" />
 	<display:column titleKey="tablehdr.users">
             ${contest.total_users}
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
 			<c:if test="${contest.is_public == true || isadmin == true}">
 				<c:choose>
 					<c:when

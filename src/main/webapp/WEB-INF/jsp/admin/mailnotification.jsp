@@ -12,7 +12,7 @@
                    commandName="notification" cssClass="form-horizontal">
 
             <!-- SUBJECT OF MAIL -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="mail.subject"/>
@@ -34,7 +34,7 @@
             </authz:authorize>
 
             <!-- BODY OF MAIL -->
-            <authz:authorize ifAnyGranted="ROLE_USER,ROLE_TEAM">
+            <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">
                 <div class="form-group">
                     <label class="control-label col-xs-3">
                         <spring:message code="mail.body"/>
