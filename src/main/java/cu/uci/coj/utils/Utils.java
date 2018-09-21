@@ -31,7 +31,7 @@ import org.springframework.amqp.core.MessagePostProcessor;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.scheduling.annotation.Async;
-import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.util.CollectionUtils;
 
@@ -125,16 +125,12 @@ public class Utils {
         "#00FFAA", "#00FFFF", "#0080FF", "#0000FF", "#8000FF", "#FF00FF",
         "#FF0080", "#FF0000"};
     private static HashMap<String, LinkedList<String>> charge;
-    private String registerMSG = "Dear <user> ";
     public static HashMap<String, Float> statistics;
     public static HashMap<String, Float> cstatistics;
     public static HashMap<String, String> ip_url;
     public static HashMap<String, String> onlineusers;
     public static HashMap<String, String> sessionIdUsers;
     public static LinkedList<SubmissionJudge> submissions = new LinkedList<SubmissionJudge>();
-    private static Semaphore sem = new Semaphore(1);
-    public static Semaphore semJudge = new Semaphore(1);
-    public static Semaphore semPool = new Semaphore(1);
     public static boolean is_judge_running = false;
     private static COJEvalImpl cojEvalImpl = new COJEvalImpl();
 
@@ -148,10 +144,6 @@ public class Utils {
         return "C";
     }
 
-    public void setCOJEvalImpl(COJEvalImpl cojEvalImpl) {
-        this.cojEvalImpl = cojEvalImpl;
-    }
-
     public static String generateRandomPassword(int length) {
         String password = "";
         for (int i = 0; i < length; i++) {
@@ -163,7 +155,7 @@ public class Utils {
     }
     
     public static String encodePassword(String password) {
-    	MessageDigestPasswordEncoder encoder = new MessageDigestPasswordEncoder("MD5");
+    	BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 		return encoder.encode(password);
     }
 

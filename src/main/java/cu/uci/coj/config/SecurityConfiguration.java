@@ -26,7 +26,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
-import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.DefaultSecurityFilterChain;
 import org.springframework.security.web.FilterChainProxy;
 import org.springframework.security.web.SecurityFilterChain;
@@ -169,7 +169,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	private DaoAuthenticationProvider daoAuthenticationProvider() {
 		DaoAuthenticationProvider bean = new DaoAuthenticationProvider();
 		bean.setUserDetailsService(jdbcDaoImpl());
-		bean.setPasswordEncoder(new MessageDigestPasswordEncoder("MD5"));
+		bean.setPasswordEncoder(new BCryptPasswordEncoder());
 		return bean;
 	}
 
@@ -184,7 +184,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 	public COJAuthenticationProcessingFilter cojAuthenticationProcessingFilter() {
 		COJAuthenticationProcessingFilter bean = new COJAuthenticationProcessingFilter();
 		bean.setAuthenticationManager(authenticationManager());
+		bean.setPostOnly(true);
 		bean.setFilterProcessesUrl("/j_spring_security_check");
+		bean.setUsernameParameter("j_username");
+		bean.setPasswordParameter("j_password");
 		bean.setAuthenticationSuccessHandler(cojAuthenticationSuccessHandler);
 		bean.setAuthenticationFailureHandler(cojAuthenticationFailureHandler);
 		bean.setRememberMeServices(rememberMeServices());

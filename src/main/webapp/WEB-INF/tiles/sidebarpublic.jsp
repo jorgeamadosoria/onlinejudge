@@ -15,7 +15,7 @@
 
                     -->
                 </c:if>
-                <form action="<c:url value="/j_spring_security_check"/>"
+                <form action="/j_spring_security_check"
                       method="post">
                     <div class="margin-top-05 form-group">
                         <div class="input-group">

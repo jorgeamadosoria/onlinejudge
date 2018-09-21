@@ -62,18 +62,6 @@ public class WebConfiguration implements WebMvcConfigurer {
         
         return new MarshallingHttpMessageConverter();
     }
-//    @Bean
-//    public InternalResourceViewResolver viewResolver() {
-//        InternalResourceViewResolver bean = new InternalResourceViewResolver();
-//        bean.setPrefix("/WEB-INF/jsp/");
-//        bean.setSuffix(".jsp");
-//        return bean;
-//    }
-//
-//    @Bean
-//    public TilesViewResolver tilesViewResolver() {
-//        return new TilesViewResolver();
-//    }
 
     @Bean
     public TilesConfigurer tilesConfigurer() {
