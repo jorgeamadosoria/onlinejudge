@@ -12,7 +12,7 @@
     <div class="col-xs-10">
 
         <form:form method="post"
-                   commandName="wbContest" cssClass="form-horizontal">
+                   modelAttribute="wbContest" cssClass="form-horizontal">
 
             <tiles:insertAttribute name="form"/>
 

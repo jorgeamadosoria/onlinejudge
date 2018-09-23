@@ -10,7 +10,7 @@
 </h2>
 
 <div class="postcontent">
-    <form:form action="clarification.xhtml?cid=${contest.cid}" method="post" commandName="clarification">
+    <form:form action="clarification.xhtml?cid=${contest.cid}" method="post" modelAttribute="clarification">
         <c:choose>
             <c:when test="${contest.running eq true}">
                 <table class="userinfo" style="width: 100%;">

@@ -1,6 +1,7 @@
 package cu.uci.coj.config;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -29,7 +30,6 @@ import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.DefaultSecurityFilterChain;
 import org.springframework.security.web.FilterChainProxy;
-import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandlerImpl;
 import org.springframework.security.web.access.ExceptionTranslationFilter;
 import org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler;
@@ -47,6 +47,7 @@ import org.springframework.security.web.authentication.session.ConcurrentSession
 import org.springframework.security.web.context.SecurityContextPersistenceFilter;
 import org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.AnyRequestMatcher;
 import org.springframework.security.web.util.matcher.RequestMatcher;
 
 import com.google.common.collect.Lists;
@@ -185,7 +186,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 		COJAuthenticationProcessingFilter bean = new COJAuthenticationProcessingFilter();
 		bean.setAuthenticationManager(authenticationManager());
 		bean.setPostOnly(true);
-		bean.setFilterProcessesUrl("/j_spring_security_check");
 		bean.setUsernameParameter("j_username");
 		bean.setPasswordParameter("j_password");
 		bean.setAuthenticationSuccessHandler(cojAuthenticationSuccessHandler);
@@ -250,13 +250,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
 	@Bean
 	public FilterChainProxy springSecurityFilterChain() {
-		List<SecurityFilterChain> filters = new ArrayList<SecurityFilterChain>(12);
-		RequestMatcher req = new AntPathRequestMatcher("/**");
-
-		filters.add(new DefaultSecurityFilterChain(req, new SecurityContextPersistenceFilter(), logoutFilter(), cojAuthenticationProcessingFilter(), securityContextHolderAwareRequestFilter(), rememberMeAuthenticationFilter(), anonymousAuthenticationFilter(), exceptionTranslationFilter(), filterInvocationInterceptor()));
-		
-		FilterChainProxy bean = new FilterChainProxy(filters);
-		return bean;
+		return new FilterChainProxy(Arrays.asList(new DefaultSecurityFilterChain(AnyRequestMatcher.INSTANCE, new SecurityContextPersistenceFilter(), logoutFilter(), cojAuthenticationProcessingFilter(), securityContextHolderAwareRequestFilter(), rememberMeAuthenticationFilter(), anonymousAuthenticationFilter(), exceptionTranslationFilter(), filterInvocationInterceptor())));
 	}
 
 }

@@ -8,7 +8,7 @@
 <div class="row">
     <div class="col-xs-10">
         <form:form method="post" enctype="multipart/form-data"
-                   commandName="faq" cssClass="form-horizontal">
+                   modelAttribute="faq" cssClass="form-horizontal">
 
             <!-- NAME OF VIEW -->
             <legend>

@@ -38,7 +38,8 @@ public class WebInit extends AbstractAnnotationConfigDispatcherServletInitialize
 	
 	@Override
 	protected String[] getServletMappings() {
-		return new String[] {"*.xhtml","*.json","*.xml"};
+		return new String[] {"/login","*.xhtml","*.json","*.xml"};
 	}
+	
 	
 }

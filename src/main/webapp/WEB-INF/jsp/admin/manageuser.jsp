@@ -11,7 +11,7 @@
 <div class="row">
     <div class="col-xs-10">
         <form:form method="post" enctype="multipart/form-data"
-                   commandName="user" cssClass="form-horizontal">
+                   modelAttribute="user" cssClass="form-horizontal">
 
             <!-- NAME OF VIEW -->
             <c:if test="${user.team == true}">

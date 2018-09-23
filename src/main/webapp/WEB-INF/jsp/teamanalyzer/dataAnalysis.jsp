@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-xs-12">
             <form:form method="post" onsubmit="return SeleccionarRangosTeamAnalyzer();"
-                       commandName="analysis" cssClass="form-horizontal">
+                       modelAttribute="analysis" cssClass="form-horizontal">
                 <div class="form-group">
                     <form:hidden path="id"/>
                     <form:hidden path="coach"/>

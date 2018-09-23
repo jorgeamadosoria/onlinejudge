@@ -6,7 +6,7 @@ public class PasswordGen {
 
 	public static void main(String[] args) {
 		BCryptPasswordEncoder md5 = new BCryptPasswordEncoder();
-		System.out.println(md5.encode("password"));
+		System.out.println(md5.encode("admin"));
 
 	}
 

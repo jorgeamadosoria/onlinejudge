@@ -14,7 +14,7 @@ src="<c:url value="/js/jquery.js"/>"></script>-->
 
 <div class="row">
     <div class="col-xs-10">
-        <form:form method="post" commandName="user" cssClass="form-horizontal">
+        <form:form method="post" modelAttribute="user" cssClass="form-horizontal">
             <div class="form-group">
                 <label class="control-label col-xs-3"><spring:message
                         code="fieldhdr.username"/></label>

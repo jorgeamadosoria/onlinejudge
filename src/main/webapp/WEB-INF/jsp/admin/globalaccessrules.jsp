@@ -13,7 +13,7 @@
         </div>
     </c:if>
     <form:form method="post" cssClass="form-inline" action="globalaccessrules.xhtml"
-               commandName="rule">
+               modelAttribute="rule">
         <div class="form-group coj_float_rigth">
             <span class="label label-danger"><form:errors path="rule" cssClass="error"/></span>
             <form:input cssClass="form-control" id="myrule" path="rule"/>

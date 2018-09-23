@@ -6,7 +6,7 @@
     <fmt:message key="addproblem.title" />	
 </h2>
 <div class="postcontent">
-	<form:form method="post" enctype="multipart/form-data" commandName="problem">
+	<form:form method="post" enctype="multipart/form-data" modelAttribute="problem">
 
 		<div id="myTabs">
 			<div id="english">

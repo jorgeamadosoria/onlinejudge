@@ -11,7 +11,7 @@
     <div class="col-xs-10">
 
         <form:form method="post"
-                   commandName="problemSource" cssClass="form-horizontal">
+                   modelAttribute="problemSource" cssClass="form-horizontal">
 
             <legend>
                 <h2><spring:message code="page.general.admin.header"/>: <spring:message

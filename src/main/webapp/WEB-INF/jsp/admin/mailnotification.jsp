@@ -9,7 +9,7 @@
 <div class="row">
     <div class="col-xs-10">
         <form:form method="post" enctype="multipart/form-data"
-                   commandName="notification" cssClass="form-horizontal">
+                   modelAttribute="notification" cssClass="form-horizontal">
 
             <!-- SUBJECT OF MAIL -->
             <authz:authorize access="hasAnyRole('ROLE_USER','ROLE_TEAM')">

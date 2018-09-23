@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-xs-10">
-        <form:form method="post" commandName="poll" cssClass="form-horizontal">
+        <form:form method="post" modelAttribute="poll" cssClass="form-horizontal">
             <legend>
                 <spring:message code="page.general.admin.header" />: <spring:message code="pagetit.manage.poll" />
             </legend>

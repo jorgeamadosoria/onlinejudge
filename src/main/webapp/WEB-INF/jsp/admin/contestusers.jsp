@@ -57,7 +57,7 @@
         </div>
     </c:if>
     <form:form method="post" onsubmit="return SeleccionarRangosContest();"
-               commandName="contest">
+               modelAttribute="contest">
         <c:if test="${contest.grouped eq true}">
             <div class="row">
                 <div class="form-group">

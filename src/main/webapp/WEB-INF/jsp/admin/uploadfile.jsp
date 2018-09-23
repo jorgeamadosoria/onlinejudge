@@ -7,7 +7,7 @@
     <fmt:message key="page.general.admin.header"/>: <fmt:message key="page.menu.admin.upload" />
 </h2>
 <div class="postcontent">
-    <form:form method="post" enctype="multipart/form-data" commandName="uploadFile">
+    <form:form method="post" enctype="multipart/form-data" modelAttribute="uploadFile">
         <div id="inputfiles">
 
             <table>

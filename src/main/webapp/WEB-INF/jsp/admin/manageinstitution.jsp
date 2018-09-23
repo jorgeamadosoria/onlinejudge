@@ -12,7 +12,7 @@
     <div class="col-xs-10">
         <!-- enctype="multipart/form-data" -->
         <form:form method="post"
-                   commandName="institution" cssClass="form-horizontal">
+                   modelAttribute="institution" cssClass="form-horizontal">
             <!-- ID OF INTITUTION -->
 
             <div class="form-group">

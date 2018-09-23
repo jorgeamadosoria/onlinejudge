@@ -56,7 +56,7 @@
             <i class="fa fa-check"></i><spring:message code="${message}" />
         </div>                 
     </c:if> 
-    <form:form method="post" commandName="contest">
+    <form:form method="post" modelAttribute="contest">
         <fieldset style="width: 400px;">
             <legend>
                 <fmt:message key="page.advancedcfg.languages" />

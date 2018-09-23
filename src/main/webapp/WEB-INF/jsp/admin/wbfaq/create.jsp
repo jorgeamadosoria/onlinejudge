@@ -13,7 +13,7 @@
     <div class="col-xs-10">
 
         <form:form method="post"
-                   commandName="faq" cssClass="form-horizontal">
+                   modelAttribute="faq" cssClass="form-horizontal">
 
             <legend>
                 <spring:message code="page.general.admin.header" />: <spring:message code="pagehdr.addfaq" />

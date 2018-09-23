@@ -58,7 +58,7 @@
         </div>
     </c:if>
     <form:form method="post" onsubmit="return SeleccionaRangos('problem');"
-               commandName="contest">
+               modelAttribute="contest">
         <fieldset style="border: none;">
             <table class="login">
                 <tr>

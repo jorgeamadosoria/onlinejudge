@@ -6,7 +6,7 @@
     <div class="col-xs-10">
         <!-- enctype="multipart/form-data" -->
         <form:form method="post"
-                   commandName="language" cssClass="form-horizontal">
+                   modelAttribute="language" cssClass="form-horizontal">
             <!-- NAME OF VIEW -->
             <legend>
                 <spring:message code="page.general.admin.header"/>: <spring:message

@@ -6,7 +6,7 @@
 <div class="row">
     <div class="col-xs-10">
         <form:form method="post" enctype="multipart/form-data"
-                   commandName="submission" cssClass="form-horizontal">
+                   modelAttribute="submission" cssClass="form-horizontal">
 
             <!-- NAME OF VIEW -->
             <legend>

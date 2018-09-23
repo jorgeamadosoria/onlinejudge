@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col-xs-10">
         <form:form method="post" enctype="multipart/form-data"
-                   commandName="contest" cssClass="form-horizontal">
+                   modelAttribute="contest" cssClass="form-horizontal">
 
 
             <!-- ID OF CONTEST -->

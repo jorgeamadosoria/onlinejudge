@@ -22,7 +22,7 @@
 </c:if>
 <div class=" row postcontent">
     <div class="col-xs-12">
-        <form:form id="filter-form" name="filter-form" commandName="filter" action="/admin/rejudgesubmissions.xhtml"
+        <form:form id="filter-form" name="filter-form" modelAttribute="filter" action="/admin/rejudgesubmissions.xhtml"
                    method="post">
             <div class="row form-group">
                 <div class="col-xs-4">

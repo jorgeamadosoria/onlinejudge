@@ -60,7 +60,7 @@
         </div>
     </c:if>
     <form:form method="post" enctype="multipart/form-data" cssClass="form-horizontal"
-               commandName="contest">
+               modelAttribute="contest">
 
         <input type='hidden' name='cid' value="${cid}"/>
 

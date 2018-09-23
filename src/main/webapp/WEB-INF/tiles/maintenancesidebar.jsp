@@ -13,7 +13,7 @@
 				<div class="panel-body blockcontent-body">
 					<!-- block-content -->
 					<div>
-						<form action="<c:url value="/j_spring_security_check"/>"
+						<form action="/login"
 							method="post">
 
 							<table width=50% border=0 class="login">

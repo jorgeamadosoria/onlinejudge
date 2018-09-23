@@ -28,7 +28,7 @@
                     </c:otherwise>
                 </c:choose>
             </c:if>
-            <form:form method="post" commandName="user"
+            <form:form method="post" modelAttribute="user"
                        cssClass="form-horizontal">
 
                 <c:if test="${showpassword != true}">

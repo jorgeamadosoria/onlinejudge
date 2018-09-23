@@ -7,7 +7,7 @@
     <fmt:message key="page.general.admin.header"/>: Submission
 </h2>
 <div class="postcontent">
-    <form:form method="post" commandName="submission">
+    <form:form method="post" modelAttribute="submission">
         <table class="createnewuser">
             <tbody>
                 <tr>

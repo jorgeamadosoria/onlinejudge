@@ -13,7 +13,7 @@
 <div class="row">
 	<div class="col-xs-10">
 		<form:form method="post" enctype="multipart/form-data"
-			commandName="user" cssClass="form-horizontal">
+			modelAttribute="user" cssClass="form-horizontal">
 			<authz:authorize access="hasRole('ROLE_USER')">
 				<div class="form-group">
 					<label class="control-label col-xs-3" for="imagefile">Avatar

@@ -9,7 +9,7 @@
 <div class="row">
     <div class="col-xs-10">
         <form:form method="post" enctype="multipart/form-data"
-                   commandName="globalFlags" cssClass="form-horizontal">
+                   modelAttribute="globalFlags" cssClass="form-horizontal">
 
 
             <c:if test="${message != null}">

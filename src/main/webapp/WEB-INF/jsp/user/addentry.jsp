@@ -7,7 +7,7 @@
 	: Add Entry
 </h2>
 <div class="postcontent">
-	<form:form method="post" commandName="entry">
+	<form:form method="post" modelAttribute="entry">
 		<table class="createnewentry">
 			<tbody>
 				<tr>

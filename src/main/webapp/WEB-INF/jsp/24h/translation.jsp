@@ -34,7 +34,7 @@
 
         <div id="tabs" class="tab-content margin-top-05">
             <div role="tabpanel" class="tab-pane fade in active" id="en">
-                <form:form method="post" commandName="translation" cssClass="translation">
+                <form:form method="post" modelAttribute="translation" cssClass="translation">
                     <form:input path="pid" type="hidden"></form:input>
                     <form:input path="locale" type="hidden" value="en" />
 
@@ -84,7 +84,7 @@
                 </form:form>
             </div>
             <div role="tabpanel" class="tab-pane fade in active" style="position:fixed;left:10000px;" id="es">
-                <form:form method="post" commandName="translation" cssClass="translation">
+                <form:form method="post" modelAttribute="translation" cssClass="translation">
                     <form:input path="pid" type="hidden"></form:input>
                     <form:input path="locale" type="hidden" value="es" />
 
@@ -134,7 +134,7 @@
                 </form:form>
             </div>
             <div role="tabpanel" class="tab-pane fade in active" style="position:fixed;left:10000px;" id="pt">
-                <form:form method="post" commandName="translation" cssClass="translation">
+                <form:form method="post" modelAttribute="translation" cssClass="translation">
                     <form:input path="pid" type="hidden"></form:input>
                     <form:input path="locale" type="hidden" value="pt" />
 
